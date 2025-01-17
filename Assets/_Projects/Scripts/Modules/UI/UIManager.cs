@@ -16,8 +16,8 @@ public class UIManager : Singleton<UIManager>
     //when the GameManager.OnSceneLoad triggerd turn on UIHUD
     private void OnEnable()
     {
-        
         SceneManager.sceneLoaded += OnSceneLoaded;
+        UIScreenTitle.Show();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
