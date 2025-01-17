@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIScreenHUD : UIScreenBase
@@ -13,7 +14,7 @@ public class UIScreenHUD : UIScreenBase
     
     [Header("TowerShop")]
     [SerializeField] private TowerDatas _towerDatas;
-    [SerializeField] private GameObject _towerElemtent;
+    [SerializeField] private TowerShopScrollView _towerShopScrollView;
 
     private void Start()
     {
@@ -38,12 +39,10 @@ public class UIScreenHUD : UIScreenBase
     
     private void OnTowerShopClick()
     {
-        ShowTowerShop();
-    }
-
-    private void ShowTowerShop()
-    {
-        throw new NotImplementedException();
+        if (_towerShopScrollView.gameObject.activeSelf)
+            _towerShopScrollView.Hide();
+        else
+            _towerShopScrollView.Show();
     }
 
     #endregion

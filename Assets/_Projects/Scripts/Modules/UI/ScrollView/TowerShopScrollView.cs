@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class ScrollViewHelper : MonoBehaviour
+public class TowerShopScrollView : MonoBehaviour
 {
     [Header("Data")] 
     [SerializeField] private TowerDatas _towerDatas;
@@ -18,19 +18,31 @@ public class ScrollViewHelper : MonoBehaviour
 
     private Vector2 _elementSpacing;
     private Vector2 _elementSize;
-    private Vector2 _contentBuffer = new Vector2(0f, 30f); 
+    private Vector2 _contentBuffer = new Vector2(0f, 30f);
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+    
     
     void Start()
     {
         Setup();
-        
-        
+        //Update content in scroll view
+        UpdateScrollViewContent();
     }
 
     private void OnEnable()
     {
-        //Update content in scroll view
-        UpdateScrollViewContent();
+        
+        
+        
     }
 
     private void Setup()

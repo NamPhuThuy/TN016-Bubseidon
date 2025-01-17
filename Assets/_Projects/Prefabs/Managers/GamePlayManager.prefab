@@ -77,7 +77,7 @@ Transform:
   m_GameObject: {fileID: 1399620094867127916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.76, y: -4.53, z: 0}
+  m_LocalPosition: {x: 6.57, y: -4.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 2914466234496251804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.23, y: 5, z: 0.01676464}
+  m_LocalPosition: {x: 1.48, y: 4.74, z: 0.01676464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5770403122493731702
 Transform:
   m_ObjectHideFlags: 0
@@ -139,8 +139,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3370801356130168544}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5858755, y: -0.34071922, z: -2.0392294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -209,13 +209,14 @@ GameObject:
   - component: {fileID: 7106430784430954537}
   - component: {fileID: 7578732085132315575}
   - component: {fileID: 7802071162895446739}
+  - component: {fileID: 3991805689111643943}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &936583455459464801
 Transform:
   m_ObjectHideFlags: 0
@@ -226,8 +227,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.8614, y: -3.1748, z: 0}
-  m_LocalScale: {x: 0.5572, y: 0.5452, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5323420967889310191}
   m_Father: {fileID: 6186190182851472653}
@@ -270,10 +271,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1479961129
-  m_SortingLayer: 0
+  m_SortingLayerID: -778059839
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 4089633340338446471, guid: 859573552788b144cb4ea84c9033afcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}
   _moveSpeed: 5
-  _animator: {fileID: 0}
+  _animator: {fileID: 3991805689111643943}
   _direction: {x: 0, y: 0}
 --- !u!114 &7802071162895446739
 MonoBehaviour:
@@ -319,6 +320,27 @@ MonoBehaviour:
   positionInt: {x: 0, y: 0, z: 0}
   _currentPickupObject: {fileID: 0}
   _hand: {fileID: 5323420967889310191}
+--- !u!95 &3991805689111643943
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590151899809790477}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -2729085315715707348, guid: 859573552788b144cb4ea84c9033afcf, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4357386267914832269
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +366,7 @@ Transform:
   m_GameObject: {fileID: 4357386267914832269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.39, y: -4.43, z: 0}
+  m_LocalPosition: {x: -3.55, y: -4.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
