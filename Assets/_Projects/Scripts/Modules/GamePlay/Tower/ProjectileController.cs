@@ -6,7 +6,8 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     [SerializeField] private EnemyController _target;
-
+    [SerializeField] private float _speed;
+    public float damage;
     public EnemyController Target
     {
         get => _target;
@@ -24,11 +25,11 @@ public class ProjectileController : MonoBehaviour
             if (direction.magnitude <= distanceThisFrame)
             {
                 // HitTarget();
+                _target.TakeDamage(damage);
                 Destroy(gameObject);
                 return;
             }
-
-            transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+            transform.Translate(direction.normalized * distanceThisFrame*_speed, Space.World);
         }
         else
         {

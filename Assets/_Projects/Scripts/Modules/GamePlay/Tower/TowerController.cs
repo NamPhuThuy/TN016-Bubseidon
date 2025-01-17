@@ -82,6 +82,7 @@ public class TowerController : MonoBehaviour, IPickupable
         while (currentTarget != null)
         {
             var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+            projectile.damage = _damage;
             projectile.Target = currentTarget;
             yield return new WaitForSeconds(_attackInterval);
         }
