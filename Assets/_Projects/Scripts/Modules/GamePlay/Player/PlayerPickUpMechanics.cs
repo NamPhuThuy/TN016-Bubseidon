@@ -29,11 +29,11 @@ public class PlayerPickUpMechanics : MonoBehaviour
         mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         positionInt = GamePlayManager.Instance._map.WorldToCell(mousePos);
 
-        if (Input.GetMouseButtonDown(0) && !_soapDisplay._alert)
+        if (Input.GetMouseButtonDown(0) && !_soapDisplay.Alert && _currentPickupObject == null)
         {
             
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-            Debug.LogError($"TNam - hit {hit.collider.gameObject.name}");
+            /*Debug.LogError($"TNam - hit {hit.collider.gameObject.name}");*/
             if (hit)
             {
                 if(Vector2.SqrMagnitude(hit.transform.position - gameObject.transform.position) < sqrRadiusToPick)
