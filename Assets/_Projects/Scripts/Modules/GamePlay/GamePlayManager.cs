@@ -8,6 +8,13 @@ using UnityEngine.Tilemaps;
 public class GamePlayManager : Singleton<GamePlayManager>, IMessageHandle
 {
     [SerializeField] private PlayerController _player;
+
+    public PlayerController Player
+    {
+        get => _player;
+        set => _player = value;
+    }
+
     [SerializeField] private List<TowerController> _towerList;
     [SerializeField] private List<EnemyController> _enemyList;
     [SerializeField] private EnemySpawner _enemySpawner;
