@@ -7,8 +7,9 @@ using UnityEngine.Tilemaps;
 public class EnemyController : MonoBehaviour, IPickupable
 {
     [Header("Stats")]
-    [SerializeField] private float _moveSpeed = 1f;
-
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _health;
+    [SerializeField] private int _damage;
     [SerializeField] private Transform _transform;
 
     public Vector3Int _startPos;
@@ -120,7 +121,15 @@ public class EnemyController : MonoBehaviour, IPickupable
 
         Debug.Log("Ve dich");
     }
-    
+    //Receving damage
+    public void TakeDamage(float damage)
+    {
+        _health -= damage;
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     public void BackToPath(Vector3Int playerPosition)
     {
         _transform.position = _tilemap.GetCellCenterWorld(playerPosition);

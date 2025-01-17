@@ -7,9 +7,20 @@ public class DataManager : MonoBehaviour
     public PlayerData PlayerData;
     public LevelDesignData LevelDesignData;
     public TowerData TowerData;
+    public static DataManager Instance;
     void Start()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            PlayerData = new PlayerData();
+            LoadData();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +40,7 @@ public class DataManager : MonoBehaviour
     public void LoadData()
     {
         PlayerData.score = PlayerPrefs.GetInt("Score", 0);
-        PlayerData.wave = PlayerPrefs.GetInt("Wave", 0);
+        PlayerData.currentWave = PlayerPrefs.GetInt("Wave", 0);
         PlayerData.coin = PlayerPrefs.GetInt("Coin", 0);
         PlayerData.baseHP = PlayerPrefs.GetInt("BaseHP", 0);
     }
@@ -37,7 +48,7 @@ public class DataManager : MonoBehaviour
     public void SaveData()
     {
         PlayerPrefs.SetInt("Score", PlayerData.score);
-        PlayerPrefs.SetInt("Wave", PlayerData.wave);
+        PlayerPrefs.SetInt("Wave", PlayerData.currentWave);
         PlayerPrefs.SetInt("Coin", PlayerData.coin);
         PlayerPrefs.SetInt("BaseHP", PlayerData.baseHP);
         PlayerPrefs.Save();

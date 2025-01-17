@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3285927943294435540}
   - component: {fileID: 552118535016811949}
-  - component: {fileID: 278587759177289816}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: AreaCicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,18 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &278587759177289816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7668674125926893689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d9650dd982710468d66b955cf1ca9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _speed: 1
-  damage: 0
