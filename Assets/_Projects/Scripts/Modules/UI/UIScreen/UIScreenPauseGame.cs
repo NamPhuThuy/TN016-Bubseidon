@@ -8,15 +8,15 @@ using UnityEngine.UI;
 public class UIScreenPauseGame : UIScreenBase
 {
     [Header("Buttons")]
-    [SerializeField] private Button _restartButton;
     [SerializeField] private Button _resumeButton;
+    [SerializeField] private Button _restartButton;
     [SerializeField] private Button _settingsButton;
 
     private void Start()
     {
         _resumeButton.onClick.AddListener(OnClickResume);
         _restartButton.onClick.AddListener(OnClickRestart);
-        // _settingsButton.onClick.AddListener(OnClickSettings);
+        _settingsButton.onClick.AddListener(OnClickSettings);
     }
 
     #region Button events
@@ -40,12 +40,12 @@ public class UIScreenPauseGame : UIScreenBase
     
     public override void Show()
     {
-        
+        gameObject.SetActive(true);
     }
 
     public override void Hide()
     {
-        
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()
