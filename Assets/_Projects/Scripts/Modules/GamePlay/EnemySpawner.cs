@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NamPhuThuy;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -13,11 +14,17 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyController _enemyPrefab;
     [SerializeField] private float _spawnInterval = 2f;
 
-    
-    
     private void Start()
     {
         StartCoroutine(SpawnEnemy());
+    }
+
+    private void OnEnable()
+    {
+    }
+    
+    private void OnDisable()
+    {
     }
 
     private IEnumerator SpawnEnemy()
@@ -40,4 +47,5 @@ public class EnemySpawner : MonoBehaviour
         newEnemy._endPos = GamePlayManager.Instance._map.WorldToCell(_endP1.position);
         yield return new WaitForSeconds(_spawnInterval);
     }
+    
 }

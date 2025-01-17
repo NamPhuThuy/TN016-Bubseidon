@@ -5,7 +5,7 @@ using NamPhuThuy;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class GamePlayManager : Singleton<GamePlayManager>
+public class GamePlayManager : Singleton<GamePlayManager>, IMessageHandle
 {
     [SerializeField] private PlayerController _player;
     [SerializeField] private List<TowerController> _towerList;
@@ -19,14 +19,20 @@ public class GamePlayManager : Singleton<GamePlayManager>
     {
         get => _enemyList;
     }
-    
-    public event Action OnEnemyDied;
-    public event Action OnEnemySpawned;
 
 
     private void OnEnable()
     {
         // _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        _player.gameObject.SetActive(false);
+        _enemySpawner.gameObject.SetActive(false);
+        
+        MessageManager.Instance.AddSubcriber(NamMessageType.OnGameStart, this);
+    }
+
+    private void OnDisable()
+    {
+        MessageManager.Instance.RemoveSubcriber(NamMessageType.OnGameStart, this);
     }
 
     public void AddTower(TowerController towerController)
@@ -51,5 +57,21 @@ public class GamePlayManager : Singleton<GamePlayManager>
     {
         if (_enemyList.Contains(enemyController))
             _enemyList.Remove(enemyController);
+    }
+
+    public void Handle(Message message)
+    {
+        switch (message.type)
+        {
+            case NamMessageType.OnGameStart:
+                StartTheGame();
+                break;
+        }
+    }
+
+    private void StartTheGame()
+    {
+        _player.gameObject.SetActive(true);
+        _enemySpawner.gameObject.SetActive(true);
     }
 }

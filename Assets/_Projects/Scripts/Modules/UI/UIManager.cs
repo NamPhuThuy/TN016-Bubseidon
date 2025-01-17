@@ -10,6 +10,7 @@ public class UIManager : Singleton<UIManager>
     public UIScreenHUD UIScreenHUD;
     public UIScreenPauseGame UIScreenPauseGame;
     public UIScreenSettings UIScreenSettings;
+    public UIScreenTitle UIScreenTitle;
     //game pauseScreen, 
     
     //when the GameManager.OnSceneLoad triggerd turn on UIHUD
@@ -30,7 +31,6 @@ public class UIManager : Singleton<UIManager>
                
                 break;
             case "GamePlay":
-                UIScreenHUD.Show();
                 break;
         }
     }
