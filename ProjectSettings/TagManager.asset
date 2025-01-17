@@ -57,6 +57,9 @@ TagManager:
   - name: Characters
     uniqueID: 3516907457
     locked: 0
+  - name: Bubbles
+    uniqueID: 1362298057
+    locked: 0
   - name: UI
     uniqueID: 1122252783
     locked: 0

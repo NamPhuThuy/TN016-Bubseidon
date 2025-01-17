@@ -5,6 +5,8 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public PlayerData PlayerData;
+    public LevelDesignData LevelDesignData;
+    public TowerData TowerData;
     public static DataManager Instance;
     void Start()
     {

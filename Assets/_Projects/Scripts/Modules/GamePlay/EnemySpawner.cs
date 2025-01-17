@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NamPhuThuy;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -26,6 +27,14 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(NextWave());
+    }
+
+    private void OnEnable()
+    {
+    }
+    
+    private void OnDisable()
+    {
     }
 
     private IEnumerator SpawnEnemy()

@@ -18,6 +18,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
 
     [SerializeField] private GameObject _currentPickupObject;
     [SerializeField] private Transform _hand;
+    [SerializeField] private SoapController _soapDisplay;
     void Start()
     {
         _mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -26,9 +27,9 @@ public class PlayerPickUpMechanics : MonoBehaviour
     private void Update()
     {
         mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        positionInt = new Vector3Int(Mathf.FloorToInt(mousePos.x + 0.5f), Mathf.FloorToInt(mousePos.y + 0.5f), 0);
+        positionInt = GamePlayManager.Instance._map.WorldToCell(mousePos);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !_soapDisplay._alert)
         {
             
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
@@ -39,15 +40,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
                 {
                     if (hit.collider.TryGetComponent<IPickupable>(out IPickupable component))
                     {
-                        _currentPickupObject = hit.collider.gameObject;
-                        _currentPickupObject.transform.SetParent(gameObject.transform);
-                        _currentPickupObject.transform.position = _hand.position;
-                        switch (_currentPickupObject.tag)
-                        {
-                            case "Enemy":
-                                _currentPickupObject.GetComponent<EnemyController>().StopMoving();
-                                break;
-                        }
+                        PickUpObject(hit.collider.gameObject);
                     }
                 }
             }
@@ -56,17 +49,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
         {
             if(Vector2.SqrMagnitude(positionInt - gameObject.transform.position) < sqrRadiusToPick)
             {
-                _currentPickupObject.transform.SetParent(null);
-                _currentPickupObject.transform.position = positionInt;
-                
-                switch (_currentPickupObject.tag)
-                {
-                    case "Enemy":
-                        _currentPickupObject.GetComponent<EnemyController>().BackToPath(GamePlayManager.Instance._map.WorldToCell(_currentPickupObject.transform.position));
-                        break;
-                }
-                
-                _currentPickupObject = null;
+                DropObject(positionInt);
             }
         }
  
@@ -74,6 +57,38 @@ public class PlayerPickUpMechanics : MonoBehaviour
         {
             _selector.transform.position= positionInt;
         }
+    }
+
+    private void PickUpObject(GameObject hit)
+    {
+        _soapDisplay.gameObject.SetActive(true);
+        _soapDisplay.PickUp(true);
+
+        _currentPickupObject = hit;
+        _currentPickupObject.transform.SetParent(gameObject.transform);
+        _currentPickupObject.transform.position = _hand.position;
+        switch (_currentPickupObject.tag)
+        {
+            case "Enemy":
+                _currentPickupObject.GetComponent<EnemyController>().StopMoving();
+                break;
+        }
+    }
+
+    public void DropObject(Vector3Int pos)
+    {
+        _currentPickupObject.transform.SetParent(null);
+        _currentPickupObject.transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);
+                
+        switch (_currentPickupObject.tag)
+        {
+            case "Enemy":
+                _currentPickupObject.GetComponent<EnemyController>().BackToPath(GamePlayManager.Instance._map.WorldToCell(_currentPickupObject.transform.position));
+                break;
+        }
+                
+        _soapDisplay.PickUp(false);
+        _currentPickupObject = null;
     }
     
     //Test xem có trên tilemap nào ko

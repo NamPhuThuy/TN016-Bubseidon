@@ -32,11 +32,11 @@ public class PlayerController : MonoBehaviour
         //handle direction
         if (_direction.x > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (_direction.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.GetComponent<SpriteRenderer>().flipX = true;
         }
         
         //handle animations
