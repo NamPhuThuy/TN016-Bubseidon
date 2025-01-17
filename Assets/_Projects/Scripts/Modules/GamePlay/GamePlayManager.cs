@@ -19,6 +19,11 @@ public class GamePlayManager : Singleton<GamePlayManager>
     {
         get => _enemyList;
     }
+
+    public PlayerController Player
+    {
+        get => _player;
+    }
     
     public event Action OnEnemyDied;
     public event Action OnEnemySpawned;

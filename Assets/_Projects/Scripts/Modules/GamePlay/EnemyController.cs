@@ -123,6 +123,8 @@ public class EnemyController : MonoBehaviour, IPickupable
     
     public void BackToPath(Vector3Int playerPosition)
     {
+        _transform.position = _tilemap.GetCellCenterWorld(playerPosition);
+        
         if (_tilemap.GetTile(playerPosition).name.ToLower().Contains("dirt"))
         {
             FindNewPath(playerPosition);
@@ -196,20 +198,22 @@ public class EnemyController : MonoBehaviour, IPickupable
                 chosenTile = tile;
             }
         }
-
-        StartCoroutine(MoveFromAToB(_tilemap.GetCellCenterWorld(chosenTile)));
+        
+        StartCoroutine(MoveFromAToB(chosenTile));
     }
     
-    IEnumerator MoveFromAToB(Vector3 end)
+    IEnumerator MoveFromAToB(Vector3Int end)
     {
-        while (Vector3.Distance(transform.position, end) > 0.01f)
+        Vector3 endWorldPos = _tilemap.GetCellCenterWorld(end);
+        
+        while (Vector3.Distance(_transform.position, endWorldPos) > 0.01f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, end, _moveSpeed * Time.deltaTime);
+            _transform.position = Vector3.MoveTowards(_transform.position, endWorldPos, _moveSpeed * Time.deltaTime);
             
             yield return null;
         }
         
-        transform.position = end;
+        _transform.position = endWorldPos;
         
         FindNewPath(_tilemap.WorldToCell(end));
     }
