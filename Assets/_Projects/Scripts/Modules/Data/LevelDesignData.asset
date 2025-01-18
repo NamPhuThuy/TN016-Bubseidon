@@ -26,28 +26,5 @@ MonoBehaviour:
     spawnInterval: 2
     enemyList:
     - {fileID: 341350980979872305, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
-    enemyCountList: 08000000
-  - waveId: 2
-    waveDelay: 3
-    waveDuration: 30
-    spawnInterval: 1.5
-    enemyList:
-    - {fileID: 341350980979872305, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
     - {fileID: 2075841773710191401, guid: ed72638ec126dd346a08a27890fd1f55, type: 3}
-    enemyCountList: 0600000002000000
-  - waveId: 3
-    waveDelay: 3
-    waveDuration: 30
-    spawnInterval: 1.5
-    enemyList:
-    - {fileID: 341350980979872305, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
-    - {fileID: 2075841773710191401, guid: ed72638ec126dd346a08a27890fd1f55, type: 3}
-    enemyCountList: 0500000003000000
-  - waveId: 4
-    waveDelay: 3
-    waveDuration: 30
-    spawnInterval: 1.5
-    enemyList:
-    - {fileID: 341350980979872305, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
-    - {fileID: 2075841773710191401, guid: ed72638ec126dd346a08a27890fd1f55, type: 3}
-    enemyCountList: 0500000003000000
+    enemyCountList: 0800000003000000

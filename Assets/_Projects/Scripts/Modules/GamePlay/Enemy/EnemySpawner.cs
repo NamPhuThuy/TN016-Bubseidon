@@ -100,9 +100,12 @@ public class EnemySpawner : MonoBehaviour
                 yield return null;
             }
             Debug.Log($"Wave {_wave} completed. Preparing for the next wave...");
-            _wave++;
+            
             yield return new WaitForSeconds(_levelDesignData._waveList[_wave].waveDelay);
+            _wave++;
             Debug.Log("All Waves Completed!");  
         }
+        
+        MessageManager.Instance.SendMessage(new Message(NamMessageType.OnGameWin));
     }
 }

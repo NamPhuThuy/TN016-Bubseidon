@@ -12,8 +12,7 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
 {
     public PlayerData PlayerData;
     public LevelDesignData LevelDesignData;
-    public TowerData TowerData;
-    public static DataManager Instance;
+    public TowerDatas TowerDatas;
     
     public int Coin
     {
