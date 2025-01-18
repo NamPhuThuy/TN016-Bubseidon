@@ -36,9 +36,7 @@ public class TowerController : MonoBehaviour, IPickupable
         _rangeCollider2D = GetComponent<CircleCollider2D>();
         _animator = GetComponent<Animator>();
     }
-
-        _animator = GetComponent<Animator>();
-    [SerializeField] private Animator _animator;
+    
     private void OnEnable()
     {
         GamePlayManager.Instance.AddTower(this);
