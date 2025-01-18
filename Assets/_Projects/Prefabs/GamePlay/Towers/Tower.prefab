@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4135270838787918861}
   - component: {fileID: 4488525582613261478}
   - component: {fileID: 3171914651838413199}
+  - component: {fileID: 1898588164533495226}
   - component: {fileID: 1113850513851345715}
   - component: {fileID: -4175330507210729374}
   m_Layer: 0
@@ -106,13 +107,15 @@ MonoBehaviour:
   _damage: 5
   _health: 10
   _attackInterval: 1
-  isExplosive: 0
   _projectilePrefab: {fileID: 278587759177289816, guid: 6b28790c88e456b4caa6dd28b503b8e2, type: 3}
-  _explodePrefab: {fileID: 0}
-  _circleCollider2D: {fileID: 0}
+  _selfCollider2D: {fileID: 3171914651838413199}
+  _rangeCollider2D: {fileID: 1898588164533495226}
   _transform: {fileID: 0}
   _hpBar: {fileID: 342830778635690497}
   _animator: {fileID: 0}
+  _currentTarget: {fileID: 0}
+  _shootAudio: {fileID: 0}
+  _destroyAudio: {fileID: 8300000, guid: a781915d3ecf1104db34467371844d4c, type: 3}
 --- !u!61 &3171914651838413199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,6 +161,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0041996, y: 2.2814648}
   m_EdgeRadius: 0
+--- !u!58 &1898588164533495226
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262013921206948042}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!50 &1113850513851345715
 Rigidbody2D:
   serializedVersion: 4
@@ -268,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6164322812746300111
 Transform:
   m_ObjectHideFlags: 0

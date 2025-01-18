@@ -27,6 +27,7 @@ public class TowerController : MonoBehaviour, IPickupable
     
     [Header("Audio")]
     [SerializeField] private AudioClip _shootAudio;
+    [SerializeField] private AudioClip _destroyAudio;
     
     #region MonoBehaviour methods
 
@@ -148,14 +149,14 @@ public class TowerController : MonoBehaviour, IPickupable
         _health -= damage;
         if (_health <= 0)
         {
-            StartCoroutine(Dead());
+            Dead();
         }
     }
-    IEnumerator Dead()
+    private void Dead()
     {
         _animator.Play("broke");
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        AudioManager.Instance.PlaySfx(_destroyAudio);
+        Destroy(gameObject, 1.2f);
     }
 }
 

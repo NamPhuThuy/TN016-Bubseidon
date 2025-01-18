@@ -16,14 +16,16 @@ public class EnemyController : MonoBehaviour, IPickupable
     
     [Header("Components")]
     [SerializeField] private Transform _transform;
-    [SerializeField] private HPBarController _hpBar;  
+    [SerializeField] private HPBarController _hpBar; 
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Collider2D _collider2D;
 
     
     [Header("Movement Handle")]
     [SerializeField] private Tilemap _tilemap;
     private List<Vector3Int> _directions;
     private Coroutine _enemyMoveCoroutine;
-    private SpriteRenderer _spriteRenderer;
     
     private float _damageCooldown = 1f;
     private float _damageTimer = 0f;
@@ -32,11 +34,17 @@ public class EnemyController : MonoBehaviour, IPickupable
     [Header("Die-rewards")]
     [SerializeField] private CoinController _coinController;
     
+    [Header("AnimClip name")]
+    [SerializeField] private string _dieAnimString = "ded";
+
     private void Start()
     {
         _coinController = GamePlayManager.Instance._coinController;
         _hpBar = GetComponentInChildren<HPBarController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider2D = GetComponent<Collider2D>();
+        _transform = transform;
+        _animator = GetComponent<Animator>();
 
         if (_transform.position.x < _endPos.x)
         {
@@ -83,7 +91,6 @@ public class EnemyController : MonoBehaviour, IPickupable
     private void OnDestroy()
     {
         GamePlayManager.Instance.RemoveEnemy(this);
-        Instantiate(_coinController, _transform.position, Quaternion.identity);
         MessageManager.Instance.SendMessage(new Message(NamMessageType.OnEnemyDie));
     }
     #endregion
@@ -172,8 +179,8 @@ public class EnemyController : MonoBehaviour, IPickupable
         _health -= damage;
         if (_health <= 0)
         {
-            _moveSpeed=0f;
-            Destroy(gameObject);
+            _moveSpeed = 0f;
+            Die();
         }
     }
     public void setSpeed(float speed)
@@ -311,7 +318,7 @@ public class EnemyController : MonoBehaviour, IPickupable
     public void DealDamageToPlayer()
     {
         DataManager.Instance.CurrentHP -= _damage;
-        Destroy(gameObject);
+        Die();
     }
     
     private void OnCollisionEnter2D(Collision2D other)
@@ -337,6 +344,14 @@ public class EnemyController : MonoBehaviour, IPickupable
     private void DealDamageToTower(TowerController tower)
     {
         tower.TakeDamage(_damage);
+    }
+
+    private void Die()
+    {
+        //_spriteRenderer.enabled = false;
+        _animator.Play(_dieAnimString);
+        Instantiate(_coinController, _transform.position, Quaternion.identity);
+        Destroy(gameObject, 1f);
     }
     
     

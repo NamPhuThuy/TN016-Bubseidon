@@ -102,10 +102,10 @@ public class AudioManager : Singleton<AudioManager>, IMessageHandle
     }
    
 
-    public void PlayMusic(AudioClip clip, bool isLoop = true)
+    public void PlayMusic(AudioClip clip, bool isLoop = true, float volume = 1f)
     {
         Debug.Log("Play Music");
-        StartCoroutine(FadeOutAndIn(_musicSource, clip, isLoop));
+        StartCoroutine(FadeOutAndIn(_musicSource, clip, isLoop, 1f));
     }
 
     private AudioSource GetAvailableAudioSource()
@@ -125,7 +125,7 @@ public class AudioManager : Singleton<AudioManager>, IMessageHandle
         return newSource;
     }
 
-    private IEnumerator FadeOutAndIn(AudioSource audioSource, AudioClip newClip, bool isLoop)
+    private IEnumerator FadeOutAndIn(AudioSource audioSource, AudioClip newClip, bool isLoop, float volume = 1f)
     {
         float currentTime = 0;
         float startVolume = audioSource.volume;
@@ -139,6 +139,7 @@ public class AudioManager : Singleton<AudioManager>, IMessageHandle
 
         audioSource.clip = newClip;
         audioSource.loop = isLoop;
+        audioSource.volume = volume;
         audioSource.Play();
 
         currentTime = 0;
@@ -164,7 +165,7 @@ public class AudioManager : Singleton<AudioManager>, IMessageHandle
         {
             //MUSIC
             case NamMessageType.OnGameStart:
-                PlayMusic(_musicGamePlay, true);
+                PlayMusic(_musicGamePlay, true, 1.6f);
                 break;
             
             //SFX

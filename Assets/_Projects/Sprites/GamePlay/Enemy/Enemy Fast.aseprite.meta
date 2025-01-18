@@ -128,10 +128,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 35
+      x: 42
+      y: 4
       width: 27
-      height: 22
+      height: 23
     spriteID: 88ef894791a657e4cac5210db9dadc6c
     spriteBone: []
     spriteOutline: []
@@ -140,7 +140,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 35}
+    uvTransform: {x: 42, y: 4}
   - name: Enemy Fast_Frame_1
     originalName: 
     pivot: {x: 0.5769231, y: 0}
@@ -148,10 +148,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 65
+      x: 71
+      y: 35
       width: 26
-      height: 21
+      height: 22
     spriteID: 96026b7c106eb18429764e64f8ea1d9c
     spriteBone: []
     spriteOutline: []
@@ -160,7 +160,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 65}
+    uvTransform: {x: 71, y: 35}
   - name: Enemy Fast_Frame_2
     originalName: 
     pivot: {x: 0.5769231, y: 0}
@@ -169,9 +169,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 35
       width: 26
-      height: 23
+      height: 24
     spriteID: b03dbb6ef82b3fc49b926aa031cc08dd
     spriteBone: []
     spriteOutline: []
@@ -180,7 +180,147 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    uvTransform: {x: 4, y: 35}
+  - name: Enemy Fast_Frame_3
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 30
+      height: 23
+    spriteID: ac5d4962e3b264a40b7127bf296ac1b0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Enemy Fast_Frame_4
+    originalName: 
+    pivot: {x: 0.5416667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 67
+      width: 24
+      height: 23
+    spriteID: 943f07a44af33be4a9014ce70ca33ba9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 67}
+  - name: Enemy Fast_Frame_5
+    originalName: 
+    pivot: {x: 0.39999998, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 35
+      width: 25
+      height: 23
+    spriteID: c94ca2ea70921dd428b8a59213f6073f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 35}
+  - name: Enemy Fast_Frame_6
+    originalName: 
+    pivot: {x: 0.5555556, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 4
+      width: 27
+      height: 22
+    spriteID: f08cc88705ff1314f8cfb066d59693d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 4}
+  - name: Enemy Fast_Frame_7
+    originalName: 
+    pivot: {x: 0.56, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 98
+      width: 25
+      height: 20
+    spriteID: abb8693409cfa914b9c20be9bb705b69
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 98}
+  - name: Enemy Fast_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 67
+      width: 26
+      height: 20
+    spriteID: 818268082f4e4dd4ba8c237623191f57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 67}
+  - name: Enemy Fast_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 70
+      y: 67
+      width: 32
+      height: 16
+    spriteID: 95cdf3c02e78b924097cb224dbc2bd6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 70, y: 67}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -196,7 +336,7 @@ ScriptedImporter:
         x: 1
         y: 0
         width: 27
-        height: 22
+        height: 23
       spriteId: 88ef894791a657e4cac5210db9dadc6c
     - name: Enemy Fast_Frame_1
       frameIndex: 1
@@ -204,7 +344,7 @@ ScriptedImporter:
         x: 1
         y: 0
         width: 26
-        height: 21
+        height: 22
       spriteId: 96026b7c106eb18429764e64f8ea1d9c
     - name: Enemy Fast_Frame_2
       frameIndex: 2
@@ -212,8 +352,64 @@ ScriptedImporter:
         x: 1
         y: 0
         width: 26
-        height: 23
+        height: 24
       spriteId: b03dbb6ef82b3fc49b926aa031cc08dd
+    - name: Enemy Fast_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 2
+        y: 0
+        width: 30
+        height: 23
+      spriteId: ac5d4962e3b264a40b7127bf296ac1b0
+    - name: Enemy Fast_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 3
+        y: 0
+        width: 24
+        height: 23
+      spriteId: 943f07a44af33be4a9014ce70ca33ba9
+    - name: Enemy Fast_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 6
+        y: 0
+        width: 25
+        height: 23
+      spriteId: c94ca2ea70921dd428b8a59213f6073f
+    - name: Enemy Fast_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 1
+        y: 0
+        width: 27
+        height: 22
+      spriteId: f08cc88705ff1314f8cfb066d59693d9
+    - name: Enemy Fast_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 2
+        y: 0
+        width: 25
+        height: 20
+      spriteId: abb8693409cfa914b9c20be9bb705b69
+    - name: Enemy Fast_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 3
+        y: 0
+        width: 26
+        height: 20
+      spriteId: 818268082f4e4dd4ba8c237623191f57
+    - name: Enemy Fast_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 16
+      spriteId: 95cdf3c02e78b924097cb224dbc2bd6a
     linkedCells: []
     parentIndex: -1
   platformSettings: []

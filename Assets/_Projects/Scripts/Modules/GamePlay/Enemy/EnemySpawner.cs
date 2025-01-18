@@ -13,16 +13,13 @@ public class EnemySpawner : MonoBehaviour
     
     [SerializeField] private int _wave=0;
     [SerializeField] private bool waveCompleted = false;
-    [SerializeField] private EnemyController _enemyPrefab;
     [SerializeField] private LevelDesignData _levelDesignData;
     private bool _isSpawning = false;
     [SerializeField] private float _spawnInterval = 2f;
-
     
     private int CountChildren()
     {
         return _enemyParent.childCount;
-        
     }
     private void Start()
     {
@@ -52,10 +49,10 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log($"Wave {_wave+1}");
             int count=_levelDesignData._waveList[_wave].enemyCountList[i];
-            _enemyPrefab = _levelDesignData._waveList[_wave].enemyList[i].GetComponent<EnemyController>();
+            EnemyController enemyPrefab = _levelDesignData._waveList[_wave].enemyList[i].GetComponent<EnemyController>();
             for (int j=0;j< count;j++)
             {
-                EnemyController newEnemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity).GetComponent<EnemyController>();
+                EnemyController newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).GetComponent<EnemyController>();
                 
                 newEnemy._startPos = GamePlayManager.Instance._map.WorldToCell(spawnPosition);
                 newEnemy._endPos = GamePlayManager.Instance._map.WorldToCell(_endP1.position);

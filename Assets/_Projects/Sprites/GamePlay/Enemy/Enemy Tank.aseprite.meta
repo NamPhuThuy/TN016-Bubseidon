@@ -129,9 +129,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 41
+      y: 80
       width: 27
-      height: 28
+      height: 29
     spriteID: 0ab7dd0763119a8489fdec9483a5f2d5
     spriteBone: []
     spriteOutline: []
@@ -140,7 +140,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 41}
+    uvTransform: {x: 4, y: 80}
   - name: Enemy Tank_Frame_1
     originalName: 
     pivot: {x: 0.5185185, y: 0}
@@ -149,9 +149,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 77
+      y: 191
       width: 27
-      height: 26
+      height: 27
     spriteID: 9bb553c8d40f1e54685dd9a719682bd3
     spriteBone: []
     spriteOutline: []
@@ -160,7 +160,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 77}
+    uvTransform: {x: 4, y: 191}
   - name: Enemy Tank_Frame_2
     originalName: 
     pivot: {x: 0.5185185, y: 0}
@@ -169,9 +169,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 42
       width: 27
-      height: 29
+      height: 30
     spriteID: 363374304f68fdd47bc6b5c81f4bc982
     spriteBone: []
     spriteOutline: []
@@ -180,7 +180,147 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    uvTransform: {x: 4, y: 42}
+  - name: Enemy Tank_Frame_3
+    originalName: 
+    pivot: {x: 0.6086957, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 39
+      width: 23
+      height: 30
+    spriteID: 462e2241497cc4d448143368bf361ca5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 39}
+  - name: Enemy Tank_Frame_4
+    originalName: 
+    pivot: {x: 0.56, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 153
+      width: 25
+      height: 30
+    spriteID: 82428b081853436488b1bfe3c5d22d54
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 153}
+  - name: Enemy Tank_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 28
+      height: 30
+    spriteID: f4c4a20c2af9ce64689eeb1093d913f2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Enemy Tank_Frame_6
+    originalName: 
+    pivot: {x: 0.5185185, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 117
+      width: 27
+      height: 28
+    spriteID: 523fd50c70b1d6c4f9e551237b58c176
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 117}
+  - name: Enemy Tank_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 4
+      width: 26
+      height: 27
+    spriteID: ac65a8f56b0ce7e4e9f13bcc009e2412
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 4}
+  - name: Enemy Tank_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 226
+      width: 26
+      height: 26
+    spriteID: 53c57796e2545cc48b4cb125819cec24
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 226}
+  - name: Enemy Tank_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 77
+      width: 26
+      height: 26
+    spriteID: 305e282780fcd1f48a0e59441e4d667e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 77}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -196,7 +336,7 @@ ScriptedImporter:
         x: 2
         y: 0
         width: 27
-        height: 28
+        height: 29
       spriteId: 0ab7dd0763119a8489fdec9483a5f2d5
     - name: Enemy Tank_Frame_1
       frameIndex: 1
@@ -204,7 +344,7 @@ ScriptedImporter:
         x: 2
         y: 0
         width: 27
-        height: 26
+        height: 27
       spriteId: 9bb553c8d40f1e54685dd9a719682bd3
     - name: Enemy Tank_Frame_2
       frameIndex: 2
@@ -212,8 +352,64 @@ ScriptedImporter:
         x: 2
         y: 0
         width: 27
-        height: 29
+        height: 30
       spriteId: 363374304f68fdd47bc6b5c81f4bc982
+    - name: Enemy Tank_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 30
+      spriteId: 462e2241497cc4d448143368bf361ca5
+    - name: Enemy Tank_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 2
+        y: 0
+        width: 25
+        height: 30
+      spriteId: 82428b081853436488b1bfe3c5d22d54
+    - name: Enemy Tank_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 2
+        y: 0
+        width: 28
+        height: 30
+      spriteId: f4c4a20c2af9ce64689eeb1093d913f2
+    - name: Enemy Tank_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 2
+        y: 0
+        width: 27
+        height: 28
+      spriteId: 523fd50c70b1d6c4f9e551237b58c176
+    - name: Enemy Tank_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 3
+        y: 0
+        width: 26
+        height: 27
+      spriteId: ac65a8f56b0ce7e4e9f13bcc009e2412
+    - name: Enemy Tank_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 3
+        y: 0
+        width: 26
+        height: 26
+      spriteId: 53c57796e2545cc48b4cb125819cec24
+    - name: Enemy Tank_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 3
+        y: 0
+        width: 26
+        height: 26
+      spriteId: 305e282780fcd1f48a0e59441e4d667e
     linkedCells: []
     parentIndex: -1
   platformSettings: []
