@@ -104,11 +104,11 @@ namespace NamPhuThuy
             switch (extension)
             {
                 case ".aseprite":
-                    return "Assets/_Projects/Presets/AsepriteImporter.preset";
+                   // return "Assets/_Projects/Presets/AsepriteImporter.preset";
                 
                 // Texture Presets
                 case ".png":
-                    return "Assets/_Projects/Presets/PixelArtImporter.preset"; 
+                    //ssreturn "Assets/_Projects/Presets/PixelArtImporter.preset"; 
                 case ".jpg":
                 case ".jpeg":
                 case ".tga":

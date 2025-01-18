@@ -19,6 +19,7 @@ public class TowerController : MonoBehaviour, IPickupable
     [SerializeField] private CircleCollider2D _rangeCollider2D;
     [SerializeField] private Transform _transform;
     [SerializeField] private HPBarController _hpBar;
+    [SerializeField] private Animator _animator;
 
     [SerializeField] private EnemyController _currentTarget;
     // [SerializeField] private List<EnemyController> enemiesInRange = new List<EnemyController>();
@@ -33,8 +34,11 @@ public class TowerController : MonoBehaviour, IPickupable
     {
         _selfCollider2D = GetComponent<BoxCollider2D>();
         _rangeCollider2D = GetComponent<CircleCollider2D>();
+        _animator = GetComponent<Animator>();
     }
 
+        _animator = GetComponent<Animator>();
+    [SerializeField] private Animator _animator;
     private void OnEnable()
     {
         GamePlayManager.Instance.AddTower(this);
@@ -146,8 +150,14 @@ public class TowerController : MonoBehaviour, IPickupable
         _health -= damage;
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Dead());
         }
+    }
+    IEnumerator Dead()
+    {
+        _animator.Play("broke");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }
 
