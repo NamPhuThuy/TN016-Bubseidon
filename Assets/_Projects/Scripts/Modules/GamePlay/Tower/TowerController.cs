@@ -63,7 +63,7 @@ public class TowerController : MonoBehaviour, IPickupable
         }
         else
         {
-            if (Vector2.Distance(_currentTarget.transform.position, _pivot.transform.position) > _attackRange)
+            if (Vector2.Distance(_currentTarget.transform.position, transform.position) > _attackRange)
             {
                 _currentTarget = null;
                 return;
