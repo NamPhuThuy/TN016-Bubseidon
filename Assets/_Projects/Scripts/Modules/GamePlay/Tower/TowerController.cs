@@ -11,10 +11,12 @@ public class TowerController : MonoBehaviour, IPickupable
     [SerializeField] private float _damage = 5f;
     [SerializeField] private float _health = 100f;
     [SerializeField] private float _attackInterval = 1f;
+    [SerializeField] private bool isExplosive = false;
     
     [Header("GamePlay Information")]
     [SerializeField] private EnemyController _currentTarget;
     [SerializeField] private ProjectileController _projectilePrefab;
+    [SerializeField] private ExplodeController _explodePrefab;
     [SerializeField] private CircleCollider2D _circleCollider2D;
     [SerializeField] private Transform _transform;
         
@@ -73,7 +75,7 @@ public class TowerController : MonoBehaviour, IPickupable
         {
             case "Enemy":
                 _currentTarget = other.gameObject.GetComponent<EnemyController>();
-                StartCoroutine(Attack(_currentTarget));
+                StartCoroutine(Attack(_currentTarget)); //This is a bad way, the tower only attacks when the enemy go inside the collider not when it is in the range
                 break;
         }
     }
@@ -82,9 +84,18 @@ public class TowerController : MonoBehaviour, IPickupable
     {
         while (currentTarget != null)
         {
-            var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-            projectile.damage = _damage;
-            projectile.Target = currentTarget;
+            if(isExplosive)
+            {
+                var projectile = Instantiate(_explodePrefab, transform.position, Quaternion.identity);
+                projectile.damage = _damage;
+                projectile.Target = currentTarget;
+            }
+            else
+            {
+                var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+                projectile.damage = _damage;
+                projectile.Target = currentTarget;
+            }
             yield return new WaitForSeconds(_attackInterval);
         }
     }

@@ -129,8 +129,13 @@ public class EnemyController : MonoBehaviour, IPickupable
         _health -= damage;
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            _moveSpeed=0f;
+            Destroy(gameObject,2f);
         }
+    }
+    public void setSpeed(float speed)
+    {
+        _moveSpeed -= speed;
     }
     public void BackToPath(Vector3Int playerPosition)
     {

@@ -14,21 +14,11 @@ public class ProjectileController : MonoBehaviour
         get => _target;
         set => _target = value;
     }
-    [Header("Area Damage")]
-    [SerializeField] private bool multipleEnemy;
-    private List<Collider2D> enemiesInRange = new List<Collider2D>();
-
-
     // Update is called once per frame
     void Update()
     {
         if (_target != null)
         {
-            if(multipleEnemy)
-            {
-                AreaDamage(); 
-                Destroy(gameObject,1f);           
-            }
             Vector3 direction = _target.transform.position - transform.position;
             float distanceThisFrame = Time.deltaTime * 5;
 
@@ -44,8 +34,7 @@ public class ProjectileController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(_speed > 0)
-            HandleDirection();
+        HandleDirection();
     }
     private void HandleDirection()
     {
@@ -53,37 +42,5 @@ public class ProjectileController : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         
-    }
-     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-
-            enemiesInRange.Add(collision);
-            Debug.Log($"Enemy entered: {collision.gameObject.name}");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            enemiesInRange.Remove(collision);
-            Debug.Log($"Enemy exited: {collision.gameObject.name}");
-        }
-    }
-    public void AreaDamage()
-    {
-        foreach (var enemyCollider in enemiesInRange)
-        {
-            if (enemyCollider != null)
-            {
-                EnemyController enemy = enemyCollider.GetComponent<EnemyController>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(damage);
-                }
-            }
-        }
     }
 }

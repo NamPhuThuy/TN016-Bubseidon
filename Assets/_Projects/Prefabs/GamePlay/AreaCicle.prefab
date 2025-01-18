@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3285927943294435540}
   - component: {fileID: 552118535016811949}
-  - component: {fileID: 2421623820005261555}
   - component: {fileID: 5949923641088326574}
+  - component: {fileID: -984516624712466258}
   m_Layer: 0
   m_Name: AreaCicle
   m_TagString: Untagged
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2421623820005261555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7668674125926893689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d9650dd982710468d66b955cf1ca9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _speed: 0
-  damage: 0
-  multipleEnemy: 1
 --- !u!58 &5949923641088326574
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,3 +121,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-984516624712466258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668674125926893689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147025e4789e8a14c9fdd4c23e5237bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _speed: 0
+  damage: 0
+  multipleEnemy: 1
+  enemiesInRange: []
