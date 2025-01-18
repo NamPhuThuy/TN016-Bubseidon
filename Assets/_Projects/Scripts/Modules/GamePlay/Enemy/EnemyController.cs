@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour, IPickupable
     private float _damageCooldown = 1f;
     private float _damageTimer = 0f;
     private TowerController _triggerTower;
+    private ObstacleController _triggerObs;
     
     [Header("Die-rewards")]
     [SerializeField] private CoinController _coinController;
@@ -67,6 +68,16 @@ public class EnemyController : MonoBehaviour, IPickupable
             if (_damageTimer >= _damageCooldown)
             {
                 DealDamageToTower(_triggerTower);
+                _damageTimer = 0f;
+            }
+        }
+        
+        if (_triggerObs != null)
+        {
+            _damageTimer += Time.deltaTime;
+            if (_damageTimer >= _damageCooldown)
+            {
+                _triggerObs.TakeDamage(_damage);
                 _damageTimer = 0f;
             }
         }
@@ -328,6 +339,10 @@ public class EnemyController : MonoBehaviour, IPickupable
             _triggerTower = other.transform.GetComponent<TowerController>();
             _damageTimer = 1f;
         }
+        else if (other.transform.CompareTag("Obstacle"))
+        {
+            _triggerObs = other.transform.GetComponent<ObstacleController>();
+        }
     }
     
     private void OnCollisionExit2D(Collision2D other)
@@ -338,6 +353,10 @@ public class EnemyController : MonoBehaviour, IPickupable
             case "Tower":
                 _triggerTower = null;
                 break;
+            case "Obstacle":
+                _triggerObs = null;
+                break;
+            
         }
     }
 
