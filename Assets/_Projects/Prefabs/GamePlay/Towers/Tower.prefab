@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4488525582613261478}
   - component: {fileID: 3171914651838413199}
   - component: {fileID: 1113850513851345715}
+  - component: {fileID: -4175330507210729374}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.2457, y: 0.0384, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6431301990446250811}
@@ -79,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: -778059839
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.042452812, g: 0.68922585, b: 1, a: 1}
+  m_Sprite: {fileID: 4448116912606779409, guid: eea76a1aea31a5b488dd872818977384, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9375, y: 2.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -111,6 +112,7 @@ MonoBehaviour:
   _circleCollider2D: {fileID: 0}
   _transform: {fileID: 0}
   _hpBar: {fileID: 342830778635690497}
+  _animator: {fileID: 0}
 --- !u!61 &3171914651838413199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,18 +145,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.040208757, y: 1.1325468}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.5333333, y: 0}
+    oldSize: {x: 0.9375, y: 2.25}
+    newSize: {x: 0.9375, y: 2.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0041996, y: 2.2814648}
   m_EdgeRadius: 0
 --- !u!50 &1113850513851345715
 Rigidbody2D:
@@ -183,6 +185,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &-4175330507210729374
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262013921206948042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -2409463951883459278, guid: eea76a1aea31a5b488dd872818977384, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5370383454668682534
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tower: {fileID: 0}
-  _attackRange: 1.5
+  _attackRange: 2.5
   _circleCollider2D: {fileID: 3712608057848140774}
 --- !u!1001 &1971489278083382850
 PrefabInstance:
@@ -372,12 +395,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 785016022354703200}
     m_Modifications:
     - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.716
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
       propertyPath: m_LocalPosition.z
@@ -414,6 +441,10 @@ PrefabInstance:
     - target: {fileID: 6999863487548231292, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
       propertyPath: m_Name
       value: HPBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999863487548231292, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

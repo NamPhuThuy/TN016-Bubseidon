@@ -32,10 +32,10 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 16
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638728233528704982
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 144
       width: 20
       height: 44
-    spriteID: 4793c5002717d8f4398e767954f7bb4e
+    spriteID: 59bff25895986f54f877885848ab1190
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 196
       width: 19
       height: 44
-    spriteID: d12f54910612e7841ada432140f7fab7
+    spriteID: e47399f9098aba3448231112915d1c6f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 53
       width: 19
       height: 42
-    spriteID: a88b39e63bb2e82488e6f7ea850c4c15
+    spriteID: 20ed21dc61f4dc64698d4ff217bcfd96
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 4
       width: 20
       height: 41
-    spriteID: 21c72b7313781ff40910fb983c0c61a8
+    spriteID: c8d54e63c8581d84dae2dd0781ccfd6d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 95
       width: 27
       height: 41
-    spriteID: 2001868a02ce90c41b8e0d37e1960884
+    spriteID: ebdf22985355eb541b5eb8b35cb20663
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 4
       width: 33
       height: 40
-    spriteID: 4cb06392ca0245c4dbc56f057f88366c
+    spriteID: 6570298bc14babd43b2b62a27d506453
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 52
       width: 32
       height: 35
-    spriteID: 5ef7ea0fc3455cd4e931d3dc9d23de6a
+    spriteID: 3e2e9b7a1aa7fc941bab91f417a099a8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 4
       width: 39
       height: 18
-    spriteID: 51768c26c0a07d041b878863926df709
+    spriteID: d10823f3021690e4ca5ccbc181796e39
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -297,7 +297,7 @@ ScriptedImporter:
         y: 0
         width: 20
         height: 44
-      spriteId: 4793c5002717d8f4398e767954f7bb4e
+      spriteId: 59bff25895986f54f877885848ab1190
     - name: tOWER 3_Frame_1
       frameIndex: 1
       cellRect:
@@ -305,7 +305,7 @@ ScriptedImporter:
         y: 0
         width: 19
         height: 44
-      spriteId: d12f54910612e7841ada432140f7fab7
+      spriteId: e47399f9098aba3448231112915d1c6f
     - name: tOWER 3_Frame_2
       frameIndex: 2
       cellRect:
@@ -313,7 +313,7 @@ ScriptedImporter:
         y: 0
         width: 19
         height: 42
-      spriteId: a88b39e63bb2e82488e6f7ea850c4c15
+      spriteId: 20ed21dc61f4dc64698d4ff217bcfd96
     - name: tOWER 3_Frame_3
       frameIndex: 3
       cellRect:
@@ -321,7 +321,7 @@ ScriptedImporter:
         y: 0
         width: 20
         height: 41
-      spriteId: 21c72b7313781ff40910fb983c0c61a8
+      spriteId: c8d54e63c8581d84dae2dd0781ccfd6d
     - name: tOWER 3_Frame_4
       frameIndex: 4
       cellRect:
@@ -329,7 +329,7 @@ ScriptedImporter:
         y: 0
         width: 27
         height: 41
-      spriteId: 2001868a02ce90c41b8e0d37e1960884
+      spriteId: ebdf22985355eb541b5eb8b35cb20663
     - name: tOWER 3_Frame_5
       frameIndex: 5
       cellRect:
@@ -337,7 +337,7 @@ ScriptedImporter:
         y: 0
         width: 33
         height: 40
-      spriteId: 4cb06392ca0245c4dbc56f057f88366c
+      spriteId: 6570298bc14babd43b2b62a27d506453
     - name: tOWER 3_Frame_6
       frameIndex: 6
       cellRect:
@@ -345,7 +345,7 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 35
-      spriteId: 5ef7ea0fc3455cd4e931d3dc9d23de6a
+      spriteId: 3e2e9b7a1aa7fc941bab91f417a099a8
     - name: tOWER 3_Frame_7
       frameIndex: 7
       cellRect:
@@ -353,10 +353,70 @@ ScriptedImporter:
         y: 0
         width: 39
         height: 18
-      spriteId: 51768c26c0a07d041b878863926df709
+      spriteId: d10823f3021690e4ca5ccbc181796e39
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 

@@ -310,21 +310,7 @@ public class EnemyController : MonoBehaviour, IPickupable
         tower.TakeDamage(_damage);
     }
     
-    //Receving damage
-    public void TakeDamage(float damage)
-    {
-        _hpBar.TakeDamage(damage/_health);
-        _health -= damage;
-        if (_health <= 0)
-        {
-            _moveSpeed = 0f;
-            Destroy(gameObject,2f);
-        }
-    }
-    public void setSpeed(float speed)
-    {
-        _moveSpeed -= speed;
-    }
+ 
     
     
     public void StopMoving()
