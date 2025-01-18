@@ -212,6 +212,7 @@ MonoBehaviour:
   _currentPickupObject: {fileID: 0}
   _hand: {fileID: 2646802893641485743}
   _soapDisplay: {fileID: 2700442812533987091}
+  _makeBubbleSound: {fileID: 8300000, guid: 9f7a704ecbad8b540af31b900bcfa479, type: 3}
 --- !u!95 &981489671387734970
 Animator:
   serializedVersion: 5

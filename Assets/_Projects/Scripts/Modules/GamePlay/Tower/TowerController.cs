@@ -24,6 +24,9 @@ public class TowerController : MonoBehaviour, IPickupable
     // [SerializeField] private List<EnemyController> enemiesInRange = new List<EnemyController>();
         
     
+    [Header("Audio")]
+    [SerializeField] private AudioClip _shootAudio;
+    
     #region MonoBehaviour methods
 
     private void Start()
@@ -125,8 +128,10 @@ public class TowerController : MonoBehaviour, IPickupable
         Debug.Log($"Attack {currentTarget.name}");
         
         if (Time.time < nextFireTime) return;
-        
         nextFireTime = Time.time + _attackInterval;
+        
+        AudioManager.Instance.PlaySfx(_shootAudio);
+        
         
         var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
         projectile.damage = _damage;

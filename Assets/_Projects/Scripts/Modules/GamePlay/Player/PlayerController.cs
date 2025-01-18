@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private Vector2 _direction;
     
+    
+    
     void Start()
     {
         _mainCamera = Camera.main;

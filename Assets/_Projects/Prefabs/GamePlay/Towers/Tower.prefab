@@ -105,12 +105,13 @@ MonoBehaviour:
   _damage: 5
   _health: 10
   _attackInterval: 1
-  isExplosive: 0
   _projectilePrefab: {fileID: 278587759177289816, guid: 6b28790c88e456b4caa6dd28b503b8e2, type: 3}
-  _explodePrefab: {fileID: 0}
-  _circleCollider2D: {fileID: 0}
+  _selfCollider2D: {fileID: 0}
+  _rangeCollider2D: {fileID: 0}
   _transform: {fileID: 0}
   _hpBar: {fileID: 342830778635690497}
+  _currentTarget: {fileID: 0}
+  _shootAudio: {fileID: 8300000, guid: 2bf2c592f7c85b146af086834059de0d, type: 3}
 --- !u!61 &3171914651838413199
 BoxCollider2D:
   m_ObjectHideFlags: 0

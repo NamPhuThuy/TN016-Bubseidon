@@ -18,8 +18,8 @@ public class ButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     [SerializeField] private float _pointerReleaseScale = 1f;
     [SerializeField] private float _pointerClickScale = 0.8f;
 
-    [Space(10)]
-    [Header("Audio Clips")]
+    [Space(10)] [Header("Audio Clips")] 
+    [SerializeField] private AudioClip _clickSound;
     
     private RectTransform _rectTransform;
     private float _changeY = 5.6f;
@@ -44,6 +44,7 @@ public class ButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public void OnPointerDown(PointerEventData eventData)
     {
         StopAllCoroutines();
+        AudioManager.Instance.PlaySfx(_clickSound);
         StartCoroutine(TweenScale(_originalLocalScale * _pointerClickScale, 0.15f));
     }
 

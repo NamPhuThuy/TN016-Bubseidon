@@ -260,6 +260,7 @@ MonoBehaviour:
   _pointerHoverScale: 1.1
   _pointerReleaseScale: 1
   _pointerClickScale: 0.9
+  _clickSound: {fileID: 8300000, guid: 9b6d7a0a2e5469f4e8e2ed7dc12cb179, type: 3}
 --- !u!1 &8922881955139358695
 GameObject:
   m_ObjectHideFlags: 0

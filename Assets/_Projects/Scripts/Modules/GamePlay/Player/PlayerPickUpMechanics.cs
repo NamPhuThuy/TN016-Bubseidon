@@ -20,6 +20,9 @@ public class PlayerPickUpMechanics : MonoBehaviour
     [SerializeField] private GameObject _currentPickupObject;
     [SerializeField] private Transform _hand;
     [SerializeField] private SoapController _soapDisplay;
+    
+    [Header("Audios")]
+    [SerializeField] private AudioClip _makeBubbleSound;
 
     private bool _onHand = false;
     void Start()
@@ -79,6 +82,9 @@ public class PlayerPickUpMechanics : MonoBehaviour
         _currentPickupObject.transform.SetParent(gameObject.transform);
         _currentPickupObject.transform.position = _hand.position;
         _currentPickupObject.GetComponent<Collider2D>().excludeLayers = LayerMaskHelper.Everything();
+        
+        //play sound
+        AudioManager.Instance.PlaySfx(_makeBubbleSound);
         
         switch (_currentPickupObject.tag)
         {
