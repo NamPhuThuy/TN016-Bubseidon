@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log($"Wave {_wave+1}");
             int count=_levelDesignData._waveList[_wave].enemyCountList[i];
-            _enemyPrefab= _levelDesignData._waveList[_wave].enemyList[i].GetComponent<EnemyController>();
+            _enemyPrefab = _levelDesignData._waveList[_wave].enemyList[i].GetComponent<EnemyController>();
             for (int j=0;j< count;j++)
             {
                 EnemyController newEnemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity).GetComponent<EnemyController>();

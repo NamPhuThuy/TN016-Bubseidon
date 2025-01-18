@@ -8,7 +8,7 @@ using UnityEngine.Tilemaps;
 public class EnemyController : MonoBehaviour, IPickupable
 {
     [Header("Stats")]
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _moveSpeed = 1f;
     [SerializeField] private float _health;
     [SerializeField] private int _damage;
     [SerializeField] private Transform _transform;
@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour, IPickupable
     {
         _coinController = GamePlayManager.Instance._coinController;
         
-        _transform.position = _tilemap.CellToWorld(_startPos);
+        // _transform.position = _tilemap.CellToWorld(_startPos);
         FindNewPath(_startPos);
     }
     
