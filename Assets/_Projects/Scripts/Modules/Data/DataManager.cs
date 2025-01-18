@@ -49,11 +49,15 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     
     public float CurrentHP
     {
-        get => PlayerData.baseHP;
+        get => PlayerData.currentHP;
         set
         {
             PlayerData.currentHP = value;
             MessageManager.Instance.SendMessage(new Message(NamMessageType.OnDataChanged));
+            if (CurrentHP <= 0)
+            {
+                MessageManager.Instance.SendMessage(new Message(NamMessageType.OnGameLose));
+            }
             SaveData();
         }
     }
@@ -77,29 +81,20 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     public void CreateData()
     {
         PlayerPrefs.SetInt("Score", 0);
-        PlayerPrefs.SetInt("Wave", 0);
         PlayerPrefs.SetInt("Coin", 0);
-        PlayerPrefs.SetInt("BaseHP", 10);
-        PlayerPrefs.SetInt("CurrentHP", 10);
         PlayerPrefs.Save();
     }
     
     public void LoadData()
     {
         PlayerData.score = PlayerPrefs.GetInt("Score", 0);
-        PlayerData.currentWave = PlayerPrefs.GetInt("Wave", 0);
         PlayerData.coin = PlayerPrefs.GetInt("Coin", 0);
-        PlayerData.baseHP = PlayerPrefs.GetInt("BaseHP", 10);
-        PlayerData.baseHP = PlayerPrefs.GetInt("CurrentHP", 10);
     }
     
     public void SaveData()
     {
         PlayerPrefs.SetInt("Score", PlayerData.score);
-        PlayerPrefs.SetInt("Wave", PlayerData.currentWave);
         PlayerPrefs.SetInt("Coin", PlayerData.coin);
-        PlayerPrefs.SetFloat("BaseHP", PlayerData.baseHP);
-        PlayerPrefs.SetFloat("CurrentHP", PlayerData.currentHP);
         PlayerPrefs.Save();
     }
     

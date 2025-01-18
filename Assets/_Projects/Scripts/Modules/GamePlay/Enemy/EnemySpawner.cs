@@ -93,6 +93,7 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log($"Starting Wave {_wave + 1}");
             
             float waveDuration = _levelDesignData._waveList[_wave].waveDuration;
+            _spawnInterval = _levelDesignData._waveList[_wave].spawnInterval;
             StartCoroutine(SpawnEnemy());
             yield return StartCoroutine(WaveTimer(waveDuration));
             while(!waveCompleted)

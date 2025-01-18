@@ -38,11 +38,11 @@ public class UIScreenGameOver : MonoBehaviour
 
     private void OnEnable()
     {
-        throw new NotImplementedException();
+        Time.timeScale = 0f;
     }
 
     private void OnDisable()
     {
-        throw new NotImplementedException();
+        Time.timeScale = 1f;
     }
 }

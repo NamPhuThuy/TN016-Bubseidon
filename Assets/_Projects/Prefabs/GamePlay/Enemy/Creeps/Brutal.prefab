@@ -101,12 +101,16 @@ PrefabInstance:
       value: -0.203
       objectReference: {fileID: 0}
     - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
+      propertyPath: _damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: _health
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: _moveSpeed
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7788125785868382395, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: m_Name

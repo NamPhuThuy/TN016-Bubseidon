@@ -50,6 +50,7 @@ public class UIManager : Singleton<UIManager>, IMessageHandle
 
     public void Handle(Message message)
     {
+        Debug.Log($"UIManager handle message {message.type}");
         switch (message.type)
         {
             case NamMessageType.OnDataChanged:

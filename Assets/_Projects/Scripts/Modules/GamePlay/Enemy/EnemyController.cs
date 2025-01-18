@@ -16,12 +16,14 @@ public class EnemyController : MonoBehaviour, IPickupable
     
     [Header("Components")]
     [SerializeField] private Transform _transform;
+    [SerializeField] private HPBarController _hpBar;  
 
     
     [Header("Movement Handle")]
     [SerializeField] private Tilemap _tilemap;
     private List<Vector3Int> _directions;
     private Coroutine _enemyMoveCoroutine;
+    private SpriteRenderer _spriteRenderer;
     
     private float _damageCooldown = 1f;
     private float _damageTimer = 0f;
@@ -33,6 +35,18 @@ public class EnemyController : MonoBehaviour, IPickupable
     private void Start()
     {
         _coinController = GamePlayManager.Instance._coinController;
+        _hpBar = GetComponentInChildren<HPBarController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (_transform.position.x < _endPos.x)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else
+        {
+            _spriteRenderer.flipX = true;
+        }
+        
         FindNewPath(_startPos);
     }
     
@@ -127,8 +141,16 @@ public class EnemyController : MonoBehaviour, IPickupable
         while (pathQueue.Count > 0)
         {
             Vector3Int nextTile = pathQueue.Dequeue();
-            
             Vector3 targetPosition = _tilemap.GetCellCenterWorld(nextTile);
+            
+            if (targetPosition.x < _transform.position.x)
+            {
+                _spriteRenderer.flipX = true;
+            }
+            else if (targetPosition.x > _transform.position.x)
+            {
+                _spriteRenderer.flipX = false;
+            }
             
             while (Vector3.Distance(_transform.position, targetPosition) > 0.01f)
             {
@@ -141,16 +163,17 @@ public class EnemyController : MonoBehaviour, IPickupable
             yield return null;
         }
 
-        Debug.Log("Ve dich");
+        DealDamageToPlayer();
     }
     //Receving damage
     public void TakeDamage(float damage)
     {
+        _hpBar.TakeDamage(damage/_health);
         _health -= damage;
         if (_health <= 0)
         {
             _moveSpeed=0f;
-            Destroy(gameObject,2f);
+            Destroy(gameObject);
         }
     }
     public void setSpeed(float speed)
@@ -242,6 +265,15 @@ public class EnemyController : MonoBehaviour, IPickupable
     {
         Vector3 endWorldPos = _tilemap.GetCellCenterWorld(end);
         
+        if (endWorldPos.x < _transform.position.x)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else if (endWorldPos.x > _transform.position.x)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        
         while (Vector3.Distance(_transform.position, endWorldPos) > 0.01f)
         {
             _transform.position = Vector3.MoveTowards(_transform.position, endWorldPos, _moveSpeed * Time.deltaTime);
@@ -278,7 +310,7 @@ public class EnemyController : MonoBehaviour, IPickupable
 
     public void DealDamageToPlayer()
     {
-        DataManager.Instance.PlayerData.currentHP -= _damage;
+        DataManager.Instance.CurrentHP -= _damage;
         Destroy(gameObject);
     }
     
