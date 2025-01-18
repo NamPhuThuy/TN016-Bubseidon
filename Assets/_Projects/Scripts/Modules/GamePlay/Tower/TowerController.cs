@@ -7,17 +7,16 @@ using UnityEngine.Serialization;
 public class TowerController : MonoBehaviour, IPickupable
 {
     [Header("Stats")] 
-    [SerializeField] private float _attackRange = 1.5f;
     [SerializeField] private float _damage = 5f;
     [SerializeField] private float _health = 100f;
     [SerializeField] private float _attackInterval = 1f;
     [SerializeField] private bool isExplosive = false;
     [Header("GamePlay Information")]
-    [SerializeField] private EnemyController _currentTarget;
     [SerializeField] private ProjectileController _projectilePrefab;
     [SerializeField] private ExplodeController _explodePrefab;
     [SerializeField] private CircleCollider2D _circleCollider2D;
     [SerializeField] private Transform _transform;
+    [SerializeField] private HPBarController _hpBar;
         
     
     private void OnEnable()
@@ -25,13 +24,10 @@ public class TowerController : MonoBehaviour, IPickupable
         GamePlayManager.Instance.AddTower(this);
 
         _transform = transform;
-        _circleCollider2D = GetComponent<CircleCollider2D>();
-        _circleCollider2D.radius = _attackRange;
     }
     
     public void ResetData()
     {
-        _attackRange = 1.5f;
         _damage = 5f;
         _attackInterval = 1f;
     }
@@ -40,43 +36,10 @@ public class TowerController : MonoBehaviour, IPickupable
     {
         GamePlayManager.Instance.RemoveTower(this);
     }
-
-    private void Update()
+    
+    public void EnemyTrigger(GameObject enemy)
     {
-        if (_currentTarget != null)
-            return;
-        
-        _currentTarget = FindClosestEnemy();
-    }
-
-    private EnemyController FindClosestEnemy()
-    {
-        var minDistance = float.MaxValue;
-        EnemyController target = null;
-        
-        foreach (EnemyController enemy in GamePlayManager.Instance.EnemyList)
-        {
-            float sqrMagnitude = Vector2.SqrMagnitude(_transform.position - enemy.transform.position);
-            if (sqrMagnitude < minDistance)
-            {
-                minDistance = sqrMagnitude;
-                target = enemy.gameObject.GetComponent<EnemyController>();
-            }
-        }
-
-        return target;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log($"TNam - {other.transform.name} in tower range");
-        switch (other.tag)
-        {
-            case "Enemy":
-                _currentTarget = other.gameObject.GetComponent<EnemyController>();
-                StartCoroutine(Attack(_currentTarget)); //This is a bad way, the tower only attacks when the enemy go inside the collider not when it is in the range
-                break;
-        }
+        StartCoroutine(Attack(enemy.GetComponent<EnemyController>()));
     }
 
     private IEnumerator Attack(EnemyController currentTarget)
@@ -99,27 +62,18 @@ public class TowerController : MonoBehaviour, IPickupable
             yield return new WaitForSeconds(_attackInterval);
         }
     }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        switch (other.tag)
-        {
-            case "Enemy":
-                StopAllCoroutines();
-                // StopCoroutine(Attack(_currentTarget));
-                _currentTarget = null;
-                break;
-        }
-    } 
     
-    //debug the collider range with Gizmos with offset
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere((Vector2) transform.position + _circleCollider2D.offset, _attackRange);
-    }
-
     public bool isBeingPicked { get; set; }
+    
+    public void TakeDamage(float damage)
+    {
+        _hpBar.TakeDamage(damage/_health);
+        _health -= damage;
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
 
 //inspector code

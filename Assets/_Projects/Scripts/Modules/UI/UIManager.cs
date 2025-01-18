@@ -12,6 +12,7 @@ public class UIManager : Singleton<UIManager>, IMessageHandle
     public UIScreenPauseGame UIScreenPauseGame;
     public UIScreenSettings UIScreenSettings;
     public UIScreenTitle UIScreenTitle;
+    public UIScreenGameOver UIScreenGameOver;
     //game pauseScreen, 
     
     //when the GameManager.OnSceneLoad triggerd turn on UIHUD
@@ -20,12 +21,16 @@ public class UIManager : Singleton<UIManager>, IMessageHandle
         SceneManager.sceneLoaded += OnSceneLoaded;
         
         MessageManager.Instance.AddSubcriber(NamMessageType.OnDataChanged, this);
+        MessageManager.Instance.AddSubcriber(NamMessageType.OnGameLose, this);
+        MessageManager.Instance.AddSubcriber(NamMessageType.OnGameWin, this);
         UIScreenTitle.Show();
     }
 
     private void OnDisable()
     {
         MessageManager.Instance.RemoveSubcriber(NamMessageType.OnDataChanged, this);
+        MessageManager.Instance.RemoveSubcriber(NamMessageType.OnGameLose, this);
+        MessageManager.Instance.RemoveSubcriber(NamMessageType.OnGameWin, this);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -43,17 +48,6 @@ public class UIManager : Singleton<UIManager>, IMessageHandle
         }
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Handle(Message message)
     {
         switch (message.type)
@@ -61,6 +55,13 @@ public class UIManager : Singleton<UIManager>, IMessageHandle
             case NamMessageType.OnDataChanged:
                 UIScreenHUD.UpdateUI();
                 break;
+            case NamMessageType.OnGameLose:
+                UIScreenGameOver.Show(false);
+                break;
+            case NamMessageType.OnGameWin:
+                UIScreenGameOver.Show(true);
+                break;
+            
         }
     }
 }

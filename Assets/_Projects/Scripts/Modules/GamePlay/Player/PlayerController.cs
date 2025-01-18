@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private Animator _animator;
 
-    [Header("Stats")] 
+    [Header("Stats")]
     [SerializeField] private Vector2 _direction;
     
     void Start()

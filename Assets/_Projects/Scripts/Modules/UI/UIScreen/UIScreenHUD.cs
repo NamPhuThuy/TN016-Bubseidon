@@ -15,6 +15,7 @@ public class UIScreenHUD : UIScreenBase
     [Header("Information")]
     [SerializeField] private TextMeshProUGUI _coinText;
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private Slider _hpSlider;
     
     [Header("TowerShop")]
     [SerializeField] private TowerDatas _towerDatas;
@@ -74,5 +75,6 @@ public class UIScreenHUD : UIScreenBase
     {
         _coinText.text = $"{DataManager.Instance.PlayerData.coin}";
         _scoreText.text = $"{DataManager.Instance.PlayerData.score}";
+        _hpSlider.value = DataManager.Instance.PlayerData.currentHP / DataManager.Instance.PlayerData.baseHP;
     }
 }
