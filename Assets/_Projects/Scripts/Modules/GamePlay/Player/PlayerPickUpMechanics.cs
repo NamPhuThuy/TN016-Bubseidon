@@ -77,12 +77,6 @@ public class PlayerPickUpMechanics : MonoBehaviour
         _currentPickupObject = hit;
         _currentPickupObject.transform.SetParent(gameObject.transform);
         _currentPickupObject.transform.position = _hand.position;
-
-        var collider = _currentPickupObject.GetComponent<Collider2D>();
-        if (collider != null)
-        {
-            collider.enabled = false;
-        }
         
         switch (_currentPickupObject.tag)
         {
