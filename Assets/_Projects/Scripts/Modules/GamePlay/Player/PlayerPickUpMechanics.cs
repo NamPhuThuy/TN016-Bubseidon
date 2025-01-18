@@ -13,18 +13,24 @@ public class PlayerPickUpMechanics : MonoBehaviour
     private Camera _mainCamera;
     
     [Header("Stats")]
-    public float sqrRadiusToPick = 49f;//The radius to pick the tower
+    public float sqrRadiusToPick = 4f;//The radius to pick the tower
     public Vector3 mousePos;
     public Vector3Int positionInt;//The position of the tilemap to put on
+    [SerializeField] private BoundsInt _bounds;
 
     [SerializeField] private GameObject _currentPickupObject;
     [SerializeField] private Transform _hand;
     [SerializeField] private SoapController _soapDisplay;
+    [SerializeField] private GameObject _putTile;
 
     private bool _onHand = false;
     void Start()
     {
         _mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        _bounds.xMin = -9;
+        _bounds.xMax = 9;
+        _bounds.yMin = -5;
+        _bounds.yMax = 5;
     }
 
     private void Update()
@@ -32,10 +38,19 @@ public class PlayerPickUpMechanics : MonoBehaviour
         mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         positionInt = GamePlayManager.Instance._map.WorldToCell(mousePos);
 
-        if (_onHand && _currentPickupObject == null)
+        if (_onHand)
         {
-            _onHand = false;
-            _soapDisplay.PickUp(false);
+            if (_currentPickupObject == null)
+            {
+                _onHand = false;
+                _soapDisplay.PickUp(false);
+            }
+            else
+            {
+                float angle = MouseAngle();
+                Vector3Int pos = GetPutTilePosition(angle);
+                _putTile.transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);
+            }
         }
         
         if (Input.GetMouseButtonDown(0) && !_soapDisplay.Alert && _currentPickupObject == null)
@@ -57,11 +72,8 @@ public class PlayerPickUpMechanics : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1) && _currentPickupObject != null)
         {
-            if(Vector2.SqrMagnitude(positionInt - gameObject.transform.position) < sqrRadiusToPick)
-            {
-                _onHand = false;
-                DropObject(positionInt);
-            }
+            _onHand = false;
+            DropObject(GamePlayManager.Instance._map.WorldToCell(_putTile.transform.position));
         }
  
         if(_selector !=null)
@@ -70,8 +82,69 @@ public class PlayerPickUpMechanics : MonoBehaviour
         }
     }
 
+    private float MouseAngle()
+    {
+        Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        
+        Vector3 playerPosition = transform.position;
+        
+        Vector3 direction = mousePosition - playerPosition;
+        
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        Debug.Log($"Angle: {angle}"); 
+        
+        return angle;
+    }
+
+    private Vector3Int GetPutTilePosition(float angle)
+    {
+        Vector3Int pos = GamePlayManager.Instance._map.WorldToCell(transform.position);
+        if(angle > -22.5f && angle <= 22.5f)
+        {
+            pos += new Vector3Int(1, 0, 0);
+        }
+        else if(angle > 22.5f && angle <= 67.5f)
+        {
+            pos += new Vector3Int(1, 1, 0);
+        }
+        else if (angle > 67.5f && angle <= 112.5f)
+        {
+            pos += new Vector3Int(0, 1, 0);
+        }
+        else if (angle > 112.5f && angle <= 157.5f)
+        {
+            pos += new Vector3Int(-1, 1, 0);
+        }
+        else if (angle > 157.5f || angle <= -157.5f)
+        {
+            pos += new Vector3Int(-1, 0, 0);
+        }
+        else if (angle > -157.5f && angle <= -112.5f)
+        {
+            pos += new Vector3Int(-1, -1, 0);
+        }
+        else if (angle > -112.5f && angle <= -67.5f)
+        {
+            pos += new Vector3Int(0, -1, 0);
+        }
+        else if (angle > -67.5f && angle <= -22.5f)
+        {
+            pos += new Vector3Int(1, -1, 0);
+        }
+
+        if(pos.x < _bounds.xMin) pos.x = _bounds.xMin;
+        else if(pos.x >= _bounds.xMax - 1) pos.x = _bounds.xMax - 1;
+        if(pos.y < _bounds.yMin) pos.y = _bounds.yMin;
+        else if(pos.y >= _bounds.yMax - 1) pos.y = _bounds.yMax - 1;
+        
+        return pos;
+    }
+
     private void PickUpObject(GameObject hit)
     {
+        _putTile.SetActive(true);
+        
         _soapDisplay.gameObject.SetActive(true);
         _soapDisplay.PickUp(true);
 
@@ -90,6 +163,8 @@ public class PlayerPickUpMechanics : MonoBehaviour
 
     public void DropObject(Vector3Int pos)
     {
+        _putTile.SetActive(false);
+        
         _currentPickupObject.transform.SetParent(null);
         _currentPickupObject.transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);
         _currentPickupObject.GetComponent<Collider2D>().excludeLayers = LayerMaskHelper.Nothing();

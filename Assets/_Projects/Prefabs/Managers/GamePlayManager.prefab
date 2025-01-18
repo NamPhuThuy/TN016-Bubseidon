@@ -180,11 +180,11 @@ MonoBehaviour:
   _spawnP1: {fileID: 7806468078909154078}
   _spawnP2: {fileID: 6589473639474585023}
   _endP1: {fileID: 7816642076121899416}
+  _enemyParent: {fileID: 5901735683876388307}
   _wave: 0
   waveCompleted: 0
   _enemyPrefab: {fileID: 443689909967443996, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
   _levelDesignData: {fileID: 11400000, guid: 71ae3b1b8dfcef04bb3ad84d7f599272, type: 2}
-  _enemyParent: {fileID: 464417297773609698}
   _spawnInterval: 2
 --- !u!1 &4431844171990255065
 GameObject:

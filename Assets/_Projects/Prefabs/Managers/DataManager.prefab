@@ -44,7 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8f8e7c2612f2647a038347512cbafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameData:
-    highScore: 0
+  PlayerData:
     score: 0
-    level: 0
+    coin: 0
+    currentWave: 0
+    wave: 0
+    baseHP: 10
+    currentHP: 10
+  LevelDesignData: {fileID: 11400000, guid: 71ae3b1b8dfcef04bb3ad84d7f599272, type: 2}
+  TowerDatas: {fileID: 11400000, guid: 4e152d8c01ea9e4408db7cf96e21466e, type: 2}
