@@ -303,7 +303,7 @@ public class EnemyController : MonoBehaviour, IPickupable
         _health -= damage;
         if (_health <= 0)
         {
-            _moveSpeed=0f;
+            _moveSpeed = 0f;
             Destroy(gameObject,2f);
         }
     }

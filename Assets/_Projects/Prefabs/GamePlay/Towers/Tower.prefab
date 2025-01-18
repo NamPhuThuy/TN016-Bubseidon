@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4135270838787918861}
   - component: {fileID: 4488525582613261478}
   - component: {fileID: 3171914651838413199}
+  - component: {fileID: 1113850513851345715}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -104,7 +105,10 @@ MonoBehaviour:
   _damage: 5
   _health: 10
   _attackInterval: 1
+  isExplosive: 0
   _projectilePrefab: {fileID: 278587759177289816, guid: 6b28790c88e456b4caa6dd28b503b8e2, type: 3}
+  _explodePrefab: {fileID: 0}
+  _circleCollider2D: {fileID: 0}
   _transform: {fileID: 0}
   _hpBar: {fileID: 342830778635690497}
 --- !u!61 &3171914651838413199
@@ -152,6 +156,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1113850513851345715
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262013921206948042}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &5370383454668682534
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +239,7 @@ GameObject:
   - component: {fileID: 2451654915641793772}
   - component: {fileID: 3712608057848140774}
   - component: {fileID: 3235832210992367884}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +363,6 @@ MonoBehaviour:
   _tower: {fileID: 0}
   _attackRange: 1.5
   _circleCollider2D: {fileID: 3712608057848140774}
-  _currentTarget: {fileID: 0}
 --- !u!1001 &1971489278083382850
 PrefabInstance:
   m_ObjectHideFlags: 0
