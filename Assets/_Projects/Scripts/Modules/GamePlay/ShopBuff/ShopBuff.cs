@@ -14,7 +14,7 @@ public class ShopBuff : MonoBehaviour
     private float costIncsRate = 1.5f;
     private int baseRerollCost = 10;
     private int rerollNumber=0;//how many time reroll
-    public int gold=999;
+    // public int gold=999;
     private void Start() {
         listItemView[0].btn.onClick.AddListener(()=>chooseABuff(0));
         listItemView[1].btn.onClick.AddListener(()=>chooseABuff(1));
@@ -37,19 +37,19 @@ public class ShopBuff : MonoBehaviour
     }
     public void reroll(){
         int cost = getCostReroll();
-        if(gold>cost){
+        if(DataManager.Instance.PlayerData.coin >cost){
             rerollNumber++;
-            gold-=cost;
+            DataManager.Instance.PlayerData.coin-=cost;
             randomAllBuff();
         }
         reloadShow();
     }
     public void chooseABuff(int index){
         int cost = getCostABuff(index);
-        if(gold>cost){
+        if(DataManager.Instance.PlayerData.coin>cost){
             currentBuff[index].Active();
             currentBuff[index].boughtNums++;
-            gold-=cost;
+            DataManager.Instance.PlayerData.coin-=cost;
             randomABuff(index);
         }
         reloadShow();

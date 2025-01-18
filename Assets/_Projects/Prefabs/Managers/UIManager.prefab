@@ -1260,6 +1260,54 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4433108736129728526, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433108736129728526, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433108736129728526, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433108736129728526, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433108736129728526, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433108736129728526, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707596163590262402, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707596163590262402, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707596163590262402, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707596163590262402, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707596163590262402, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707596163590262402, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7983487729624669802, guid: f8aa5468d446412468a4be6497a85a89, type: 3}
       propertyPath: m_Name
       value: UIShopBuff
