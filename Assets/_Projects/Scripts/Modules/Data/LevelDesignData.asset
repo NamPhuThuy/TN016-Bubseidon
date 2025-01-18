@@ -18,13 +18,13 @@ MonoBehaviour:
     waveDuration: 30
     spawnInterval: 2
     enemyList:
-    - {fileID: 341350980979872305, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
+    - {fileID: 3480175803636499273, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
     enemyCountList: 04000000
   - waveId: 1
     waveDelay: 2
     waveDuration: 30
     spawnInterval: 2
     enemyList:
-    - {fileID: 341350980979872305, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
-    - {fileID: 2075841773710191401, guid: ed72638ec126dd346a08a27890fd1f55, type: 3}
+    - {fileID: 3480175803636499273, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
+    - {fileID: 2964728532258375210, guid: 84a0e568a2c78214f8b8683bed28d6c4, type: 3}
     enemyCountList: 0800000003000000
