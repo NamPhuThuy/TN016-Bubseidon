@@ -12,6 +12,13 @@ public class EnemyController : MonoBehaviour, IPickupable
     public Vector3Int _startPos;
     public Vector3Int _endPos;
     [SerializeField] private float _health = 50f;
+
+    public float Health
+    {
+        get => _health;
+        private set => _health = value;
+    }
+    
     [SerializeField] public float _damage = 1f;
     
     [Header("Components")]
@@ -32,8 +39,10 @@ public class EnemyController : MonoBehaviour, IPickupable
     private TowerController _triggerTower;
     private ObstacleController _triggerObs;
     
+    
     [Header("Die-rewards")]
     [SerializeField] private CoinController _coinController;
+    private bool _isSpawnCoin = false;
     
     [Header("AnimClip name")]
     private string _dieAnimString = "ded";
@@ -369,7 +378,11 @@ public class EnemyController : MonoBehaviour, IPickupable
     {
         //_spriteRenderer.enabled = false;
         _animator.Play(_dieAnimString);
-        Instantiate(_coinController, _transform.position, Quaternion.identity);
+        if (!_isSpawnCoin)
+        {
+            Instantiate(_coinController, _transform.position, Quaternion.identity);
+            _isSpawnCoin = true;
+        }
         Destroy(gameObject, 1f);
     }
     

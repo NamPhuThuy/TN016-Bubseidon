@@ -68,6 +68,12 @@ public class TowerController : MonoBehaviour, IPickupable
                 _currentTarget = null;
                 return;
             }
+
+            if (_currentTarget.Health <= 0f)
+            {
+                _currentTarget = null;
+                return;
+            }
             Attack(_currentTarget);
         }
     }

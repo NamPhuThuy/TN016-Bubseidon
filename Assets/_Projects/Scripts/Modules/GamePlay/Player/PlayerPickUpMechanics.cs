@@ -27,6 +27,9 @@ public class PlayerPickUpMechanics : MonoBehaviour
     [SerializeField] private AudioClip _makeBubbleSound;
     [SerializeField] private AudioClip _bubblePopSound;
 
+    [Header("Pickup Mechanics")] 
+    [SerializeField] private GameObject _splashWater;
+
     private bool _onHand = false;
     void Start()
     {
@@ -174,6 +177,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
         
         StartCoroutine(_soapDisplay.PickUp(false));
         TurnOnBubblePopSFX();
+        _splashWater.SetActive(true);
         
         _currentPickupObject.transform.SetParent(null);
         _currentPickupObject.transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);

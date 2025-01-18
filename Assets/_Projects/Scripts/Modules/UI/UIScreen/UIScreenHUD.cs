@@ -5,12 +5,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UIScreenHUD : UIScreenBase
 {
     [Header("Buttons")] 
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _towerShopButton;
+    [SerializeField] private Button _instantBuyTowerButton;
+
+    [SerializeField] private List<GameObject> _buildingItems;
     
     [Header("Information")]
     [SerializeField] private TextMeshProUGUI _coinText;
@@ -20,6 +24,8 @@ public class UIScreenHUD : UIScreenBase
     [Header("TowerShop")]
     [SerializeField] private TowerDatas _towerDatas;
     [SerializeField] private TowerShopScrollView _towerShopScrollView;
+    private int _coinToBuy = 10;
+    [SerializeField] private TextMeshProUGUI _towerPriceText;
     
     
 
@@ -27,6 +33,22 @@ public class UIScreenHUD : UIScreenBase
     {
         _pauseButton.onClick.AddListener(OnPauseClick);
         _towerShopButton.onClick.AddListener(OnTowerShopClick);
+        _instantBuyTowerButton.onClick.AddListener(OnInstantBuyTowerClick);
+    }
+
+    private void OnInstantBuyTowerClick()
+    {
+        if (DataManager.Instance.Coin >= _coinToBuy)
+        {
+            //mua
+            int rand = Random.Range(0, _buildingItems.Count);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            
+            Instantiate(_buildingItems[rand], player.transform.position, Quaternion.identity);
+            DataManager.Instance.Coin -= _coinToBuy;
+            _coinToBuy++;
+            _towerPriceText.text = "" + _coinToBuy;
+        }
     }
 
     private void OnEnable()
