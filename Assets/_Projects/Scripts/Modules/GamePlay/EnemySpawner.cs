@@ -71,7 +71,6 @@ public class EnemySpawner : MonoBehaviour
                 break;
             }
             elapsed += Time.deltaTime;
-            Debug.Log($"Wave Timer: {elapsed}/{waveDuration}");
             yield return null;
         }
         waveCompleted = true;

@@ -9,6 +9,7 @@ public class TowerController : MonoBehaviour, IPickupable
     [Header("Stats")] 
     [SerializeField] private float _attackRange = 1.5f;
     [SerializeField] private float _damage = 5f;
+    [SerializeField] private float _health = 100f;
     [SerializeField] private float _attackInterval = 1f;
     
     [Header("GamePlay Information")]
