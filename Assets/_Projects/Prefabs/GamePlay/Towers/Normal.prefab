@@ -69,20 +69,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7930678716933577071}
     - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: _damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: _health
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: _shootAudio
       value: 
-      objectReference: {fileID: 8300000, guid: 858e99fb8e2725243aebe465f39ab75f, type: 3}
+      objectReference: {fileID: 8300000, guid: 23b8d3331d41ac24584219b9fba3df86, type: 3}
     - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: _destroyAudio
       value: 
       objectReference: {fileID: 8300000, guid: a781915d3ecf1104db34467371844d4c, type: 3}
     - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: _attackInterval
-      value: 0.7
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5262013921206948042, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: m_Name

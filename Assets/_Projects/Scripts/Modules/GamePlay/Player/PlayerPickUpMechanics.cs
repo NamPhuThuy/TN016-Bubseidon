@@ -25,6 +25,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
     
     [Header("Audios")]
     [SerializeField] private AudioClip _makeBubbleSound;
+    [SerializeField] private AudioClip _bubblePopSound;
 
     private bool _onHand = false;
     void Start()
@@ -171,19 +172,26 @@ public class PlayerPickUpMechanics : MonoBehaviour
     {
         _putTile.SetActive(false);
         
+        StartCoroutine(_soapDisplay.PickUp(false));
+        TurnOnBubblePopSFX();
+        
         _currentPickupObject.transform.SetParent(null);
         _currentPickupObject.transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);
         _currentPickupObject.GetComponent<Collider2D>().excludeLayers = LayerMaskHelper.Nothing();
-                
+        
         switch (_currentPickupObject.tag)
         {
             case "Enemy":
                 _currentPickupObject.GetComponent<EnemyController>().BackToPath(GamePlayManager.Instance._map.WorldToCell(_currentPickupObject.transform.position));
                 break;
         }
-                
-        _soapDisplay.PickUp(false);
+        
         _currentPickupObject = null;
+    }
+
+    private void TurnOnBubblePopSFX()
+    {
+        AudioManager.Instance.PlaySfx(_bubblePopSound);
     }
     
     //Test xem có trên tilemap nào ko

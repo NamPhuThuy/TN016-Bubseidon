@@ -65,6 +65,7 @@ public class SoapController : MonoBehaviour
                 PlayerPickUpMechanics playerPickUp = player.GetComponent<PlayerPickUpMechanics>();
                 Vector3 pos = new Vector3(_bubble.transform.position.x, player.position.y, _bubble.transform.position.z);
                 playerPickUp.DropObject(GamePlayManager.Instance._map.WorldToCell(pos));
+                
             }
         }
         else
@@ -88,7 +89,7 @@ public class SoapController : MonoBehaviour
         }
     }
 
-    public void PickUp(bool check)
+    public IEnumerator PickUp(bool check)
     {
         if (check)
         {
@@ -98,7 +99,11 @@ public class SoapController : MonoBehaviour
         else
         {
             _pickingUp = false;
+            _animator.Play("ded");
+            yield return new WaitForSeconds(0.8f);
             _bubble.SetActive(false);
+            
         }
+        yield return null;
     }
 }

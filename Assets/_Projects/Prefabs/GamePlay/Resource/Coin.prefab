@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec1bd35a251d7b4cb4e54b16b363fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectSound: {fileID: 8300000, guid: cf33e7644e8c8af44bccc9ada593b7f7, type: 3}
+  _collectSound: {fileID: 8300000, guid: ea747f416ebac1946a56733c6390a020, type: 3}
   _spriteRenderer: {fileID: 1693142218005024932}
   _collider2D: {fileID: 0}
 --- !u!58 &4801944861415424547

@@ -396,6 +396,10 @@ PrefabInstance:
       propertyPath: _putTile
       value: 
       objectReference: {fileID: 6575082388099970491}
+    - target: {fileID: 80295674400288403, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
+      propertyPath: _bubblePopSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e155727d06136ca47b8cd1150dd1a03d, type: 3}
     - target: {fileID: 321676086611564535, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
       propertyPath: _animator
       value: 
@@ -410,11 +414,11 @@ PrefabInstance:
       objectReference: {fileID: -1276225486226016351, guid: 3144cfee948aef6499734e3a63aca322, type: 3}
     - target: {fileID: 2646802893641485743, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 2646802893641485743, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.09
+      value: 1.46
       objectReference: {fileID: 0}
     - target: {fileID: 2700442812533987091, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
       propertyPath: _animator
@@ -478,11 +482,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7609730651978454287, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.04
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 7609730651978454287, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09
+      value: 1.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
