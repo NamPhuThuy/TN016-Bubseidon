@@ -110,13 +110,13 @@ public class EnemyController : MonoBehaviour, IPickupable
             
             Vector3 targetPosition = _tilemap.GetCellCenterWorld(nextTile);
             
-            while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+            while (Vector3.Distance(_transform.position, targetPosition) > 0.01f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, _moveSpeed * Time.deltaTime);
+                _transform.position = Vector3.MoveTowards(_transform.position, targetPosition, _moveSpeed * Time.deltaTime);
                 yield return null;
             }
             
-            transform.position = targetPosition;
+            _transform.position = targetPosition;
 
             yield return null;
         }
