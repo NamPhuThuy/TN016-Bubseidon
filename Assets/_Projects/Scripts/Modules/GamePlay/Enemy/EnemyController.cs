@@ -318,7 +318,7 @@ public class EnemyController : MonoBehaviour, IPickupable
     public void DealDamageToPlayer()
     {
         DataManager.Instance.CurrentHP -= _damage;
-        Die();
+        Destroy(gameObject);
     }
     
     private void OnCollisionEnter2D(Collision2D other)
