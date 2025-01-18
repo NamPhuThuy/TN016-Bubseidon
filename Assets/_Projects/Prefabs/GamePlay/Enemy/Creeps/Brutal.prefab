@@ -106,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: _health
-      value: 65
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: _moveSpeed
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7788125785868382395, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: m_Name

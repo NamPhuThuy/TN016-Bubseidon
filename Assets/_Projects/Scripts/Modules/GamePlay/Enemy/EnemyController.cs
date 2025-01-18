@@ -12,6 +12,13 @@ public class EnemyController : MonoBehaviour, IPickupable
     public Vector3Int _startPos;
     public Vector3Int _endPos;
     [SerializeField] private float _health = 50f;
+
+    public float Health
+    {
+        get => _health;
+        private set => _health = value;
+    }
+    
     [SerializeField] public float _damage = 1f;
     
     [Header("Components")]
