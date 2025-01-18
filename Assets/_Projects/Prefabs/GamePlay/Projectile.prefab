@@ -99,4 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _speed: 1
-  damage: 0
+  damage: 1
+  multipleEnemy: 0

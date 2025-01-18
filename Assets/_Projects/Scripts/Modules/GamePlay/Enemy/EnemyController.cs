@@ -9,9 +9,11 @@ public class EnemyController : MonoBehaviour, IPickupable
 {
     [Header("Stats")]
     [SerializeField] private float _moveSpeed = 1f;
-    [SerializeField] private float _health;
-    [SerializeField] private int _damage;
+    
+    [SerializeField] private float _health = 50f;
+    [SerializeField] public float _damage = 1f;
     [SerializeField] private Transform _transform;
+    [SerializeField] private HPBarController _hpBar;
 
     public Vector3Int _startPos;
     public Vector3Int _endPos;
@@ -19,6 +21,10 @@ public class EnemyController : MonoBehaviour, IPickupable
     [SerializeField] private Tilemap _tilemap;
     private List<Vector3Int> _directions;
     private Coroutine _enemyMoveCoroutine;
+    private bool _isTriggerTower = false;
+    private float _damageCooldown = 1f;
+    private float _damageTimer = 0f;
+    private TowerController _triggerTower;
     
     [Header("Die-rewards")]
     [SerializeField] private CoinController _coinController;
@@ -32,7 +38,23 @@ public class EnemyController : MonoBehaviour, IPickupable
         FindNewPath(_startPos);
     }
     
-    
+    private void Update()
+    {
+        if (_isTriggerTower && _triggerTower != null)
+        {
+            _damageTimer += Time.deltaTime;
+
+            if (_damageTimer >= _damageCooldown)
+            {
+                DealDamageToTower(_triggerTower);
+                _damageTimer = 0f;
+            }
+        }
+        else
+        {
+            _damageTimer = 0f;
+        }
+    }
 
     private void OnEnable()
     {
@@ -41,7 +63,6 @@ public class EnemyController : MonoBehaviour, IPickupable
         //Retrieve 
         _tilemap = GamePlayManager.Instance._map;
         _transform = transform;
-        
         
         _directions = new List<Vector3Int>(){ new Vector3Int(0, 1, 0), 
             new Vector3Int(0, -1, 0), 
@@ -121,11 +142,48 @@ public class EnemyController : MonoBehaviour, IPickupable
             yield return null;
         }
 
-        Debug.Log("Ve dich");
+        DealDamageToPlayer();
     }
+
+    public void DealDamageToPlayer()
+    {
+        DataManager.Instance.PlayerData.currentHP -= _damage;
+        Destroy(gameObject);
+    }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.tag);
+        switch (other.gameObject.tag)
+        {
+            case "Tower":
+                _isTriggerTower = true;
+                _triggerTower = other.transform.GetComponent<TowerController>();
+                break;
+        }
+    }
+    
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.tag);
+        switch (other.gameObject.tag)
+        {
+            case "Tower":
+                _isTriggerTower = false;
+                _triggerTower = null;
+                break;
+        }
+    }
+
+    private void DealDamageToTower(TowerController tower)
+    {
+        tower.TakeDamage(_damage);
+    }
+    
     //Receving damage
     public void TakeDamage(float damage)
     {
+        _hpBar.TakeDamage(damage/_health);
         _health -= damage;
         if (_health <= 0)
         {

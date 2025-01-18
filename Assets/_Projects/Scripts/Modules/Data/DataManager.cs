@@ -36,6 +36,28 @@ public class DataManager : MonoBehaviour, IMessageHandle
             SaveData();
         }
     }
+
+    public float BaseHP
+    {
+        get => PlayerData.baseHP;
+        set
+        {
+            PlayerData.baseHP = value;
+            MessageManager.Instance.SendMessage(new Message(NamMessageType.OnDataChanged));
+            SaveData();
+        }
+    }
+    
+    public float CurrentHP
+    {
+        get => PlayerData.baseHP;
+        set
+        {
+            PlayerData.currentHP = value;
+            MessageManager.Instance.SendMessage(new Message(NamMessageType.OnDataChanged));
+            SaveData();
+        }
+    }
     
     void Start()
     {
@@ -67,7 +89,8 @@ public class DataManager : MonoBehaviour, IMessageHandle
         PlayerPrefs.SetInt("Score", 0);
         PlayerPrefs.SetInt("Wave", 0);
         PlayerPrefs.SetInt("Coin", 0);
-        PlayerPrefs.SetInt("BaseHP", 0);
+        PlayerPrefs.SetInt("BaseHP", 10);
+        PlayerPrefs.SetInt("CurrentHP", 10);
         PlayerPrefs.Save();
     }
     
@@ -76,7 +99,8 @@ public class DataManager : MonoBehaviour, IMessageHandle
         PlayerData.score = PlayerPrefs.GetInt("Score", 0);
         PlayerData.currentWave = PlayerPrefs.GetInt("Wave", 0);
         PlayerData.coin = PlayerPrefs.GetInt("Coin", 0);
-        PlayerData.baseHP = PlayerPrefs.GetInt("BaseHP", 0);
+        PlayerData.baseHP = PlayerPrefs.GetInt("BaseHP", 10);
+        PlayerData.baseHP = PlayerPrefs.GetInt("CurrentHP", 10);
     }
     
     public void SaveData()
@@ -84,7 +108,8 @@ public class DataManager : MonoBehaviour, IMessageHandle
         PlayerPrefs.SetInt("Score", PlayerData.score);
         PlayerPrefs.SetInt("Wave", PlayerData.currentWave);
         PlayerPrefs.SetInt("Coin", PlayerData.coin);
-        PlayerPrefs.SetInt("BaseHP", PlayerData.baseHP);
+        PlayerPrefs.SetFloat("BaseHP", PlayerData.baseHP);
+        PlayerPrefs.SetFloat("CurrentHP", PlayerData.currentHP);
         PlayerPrefs.Save();
     }
     
