@@ -32,21 +32,26 @@ public class PlayerController : MonoBehaviour
         //handle direction
         if (_direction.x > 0)
         {
+            _animator.Play("Run");
             transform.GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (_direction.x < 0)
         {
+            _animator.Play("Run");
             transform.GetComponent<SpriteRenderer>().flipX = true;
         }
-        
-        //handle animations
-        if (_direction.x != 0 ||  _direction.y != 0)
+        else if(_direction.y<0)
         {
-            _animator.Play("run");
+            GetComponent<Animator>().Play("Run front");
         }
-        else
+        else if(_direction.y>0)
         {
-            _animator.Play("idle");
+            GetComponent<Animator>().Play("run back");
+        }
+        //handle animations
+        if (_direction.x == 0 &&  _direction.y == 0)
+        {
+            _animator.Play("Idle");
         }
         
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4135270838787918861}
   - component: {fileID: 4488525582613261478}
   - component: {fileID: 3171914651838413199}
+  - component: {fileID: 4186780362720068035}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.2457, y: 0.0384, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6431301990446250811}
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: -778059839
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.042452812, g: 0.68922585, b: 1, a: 1}
+  m_Sprite: {fileID: 1944361207461426906, guid: eea76a1aea31a5b488dd872818977384, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,9 +105,13 @@ MonoBehaviour:
   _damage: 5
   _health: 10
   _attackInterval: 1
+  isExplosive: 0
   _projectilePrefab: {fileID: 278587759177289816, guid: 6b28790c88e456b4caa6dd28b503b8e2, type: 3}
+  _explodePrefab: {fileID: 0}
+  _circleCollider2D: {fileID: 0}
   _transform: {fileID: 0}
   _hpBar: {fileID: 342830778635690497}
+  _animator: {fileID: 0}
 --- !u!61 &3171914651838413199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,19 +144,40 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.009080872, y: 0.17919642}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5333333, y: 0}
+    oldSize: {x: 0.15, y: 0.36}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16092467, y: 0.37523395}
   m_EdgeRadius: 0
+--- !u!95 &4186780362720068035
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262013921206948042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -2409463951883459278, guid: eea76a1aea31a5b488dd872818977384, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5370383454668682534
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,9 +340,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.018360615, y: 0.009180307}
+  m_Offset: {x: -0.0044794083, y: 0.009180307}
   serializedVersion: 2
-  m_Radius: 1.1671028
+  m_Radius: 0.5001831
 --- !u!114 &3235832210992367884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +358,6 @@ MonoBehaviour:
   _tower: {fileID: 0}
   _attackRange: 1.5
   _circleCollider2D: {fileID: 3712608057848140774}
-  _currentTarget: {fileID: 0}
 --- !u!1001 &1971489278083382850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342,12 +367,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 785016022354703200}
     m_Modifications:
     - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.716
+      value: -0.101
       objectReference: {fileID: 0}
     - target: {fileID: 263929956130299313, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
       propertyPath: m_LocalPosition.z

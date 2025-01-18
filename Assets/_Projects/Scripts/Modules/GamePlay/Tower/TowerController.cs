@@ -17,8 +17,12 @@ public class TowerController : MonoBehaviour, IPickupable
     [SerializeField] private CircleCollider2D _circleCollider2D;
     [SerializeField] private Transform _transform;
     [SerializeField] private HPBarController _hpBar;
+    [SerializeField] private Animator _animator;
         
-    
+    void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
     private void OnEnable()
     {
         GamePlayManager.Instance.AddTower(this);
@@ -71,8 +75,14 @@ public class TowerController : MonoBehaviour, IPickupable
         _health -= damage;
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Dead());
         }
+    }
+    IEnumerator Dead()
+    {
+        _animator.Play("broke");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }
 

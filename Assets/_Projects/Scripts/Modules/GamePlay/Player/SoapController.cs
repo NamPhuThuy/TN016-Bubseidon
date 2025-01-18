@@ -9,7 +9,7 @@ public class SoapController : MonoBehaviour
     [SerializeField] private Transform _limitBar;
     [SerializeField] private float _soapDecreaseSpeed = 0.5f;
     [SerializeField] private float _soapIncreaseSpeed = 0.3f;
-    
+    [SerializeField]private Animator _animator;
     private Transform _transform;
 
     private float _maxSoap;
@@ -20,11 +20,11 @@ public class SoapController : MonoBehaviour
     {
         get => _alert;
     }
-    
     [SerializeField] private bool _pickingUp = true;
 
     void OnEnable()
     {
+        _animator.Play("Idle");
         _pickingUp = true;
         _bubble.SetActive(true);
     }

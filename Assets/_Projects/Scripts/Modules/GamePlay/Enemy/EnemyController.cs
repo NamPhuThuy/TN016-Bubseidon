@@ -9,11 +9,9 @@ public class EnemyController : MonoBehaviour, IPickupable
 {
     [Header("Stats")]
     [SerializeField] private float _moveSpeed = 1f;
-    
-    [SerializeField] private float _health = 50f;
-    [SerializeField] public float _damage = 1f;
+    [SerializeField] private float _health;
+    [SerializeField] private int _damage;
     [SerializeField] private Transform _transform;
-    [SerializeField] private HPBarController _hpBar;
 
     public Vector3Int _startPos;
     public Vector3Int _endPos;
@@ -21,10 +19,6 @@ public class EnemyController : MonoBehaviour, IPickupable
     [SerializeField] private Tilemap _tilemap;
     private List<Vector3Int> _directions;
     private Coroutine _enemyMoveCoroutine;
-    private bool _isTriggerTower = false;
-    private float _damageCooldown = 1f;
-    private float _damageTimer = 0f;
-    private TowerController _triggerTower;
     
     [Header("Die-rewards")]
     [SerializeField] private CoinController _coinController;
@@ -34,25 +28,7 @@ public class EnemyController : MonoBehaviour, IPickupable
         
         _coinController = GamePlayManager.Instance._coinController;
         // _transform.position = _tilemap.CellToWorld(_startPos);
-        FindNewPath(_startPos);
-    }
-    
-    private void Update()
-    {
-        if (_isTriggerTower && _triggerTower != null)
-        {
-            _damageTimer += Time.deltaTime;
-
-            if (_damageTimer >= _damageCooldown)
-            {
-                DealDamageToTower(_triggerTower);
-                _damageTimer = 0f;
-            }
-        }
-        else
-        {
-            _damageTimer = 0f;
-        }
+        FindNewPath(_startPos);     
     }
 
     private void OnEnable()
@@ -62,6 +38,7 @@ public class EnemyController : MonoBehaviour, IPickupable
         //Retrieve 
         _tilemap = GamePlayManager.Instance._map;
         _transform = transform;
+        
         
         _directions = new List<Vector3Int>(){ new Vector3Int(0, 1, 0), 
             new Vector3Int(0, -1, 0), 
@@ -109,7 +86,7 @@ public class EnemyController : MonoBehaviour, IPickupable
 
                 if (!visited.Contains(next) && _tilemap.HasTile(next))
                 {
-                    if (_tilemap.GetTile(next).name.ToLower().Contains("dirt"))
+                    if (_tilemap.GetTile(next).name.ToLower().Contains("maptile_4"))
                     {
                         visited.Add(next);
                         queue.Enqueue(next);
@@ -141,48 +118,11 @@ public class EnemyController : MonoBehaviour, IPickupable
             yield return null;
         }
 
-        DealDamageToPlayer();
+        Debug.Log("Ve dich");
     }
-
-    public void DealDamageToPlayer()
-    {
-        DataManager.Instance.PlayerData.currentHP -= _damage;
-        Destroy(gameObject);
-    }
-    
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log(other.gameObject.tag);
-        switch (other.gameObject.tag)
-        {
-            case "Tower":
-                _isTriggerTower = true;
-                _triggerTower = other.transform.GetComponent<TowerController>();
-                break;
-        }
-    }
-    
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        Debug.Log(other.gameObject.tag);
-        switch (other.gameObject.tag)
-        {
-            case "Tower":
-                _isTriggerTower = false;
-                _triggerTower = null;
-                break;
-        }
-    }
-
-    private void DealDamageToTower(TowerController tower)
-    {
-        tower.TakeDamage(_damage);
-    }
-    
     //Receving damage
     public void TakeDamage(float damage)
     {
-        _hpBar.TakeDamage(damage/_health);
         _health -= damage;
         if (_health <= 0)
         {
@@ -197,8 +137,8 @@ public class EnemyController : MonoBehaviour, IPickupable
     public void BackToPath(Vector3Int playerPosition)
     {
         _transform.position = _tilemap.GetCellCenterWorld(playerPosition);
-        
-        if (_tilemap.GetTile(playerPosition).name.ToLower().Contains("dirt"))
+        Debug.Log(_tilemap.GetTile(playerPosition).name.ToLower());
+        if (_tilemap.GetTile(playerPosition).name.ToLower().Contains("maptile_4"))
         {
             FindNewPath(playerPosition);
             return;
@@ -213,7 +153,7 @@ public class EnemyController : MonoBehaviour, IPickupable
             Vector3Int checkTile = new Vector3Int(playerPos.x - 1, playerPos.y, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("dirt"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -226,7 +166,7 @@ public class EnemyController : MonoBehaviour, IPickupable
             Vector3Int checkTile = new Vector3Int(playerPos.x + 1, playerPos.y, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("dirt"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -240,7 +180,7 @@ public class EnemyController : MonoBehaviour, IPickupable
             Vector3Int checkTile = new Vector3Int(playerPos.x, playerPos.y - 1, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("dirt"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"));
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -253,7 +193,7 @@ public class EnemyController : MonoBehaviour, IPickupable
             Vector3Int checkTile = new Vector3Int(playerPos.x, playerPos.y + 1, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("dirt"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
             {
                 checkTiles.Add(checkTile);
                 break;
