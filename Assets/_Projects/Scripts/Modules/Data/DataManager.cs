@@ -87,14 +87,14 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     
     public void LoadData()
     {
-        PlayerData.score = PlayerPrefs.GetInt("Score", 0);
-        PlayerData.coin = PlayerPrefs.GetInt("Coin", 0);
+        // PlayerData.score = PlayerPrefs.GetInt("Score", 0);
+        // PlayerData.coin = PlayerPrefs.GetInt("Coin", 0);
     }
     
     public void SaveData()
     {
-        PlayerPrefs.SetInt("Score", PlayerData.score);
-        PlayerPrefs.SetInt("Coin", PlayerData.coin);
+        // PlayerPrefs.SetInt("Score", PlayerData.score);
+        // PlayerPrefs.SetInt("Coin", PlayerData.coin);
         PlayerPrefs.Save();
     }
     
