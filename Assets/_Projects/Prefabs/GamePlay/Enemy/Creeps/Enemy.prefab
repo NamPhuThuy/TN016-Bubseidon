@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7754288952564311208}
   - component: {fileID: 1249771197477300224}
   - component: {fileID: 6454475542893902193}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,12 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 1
+  _startPos: {x: 0, y: 0, z: 0}
+  _endPos: {x: 0, y: 0, z: 0}
   _health: 50
   _damage: 1
   _transform: {fileID: 1914771708351893909}
   _hpBar: {fileID: 6311035743985454899}
-  _startPos: {x: 0, y: 0, z: 0}
-  _endPos: {x: 0, y: 0, z: 0}
   _tilemap: {fileID: 0}
   _coinController: {fileID: 0}
 --- !u!58 &1249771197477300224
@@ -219,9 +219,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1142612958369754837, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6999863487548231292, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
       propertyPath: m_Name
       value: HPBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999863487548231292, guid: aa1df13a9c0cc074c9293353669d7e83, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

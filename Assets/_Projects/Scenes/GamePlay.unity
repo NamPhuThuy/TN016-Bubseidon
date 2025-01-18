@@ -208,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7967450688420343328, guid: 97a7a8bd37c856b468d3b11d0dcd8aba, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -529,6 +529,10 @@ PrefabInstance:
     - target: {fileID: 4355786314104443103, guid: 0f0c17833cb0d644b9b9395db61e3025, type: 3}
       propertyPath: m_Name
       value: Explosive Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355786314104443103, guid: 0f0c17833cb0d644b9b9395db61e3025, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9191950961591350133, guid: 0f0c17833cb0d644b9b9395db61e3025, type: 3}
       propertyPath: m_LocalPosition.x

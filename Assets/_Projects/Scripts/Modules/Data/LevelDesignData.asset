@@ -16,10 +16,10 @@ MonoBehaviour:
   - waveId: 0
     waveDelay: 0
     waveDuration: 30
-    spawnInterval: 2
+    spawnInterval: 0.5
     enemyList:
     - {fileID: 3480175803636499273, guid: 7ad304f3a72a7e04aa4dbcdffd9a12fa, type: 3}
-    enemyCountList: 04000000
+    enemyCountList: 09000000
   - waveId: 1
     waveDelay: 2
     waveDuration: 30

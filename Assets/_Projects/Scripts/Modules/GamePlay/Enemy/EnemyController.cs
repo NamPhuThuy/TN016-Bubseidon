@@ -9,19 +9,21 @@ public class EnemyController : MonoBehaviour, IPickupable
 {
     [Header("Stats")]
     [SerializeField] private float _moveSpeed = 1f;
-    
+    public Vector3Int _startPos;
+    public Vector3Int _endPos;
     [SerializeField] private float _health = 50f;
     [SerializeField] public float _damage = 1f;
+    
+    [Header("Components")]
     [SerializeField] private Transform _transform;
     [SerializeField] private HPBarController _hpBar;
 
-    public Vector3Int _startPos;
-    public Vector3Int _endPos;
-
+    
+    [Header("Movement Handle")]
     [SerializeField] private Tilemap _tilemap;
     private List<Vector3Int> _directions;
     private Coroutine _enemyMoveCoroutine;
-    private bool _isTriggerTower = false;
+    
     private float _damageCooldown = 1f;
     private float _damageTimer = 0f;
     private TowerController _triggerTower;
@@ -31,15 +33,13 @@ public class EnemyController : MonoBehaviour, IPickupable
     
     private void Start()
     {
-        
         _coinController = GamePlayManager.Instance._coinController;
-        // _transform.position = _tilemap.CellToWorld(_startPos);
         FindNewPath(_startPos);
     }
     
     private void Update()
     {
-        if (_isTriggerTower && _triggerTower != null)
+        if (_triggerTower != null)
         {
             _damageTimer += Time.deltaTime;
 
@@ -49,12 +49,9 @@ public class EnemyController : MonoBehaviour, IPickupable
                 _damageTimer = 0f;
             }
         }
-        else
-        {
-            _damageTimer = 0f;
-        }
     }
 
+    #region MonoBehaviour methods
     private void OnEnable()
     {
         GamePlayManager.Instance.AddEnemy(this);
@@ -75,7 +72,10 @@ public class EnemyController : MonoBehaviour, IPickupable
         Instantiate(_coinController, _transform.position, Quaternion.identity);
         MessageManager.Instance.SendMessage(new Message(NamMessageType.OnEnemyDie));
     }
-    
+    #endregion
+
+    #region Path finding
+
     //co the toi uu hon bang A*
     private List<Vector3Int> BFS(Vector3Int start, Vector3Int end)
     {
@@ -142,57 +142,6 @@ public class EnemyController : MonoBehaviour, IPickupable
         }
 
         DealDamageToPlayer();
-    }
-
-    public void DealDamageToPlayer()
-    {
-        DataManager.Instance.PlayerData.currentHP -= _damage;
-        Destroy(gameObject);
-    }
-    
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log(other.gameObject.tag);
-        switch (other.gameObject.tag)
-        {
-            case "Tower":
-                _isTriggerTower = true;
-                _triggerTower = other.transform.GetComponent<TowerController>();
-                break;
-        }
-    }
-    
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        Debug.Log(other.gameObject.tag);
-        switch (other.gameObject.tag)
-        {
-            case "Tower":
-                _isTriggerTower = false;
-                _triggerTower = null;
-                break;
-        }
-    }
-
-    private void DealDamageToTower(TowerController tower)
-    {
-        tower.TakeDamage(_damage);
-    }
-    
-    //Receving damage
-    public void TakeDamage(float damage)
-    {
-        _hpBar.TakeDamage(damage/_health);
-        _health -= damage;
-        if (_health <= 0)
-        {
-            _moveSpeed=0f;
-            Destroy(gameObject,2f);
-        }
-    }
-    public void setSpeed(float speed)
-    {
-        _moveSpeed -= speed;
     }
     public void BackToPath(Vector3Int playerPosition)
     {
@@ -310,6 +259,59 @@ public class EnemyController : MonoBehaviour, IPickupable
             Debug.Log("Khong co duong di");
         }
     }
+
+    #endregion
+
+    public void DealDamageToPlayer()
+    {
+        DataManager.Instance.PlayerData.currentHP -= _damage;
+        Destroy(gameObject);
+    }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.tag);
+        switch (other.gameObject.tag)
+        {
+            case "Tower":
+                _triggerTower = other.transform.GetComponent<TowerController>();
+                _damageTimer = 1f;
+                break;
+        }
+    }
+    
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.tag);
+        switch (other.gameObject.tag)
+        {
+            case "Tower":
+                _triggerTower = null;
+                break;
+        }
+    }
+
+    private void DealDamageToTower(TowerController tower)
+    {
+        tower.TakeDamage(_damage);
+    }
+    
+    //Receving damage
+    public void TakeDamage(float damage)
+    {
+        _hpBar.TakeDamage(damage/_health);
+        _health -= damage;
+        if (_health <= 0)
+        {
+            _moveSpeed=0f;
+            Destroy(gameObject,2f);
+        }
+    }
+    public void setSpeed(float speed)
+    {
+        _moveSpeed -= speed;
+    }
+    
     
     public void StopMoving()
     {
