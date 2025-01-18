@@ -11,6 +11,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
     [SerializeField] private Tilemap _interact;//If need to interact with the tilemap, add it
     [SerializeField] private GameObject _selector;//The cursor
     private Camera _mainCamera;
+    [SerializeField] private GameObject _putTile;
     
     [Header("Stats")]
     public float sqrRadiusToPick = 4f;//The radius to pick the tower
@@ -21,7 +22,9 @@ public class PlayerPickUpMechanics : MonoBehaviour
     [SerializeField] private GameObject _currentPickupObject;
     [SerializeField] private Transform _hand;
     [SerializeField] private SoapController _soapDisplay;
-    [SerializeField] private GameObject _putTile;
+    
+    [Header("Audios")]
+    [SerializeField] private AudioClip _makeBubbleSound;
 
     private bool _onHand = false;
     void Start()
@@ -152,6 +155,9 @@ public class PlayerPickUpMechanics : MonoBehaviour
         _currentPickupObject.transform.SetParent(gameObject.transform);
         _currentPickupObject.transform.position = _hand.position;
         _currentPickupObject.GetComponent<Collider2D>().excludeLayers = LayerMaskHelper.Everything();
+        
+        //play sound
+        AudioManager.Instance.PlaySfx(_makeBubbleSound);
         
         switch (_currentPickupObject.tag)
         {

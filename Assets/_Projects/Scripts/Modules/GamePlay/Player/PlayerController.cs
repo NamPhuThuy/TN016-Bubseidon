@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] private Vector2 _direction;
+
+    [Header("Audio")] 
+    [SerializeField] private AudioClip _runSound;
+    [SerializeField] private AudioSource _audioSource;
+    private bool _isRunning = false;
+    
+    
     [SerializeField] private BoundsInt _bounds;
     
     void Start()
@@ -59,21 +66,31 @@ public class PlayerController : MonoBehaviour
 
         if (_direction.x > 0)
         {
+            _animator.Play("Run");
             transform.GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (_direction.x < 0)
         {
+            _animator.Play("Run");
             transform.GetComponent<SpriteRenderer>().flipX = true;
         }
-        
-        //handle animations
-        if (_direction.x != 0 ||  _direction.y != 0)
+        else if(_direction.y<0)
         {
-            _animator.Play("run");
+            _animator.Play("Run front");
+            if (!_isRunning)
+            {
+                _audioSource.Play();
+                _isRunning = true;
+            }
         }
-        else
+        else if(_direction.y>0)
         {
-            _animator.Play("idle");
+            _animator.Play("run back");
+            if (_isRunning)
+            {
+                _audioSource.Stop();
+                _isRunning = false;
+            }
         }
         
     }

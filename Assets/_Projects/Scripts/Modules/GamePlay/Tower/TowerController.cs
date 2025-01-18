@@ -10,21 +10,84 @@ public class TowerController : MonoBehaviour, IPickupable
     [SerializeField] private float _damage = 5f;
     [SerializeField] private float _health = 100f;
     [SerializeField] private float _attackInterval = 1f;
-    [SerializeField] private bool isExplosive = false;
+    private float nextFireTime;
+    
     [Header("GamePlay Information")]
     [SerializeField] private ProjectileController _projectilePrefab;
-    [SerializeField] private ExplodeController _explodePrefab;
-    [SerializeField] private CircleCollider2D _circleCollider2D;
+    
+    [SerializeField] private BoxCollider2D _selfCollider2D;
+    [SerializeField] private CircleCollider2D _rangeCollider2D;
     [SerializeField] private Transform _transform;
     [SerializeField] private HPBarController _hpBar;
+    [SerializeField] private Animator _animator;
+
+    [SerializeField] private EnemyController _currentTarget;
+    // [SerializeField] private List<EnemyController> enemiesInRange = new List<EnemyController>();
         
+    
+    [Header("Audio")]
+    [SerializeField] private AudioClip _shootAudio;
+    
+    #region MonoBehaviour methods
+
+    private void Start()
+    {
+        _selfCollider2D = GetComponent<BoxCollider2D>();
+        _rangeCollider2D = GetComponent<CircleCollider2D>();
+        _animator = GetComponent<Animator>();
+    }
     
     private void OnEnable()
     {
         GamePlayManager.Instance.AddTower(this);
 
         _transform = transform;
+        _currentTarget = null;
     }
+    
+    private void OnDestroy()
+    {
+        GamePlayManager.Instance.RemoveTower(this);
+    }
+
+    private void Update()
+    {
+        if (_currentTarget ==null)
+        {
+            // enemiesInRange.Remove(_currentTarget);
+            _currentTarget = FindClosestEnemyInRange();
+        }
+        else
+        {
+            if (Vector2.Distance(_currentTarget.transform.position, transform.position) > _rangeCollider2D.radius)
+            {
+                _currentTarget = null;
+                return;
+            }
+            Attack(_currentTarget);
+        }
+    }
+
+    private EnemyController FindClosestEnemyInRange()
+    {
+        if (GamePlayManager.Instance.EnemyList.Count <= 0) return null;
+        
+        float minDistance = Mathf.Infinity;
+        EnemyController closestEnemy = null;
+        foreach (EnemyController enemy in GamePlayManager.Instance.EnemyList)
+        {
+            float distance = Vector2.SqrMagnitude(_transform.position - enemy.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
+    }
+
+    #endregion
     
     public void ResetData()
     {
@@ -32,36 +95,49 @@ public class TowerController : MonoBehaviour, IPickupable
         _attackInterval = 1f;
     }
     
-    private void OnDestroy()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        GamePlayManager.Instance.RemoveTower(this);
-    }
-    
-    public void EnemyTrigger(GameObject enemy)
-    {
-        StartCoroutine(Attack(enemy.GetComponent<EnemyController>()));
+        Debug.Log($"TNam - {other.transform.name} in tower range");
+        if (other.IsTouching(_rangeCollider2D))
+        {
+            if (other.CompareTag("Enemy"))
+            {
+                EnemyController enemy = other.GetComponent<EnemyController>();
+                // if (enemiesInRange.Contains(enemy)) return;
+                //
+                // enemiesInRange.Add(enemy);
+            }
+        }
+      
     }
 
-    private IEnumerator Attack(EnemyController currentTarget)
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.IsTouching(_rangeCollider2D))
+        {
+            if (other.CompareTag("Enemy"))
+            {
+                EnemyController enemy = other.GetComponent<EnemyController>();
+                // if (enemiesInRange.Contains(enemy))
+                //     enemiesInRange.Remove(enemy);
+            }
+        }
+    }
+
+
+    private void Attack(EnemyController currentTarget)
     {
         Debug.Log($"Attack {currentTarget.name}");
-        while (currentTarget != null)
-        {
-            if(isExplosive)
-            {
-                var projectile = Instantiate(_explodePrefab, transform.position, Quaternion.identity);
-                projectile.damage = _damage;
-                projectile.Target = currentTarget;
-            }
-            else
-            {
-                var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-                projectile.damage = _damage;
-                projectile.Target = currentTarget;
-            }
-
-            yield return new WaitForSeconds(_attackInterval);
-        }
+        
+        if (Time.time < nextFireTime) return;
+        nextFireTime = Time.time + _attackInterval;
+        
+        AudioManager.Instance.PlaySfx(_shootAudio);
+        
+        
+        var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+        projectile.damage = _damage;
+        projectile.Target = currentTarget;
     }
     
     public bool isBeingPicked { get; set; }
@@ -72,8 +148,14 @@ public class TowerController : MonoBehaviour, IPickupable
         _health -= damage;
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Dead());
         }
+    }
+    IEnumerator Dead()
+    {
+        _animator.Play("broke");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }
 

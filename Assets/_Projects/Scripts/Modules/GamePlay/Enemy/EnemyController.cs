@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour, IPickupable
     
     [Header("Components")]
     [SerializeField] private Transform _transform;
-    [SerializeField] private HPBarController _hpBar;
 
     
     [Header("Movement Handle")]
@@ -59,6 +58,7 @@ public class EnemyController : MonoBehaviour, IPickupable
         //Retrieve 
         _tilemap = GamePlayManager.Instance._map;
         _transform = transform;
+        
         
         _directions = new List<Vector3Int>(){ new Vector3Int(0, 1, 0), 
             new Vector3Int(0, -1, 0), 
@@ -109,7 +109,7 @@ public class EnemyController : MonoBehaviour, IPickupable
 
                 if (!visited.Contains(next) && _tilemap.HasTile(next))
                 {
-                    if (_tilemap.GetTile(next).name.ToLower().Contains("dirt"))
+                    if (_tilemap.GetTile(next).name.ToLower().Contains("maptile_4"))
                     {
                         visited.Add(next);
                         queue.Enqueue(next);
@@ -141,13 +141,27 @@ public class EnemyController : MonoBehaviour, IPickupable
             yield return null;
         }
 
-        DealDamageToPlayer();
+        Debug.Log("Ve dich");
+    }
+    //Receving damage
+    public void TakeDamage(float damage)
+    {
+        _health -= damage;
+        if (_health <= 0)
+        {
+            _moveSpeed=0f;
+            Destroy(gameObject,2f);
+        }
+    }
+    public void setSpeed(float speed)
+    {
+        _moveSpeed -= speed;
     }
     public void BackToPath(Vector3Int playerPosition)
     {
         _transform.position = _tilemap.GetCellCenterWorld(playerPosition);
-        
-        if (_tilemap.GetTile(playerPosition).name.ToLower().Contains("dirt"))
+        Debug.Log(_tilemap.GetTile(playerPosition).name.ToLower());
+        if (_tilemap.GetTile(playerPosition).name.ToLower().Contains("maptile_4"))
         {
             FindNewPath(playerPosition);
             return;
@@ -162,7 +176,7 @@ public class EnemyController : MonoBehaviour, IPickupable
             Vector3Int checkTile = new Vector3Int(playerPos.x - 1, playerPos.y, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("dirt"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -175,7 +189,7 @@ public class EnemyController : MonoBehaviour, IPickupable
             Vector3Int checkTile = new Vector3Int(playerPos.x + 1, playerPos.y, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("dirt"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -189,7 +203,7 @@ public class EnemyController : MonoBehaviour, IPickupable
             Vector3Int checkTile = new Vector3Int(playerPos.x, playerPos.y - 1, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("dirt"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"));
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -202,7 +216,7 @@ public class EnemyController : MonoBehaviour, IPickupable
             Vector3Int checkTile = new Vector3Int(playerPos.x, playerPos.y + 1, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("dirt"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -270,13 +284,10 @@ public class EnemyController : MonoBehaviour, IPickupable
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.tag);
-        switch (other.gameObject.tag)
+        if (other.transform.CompareTag("Tower"))
         {
-            case "Tower":
-                _triggerTower = other.transform.GetComponent<TowerController>();
-                _damageTimer = 1f;
-                break;
+            _triggerTower = other.transform.GetComponent<TowerController>();
+            _damageTimer = 1f;
         }
     }
     
@@ -296,22 +307,6 @@ public class EnemyController : MonoBehaviour, IPickupable
         tower.TakeDamage(_damage);
     }
     
-    //Receving damage
-    public void TakeDamage(float damage)
-    {
-        _hpBar.TakeDamage(damage/_health);
-        _health -= damage;
-        if (_health <= 0)
-        {
-            _moveSpeed = 0f;
-            Destroy(gameObject,2f);
-        }
-    }
-    public void setSpeed(float speed)
-    {
-        _moveSpeed -= speed;
-    }
-    
     
     public void StopMoving()
     {
@@ -320,6 +315,4 @@ public class EnemyController : MonoBehaviour, IPickupable
     }
 
     public bool isBeingPicked { get; set; }
-    public event Action OnBeingPickedEvent;
-    public event Action OnBeingDropEvent;
 }
