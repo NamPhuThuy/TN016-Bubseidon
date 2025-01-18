@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class DataManager : MonoBehaviour, IMessageHandle
+public class DataManager : Singleton<DataManager>, IMessageHandle
 {
     public PlayerData PlayerData;
     public LevelDesignData LevelDesignData;
@@ -39,17 +39,8 @@ public class DataManager : MonoBehaviour, IMessageHandle
     
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            PlayerData = new PlayerData();
-            LoadData();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        PlayerData = new PlayerData();
+        LoadData();
     }
 
     private void OnEnable()
