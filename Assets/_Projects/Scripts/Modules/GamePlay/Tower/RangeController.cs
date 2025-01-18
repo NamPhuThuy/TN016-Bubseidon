@@ -18,16 +18,7 @@ public class RangeController : MonoBehaviour
     }
     
    
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log($"TNam - {other.transform.name} in tower range");
-        switch (other.tag)
-        {
-            case "Enemy":
-                _tower.EnemyTrigger(other.gameObject);
-                break;
-        }
-    }
+    
     
     private void OnTriggerExit2D(Collider2D other)
     {

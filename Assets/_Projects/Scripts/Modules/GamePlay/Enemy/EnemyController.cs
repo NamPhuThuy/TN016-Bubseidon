@@ -270,13 +270,10 @@ public class EnemyController : MonoBehaviour, IPickupable
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.tag);
-        switch (other.gameObject.tag)
+        if (other.transform.CompareTag("Tower"))
         {
-            case "Tower":
-                _triggerTower = other.transform.GetComponent<TowerController>();
-                _damageTimer = 1f;
-                break;
+            _triggerTower = other.transform.GetComponent<TowerController>();
+            _damageTimer = 1f;
         }
     }
     
@@ -304,7 +301,7 @@ public class EnemyController : MonoBehaviour, IPickupable
         if (_health <= 0)
         {
             _moveSpeed = 0f;
-            Destroy(gameObject,2f);
+            Destroy(gameObject);
         }
     }
     public void setSpeed(float speed)
@@ -320,6 +317,4 @@ public class EnemyController : MonoBehaviour, IPickupable
     }
 
     public bool isBeingPicked { get; set; }
-    public event Action OnBeingPickedEvent;
-    public event Action OnBeingDropEvent;
 }

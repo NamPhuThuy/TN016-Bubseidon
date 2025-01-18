@@ -434,6 +434,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &651917277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5262013921206948042, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+  m_PrefabInstance: {fileID: 7821306563826950484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &651917278 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3171914651838413199, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+  m_PrefabInstance: {fileID: 7821306563826950484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &651917283
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651917277}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!4 &1022582510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5901735683876388307, guid: 98abb62263b56384785ede4baee41fb0, type: 3}
@@ -1185,14 +1230,29 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: _selfCollider2D
+      value: 
+      objectReference: {fileID: 651917278}
+    - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: _rangeCollider2D
+      value: 
+      objectReference: {fileID: 651917283}
     - target: {fileID: 5262013921206948042, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 7776870290587342530, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5262013921206948042, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 651917283}
   m_SourcePrefab: {fileID: 100100000, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
