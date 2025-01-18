@@ -48,6 +48,7 @@ public class TowerController : MonoBehaviour, IPickupable
 
     private IEnumerator Attack(EnemyController currentTarget)
     {
+        Debug.Log($"Attack {currentTarget.name}");
         while (currentTarget != null)
         {
             if(isExplosive)
