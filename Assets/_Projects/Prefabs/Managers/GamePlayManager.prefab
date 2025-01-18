@@ -51,6 +51,7 @@ MonoBehaviour:
   _towerList: []
   _enemyList: []
   _enemySpawner: {fileID: 3768806792700206745}
+  _coinController: {fileID: 7209225798057431487, guid: 4d7e3099840b941448980b7eafe97970, type: 3}
   _map: {fileID: 2154657824805872545}
 --- !u!1 &2431874792771668133
 GameObject:

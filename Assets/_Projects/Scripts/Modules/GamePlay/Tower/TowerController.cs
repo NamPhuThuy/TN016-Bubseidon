@@ -9,6 +9,7 @@ public class TowerController : MonoBehaviour, IPickupable
     [Header("Stats")] 
     [SerializeField] private float _attackRange = 1.5f;
     [SerializeField] private float _damage = 5f;
+    [SerializeField] private float _health = 100f;
     [SerializeField] private float _attackInterval = 1f;
     
     [Header("GamePlay Information")]
@@ -67,7 +68,7 @@ public class TowerController : MonoBehaviour, IPickupable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"Collide with {other.transform.name}");
+        Debug.Log($"TNam - {other.transform.name} in tower range");
         switch (other.tag)
         {
             case "Enemy":

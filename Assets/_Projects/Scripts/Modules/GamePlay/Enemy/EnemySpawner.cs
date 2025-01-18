@@ -26,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Start()
     {
+        _levelDesignData = DataManager.Instance.LevelDesignData;
         StartCoroutine(NextWave());
     }
 
@@ -51,14 +52,19 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnPosition = _spawnP2.position;
         }
+
+        spawnPosition =
+            GamePlayManager.Instance._map.GetCellCenterWorld(GamePlayManager.Instance._map.WorldToCell(spawnPosition));
+        
         while(i < _levelDesignData._waveList[_wave].enemyList.Count)
         {
             Debug.Log($"Wave {_wave+1}");
             int count=_levelDesignData._waveList[_wave].enemyCountList[i];
-            _enemyPrefab= _levelDesignData._waveList[_wave].enemyList[i].GetComponent<EnemyController>();
+            _enemyPrefab = _levelDesignData._waveList[_wave].enemyList[i].GetComponent<EnemyController>();
             for (int j=0;j< count;j++)
             {
                 EnemyController newEnemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity).GetComponent<EnemyController>();
+                
                 newEnemy._startPos = GamePlayManager.Instance._map.WorldToCell(spawnPosition);
                 newEnemy._endPos = GamePlayManager.Instance._map.WorldToCell(_endP1.position);
                 yield return new WaitForSeconds(_spawnInterval);
@@ -80,7 +86,7 @@ public class EnemySpawner : MonoBehaviour
                 break;
             }
             elapsed += Time.deltaTime;
-            Debug.Log($"Wave Timer: {elapsed}/{waveDuration}");
+            // Debug.Log($"Wave Timer: {elapsed}/{waveDuration}");
             yield return null;
         }
         waveCompleted = true;
