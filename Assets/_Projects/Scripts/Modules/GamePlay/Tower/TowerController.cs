@@ -12,7 +12,6 @@ public class TowerController : MonoBehaviour, IPickupable
     [SerializeField] private float _health = 100f;
     [SerializeField] private float _attackInterval = 1f;
     [SerializeField] private bool isExplosive = false;
-    
     [Header("GamePlay Information")]
     [SerializeField] private EnemyController _currentTarget;
     [SerializeField] private ProjectileController _projectilePrefab;
@@ -96,6 +95,7 @@ public class TowerController : MonoBehaviour, IPickupable
                 projectile.damage = _damage;
                 projectile.Target = currentTarget;
             }
+
             yield return new WaitForSeconds(_attackInterval);
         }
     }

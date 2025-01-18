@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private Transform _spawnP1;
-    [SerializeField] private Transform _spawnP2;
-    [SerializeField] private Transform _endP1;
+    public Transform _spawnP1;
+    public Transform _spawnP2;
+    public Transform _endP1;
+    public Transform _enemyParent;
     
     [SerializeField] private int _wave=0;
     [SerializeField] private bool waveCompleted = false;
     [SerializeField] private EnemyController _enemyPrefab;
     [SerializeField] private LevelDesignData _levelDesignData;
-    [SerializeField] private Transform _enemyParent;
     private bool _isSpawning = false;
     [SerializeField] private float _spawnInterval = 2f;
 

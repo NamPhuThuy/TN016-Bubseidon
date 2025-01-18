@@ -62,7 +62,6 @@ public class GamePlayManager : Singleton<GamePlayManager>, IMessageHandle
         Debug.Log($"Add enemy {enemyController.name} to list");
         _enemyList.Add(enemyController);
     }
-
     public void RemoveEnemy(EnemyController enemyController)
     {
         if (_enemyList.Contains(enemyController))
@@ -83,5 +82,12 @@ public class GamePlayManager : Singleton<GamePlayManager>, IMessageHandle
     {
         _player.gameObject.SetActive(true);
         _enemySpawner.gameObject.SetActive(true);
+    }
+    public void SetBrain(EnemyController enemy, Vector3Int spawnPos)
+    {
+        
+        enemy._endPos = _map.WorldToCell(_enemySpawner._endP1.position);
+        enemy.transform.SetParent(_enemySpawner._enemyParent);
+        enemy.BackToPath(spawnPos);    
     }
 }

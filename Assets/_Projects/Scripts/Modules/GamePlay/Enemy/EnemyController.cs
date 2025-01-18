@@ -23,16 +23,13 @@ public class EnemyController : MonoBehaviour, IPickupable
     [Header("Die-rewards")]
     [SerializeField] private CoinController _coinController;
     
-
     private void Start()
     {
-        _coinController = GamePlayManager.Instance._coinController;
         
+        _coinController = GamePlayManager.Instance._coinController;
         // _transform.position = _tilemap.CellToWorld(_startPos);
         FindNewPath(_startPos);
     }
-    
-    
 
     private void OnEnable()
     {
