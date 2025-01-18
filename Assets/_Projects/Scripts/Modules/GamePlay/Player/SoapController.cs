@@ -7,14 +7,19 @@ public class SoapController : MonoBehaviour
     [SerializeField] private GameObject _bubble;
     [SerializeField] private Transform _soapBar;
     [SerializeField] private Transform _limitBar;
-    [SerializeField] private float _soapChangeSpeed = 0.1f;
+    [SerializeField] private float _soapDecreaseSpeed = 0.5f;
+    [SerializeField] private float _soapIncreaseSpeed = 0.3f;
     
     private Transform _transform;
 
     private float _maxSoap;
     private float _currentSoap;
     private float _limitSoap;
-    public bool _alert = false;
+    private bool _alert = false;
+    public bool Alert
+    {
+        get => _alert;
+    }
     
     [SerializeField] private bool _pickingUp = true;
 
@@ -44,7 +49,7 @@ public class SoapController : MonoBehaviour
         {
             if (_currentSoap > 0)
             {
-                float decStep = _soapChangeSpeed * Time.deltaTime;
+                float decStep = _soapDecreaseSpeed * Time.deltaTime;
                 _currentSoap -= decStep;
                 _soapBar.position -= new Vector3(decStep, 0, 0);
 
@@ -66,7 +71,7 @@ public class SoapController : MonoBehaviour
         {
             if (_currentSoap < _maxSoap)
             {
-                float incStep = _soapChangeSpeed * Time.deltaTime;
+                float incStep = _soapIncreaseSpeed * Time.deltaTime;
                 _currentSoap += incStep;
                 _soapBar.position += new Vector3(incStep, 0, 0);
                 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -11,10 +12,15 @@ public class UIScreenHUD : UIScreenBase
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _towerShopButton;
     
+    [Header("Information")]
+    [SerializeField] private TextMeshProUGUI _coinText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
     
     [Header("TowerShop")]
     [SerializeField] private TowerDatas _towerDatas;
     [SerializeField] private TowerShopScrollView _towerShopScrollView;
+    
+    
 
     private void Start()
     {
@@ -22,7 +28,11 @@ public class UIScreenHUD : UIScreenBase
         _towerShopButton.onClick.AddListener(OnTowerShopClick);
     }
 
-    
+    private void OnEnable()
+    {
+        UpdateUI();
+    }
+
 
     private void OnDestroy()
     {
@@ -59,5 +69,10 @@ public class UIScreenHUD : UIScreenBase
         //
     }
 
-    
+
+    public void UpdateUI()
+    {
+        _coinText.text = $"{DataManager.Instance.PlayerData.coin}";
+        _scoreText.text = $"{DataManager.Instance.PlayerData.score}";
+    }
 }

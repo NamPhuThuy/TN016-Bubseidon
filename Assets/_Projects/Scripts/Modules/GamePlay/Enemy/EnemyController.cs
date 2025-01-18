@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NamPhuThuy;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -19,13 +20,14 @@ public class EnemyController : MonoBehaviour, IPickupable
     private List<Vector3Int> _directions;
     private Coroutine _enemyMoveCoroutine;
     
+    [Header("Die-rewards")]
+    [SerializeField] private CoinController _coinController;
+    
 
     private void Start()
     {
-        /*this.OnBeingPickedEvent += StopMoving;
-        OnBeingPickedEvent.Invoke();*/
+        _coinController = GamePlayManager.Instance._coinController;
         
-        Debug.LogError($"Enemy Start");
         _transform.position = _tilemap.CellToWorld(_startPos);
         FindNewPath(_startPos);
     }
@@ -34,8 +36,6 @@ public class EnemyController : MonoBehaviour, IPickupable
 
     private void OnEnable()
     {
-        
-        Debug.LogError($"On enable");
         GamePlayManager.Instance.AddEnemy(this);
         
         //Retrieve 
@@ -52,6 +52,8 @@ public class EnemyController : MonoBehaviour, IPickupable
     private void OnDestroy()
     {
         GamePlayManager.Instance.RemoveEnemy(this);
+        Instantiate(_coinController, _transform.position, Quaternion.identity);
+        MessageManager.Instance.SendMessage(new Message(NamMessageType.OnEnemyDie));
     }
     
     //co the toi uu hon bang A*
@@ -108,13 +110,13 @@ public class EnemyController : MonoBehaviour, IPickupable
             
             Vector3 targetPosition = _tilemap.GetCellCenterWorld(nextTile);
             
-            while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+            while (Vector3.Distance(_transform.position, targetPosition) > 0.01f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, _moveSpeed * Time.deltaTime);
+                _transform.position = Vector3.MoveTowards(_transform.position, targetPosition, _moveSpeed * Time.deltaTime);
                 yield return null;
             }
             
-            transform.position = targetPosition;
+            _transform.position = targetPosition;
 
             yield return null;
         }
