@@ -19,6 +19,8 @@ public class PlayerPickUpMechanics : MonoBehaviour
     [SerializeField] private GameObject _currentPickupObject;
     [SerializeField] private Transform _hand;
     [SerializeField] private SoapController _soapDisplay;
+
+    private bool _onHand = false;
     void Start()
     {
         _mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -29,6 +31,12 @@ public class PlayerPickUpMechanics : MonoBehaviour
         mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         positionInt = GamePlayManager.Instance._map.WorldToCell(mousePos);
 
+        if (_onHand && _currentPickupObject == null)
+        {
+            _onHand = false;
+            _soapDisplay.PickUp(false);
+        }
+        
         if (Input.GetMouseButtonDown(0) && !_soapDisplay.Alert && _currentPickupObject == null)
         {
             
@@ -40,6 +48,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
                 {
                     if (hit.collider.TryGetComponent<IPickupable>(out IPickupable component))
                     {
+                        _onHand = true;
                         PickUpObject(hit.collider.gameObject);
                     }
                 }
@@ -49,6 +58,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
         {
             if(Vector2.SqrMagnitude(positionInt - gameObject.transform.position) < sqrRadiusToPick)
             {
+                _onHand = false;
                 DropObject(positionInt);
             }
         }
@@ -67,6 +77,13 @@ public class PlayerPickUpMechanics : MonoBehaviour
         _currentPickupObject = hit;
         _currentPickupObject.transform.SetParent(gameObject.transform);
         _currentPickupObject.transform.position = _hand.position;
+
+        var collider = _currentPickupObject.GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+        
         switch (_currentPickupObject.tag)
         {
             case "Enemy":
@@ -79,6 +96,12 @@ public class PlayerPickUpMechanics : MonoBehaviour
     {
         _currentPickupObject.transform.SetParent(null);
         _currentPickupObject.transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);
+        
+        var collider = _currentPickupObject.GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = true;
+        }
                 
         switch (_currentPickupObject.tag)
         {

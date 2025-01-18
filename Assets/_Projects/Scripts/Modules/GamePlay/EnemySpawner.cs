@@ -51,6 +51,10 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnPosition = _spawnP2.position;
         }
+
+        spawnPosition =
+            GamePlayManager.Instance._map.GetCellCenterWorld(GamePlayManager.Instance._map.WorldToCell(spawnPosition));
+        
         while(i < _levelDesignData._waveList[_wave].enemyList.Count)
         {
             Debug.Log($"Wave {_wave+1}");
@@ -59,6 +63,7 @@ public class EnemySpawner : MonoBehaviour
             for (int j=0;j< count;j++)
             {
                 EnemyController newEnemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity).GetComponent<EnemyController>();
+                
                 newEnemy._startPos = GamePlayManager.Instance._map.WorldToCell(spawnPosition);
                 newEnemy._endPos = GamePlayManager.Instance._map.WorldToCell(_endP1.position);
                 yield return new WaitForSeconds(_spawnInterval);
