@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: LevelDesignData
   m_EditorClassIdentifier: 
   _waveList:
+  - waveId: 4
+    waveDelay: 2
+    waveDuration: 30
+    spawnInterval: 2
+    enemyList:
+    - {fileID: 3480175803636499273, guid: b645533053c91964c887f2afddaaa467, type: 3}
+    enemyCountList: 07000000
   - waveId: 0
     waveDelay: 0
     waveDuration: 30
@@ -65,3 +72,13 @@ MonoBehaviour:
     - {fileID: 3480175803636499273, guid: b645533053c91964c887f2afddaaa467, type: 3}
     - {fileID: 3760327614044024437, guid: ae3bd7aa7d808924e922fd1423103600, type: 3}
     enemyCountList: 090000000600000002000000
+  - waveId: 4
+    waveDelay: 2
+    waveDuration: 30
+    spawnInterval: 1
+    enemyList:
+    - {fileID: 3480175803636499273, guid: d509bd8d8d3fc6944b53720ecc5baf0c, type: 3}
+    - {fileID: 3480175803636499273, guid: b645533053c91964c887f2afddaaa467, type: 3}
+    - {fileID: 3760327614044024437, guid: ae3bd7aa7d808924e922fd1423103600, type: 3}
+    - {fileID: 2163292923633257285, guid: 8553805e0c9403a4c8b9af6e05282ef2, type: 3}
+    enemyCountList: 07000000060000000300000001000000
