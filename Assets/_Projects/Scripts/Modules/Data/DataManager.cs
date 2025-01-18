@@ -13,7 +13,11 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     public PlayerData PlayerData;
     public LevelDesignData LevelDesignData;
     public TowerDatas TowerDatas;
-    
+
+
+    //Automatically increase coin through time
+    private float _timer = 0f;
+    private float _timeToCoin = 5f;
     public int Coin
     {
         get => PlayerData.coin;
@@ -66,6 +70,16 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     {
         PlayerData = new PlayerData();
         LoadData();
+    }
+
+    private void Update()
+    {
+        if (_timer >= _timeToCoin)
+        {
+            Coin += 1;
+            _timer = 0f;
+        }
+        _timer += Time.deltaTime;
     }
 
     private void OnEnable()
