@@ -84,7 +84,7 @@ MonoBehaviour:
     enemyCountList: 07000000060000000200000001000000
   - waveId: 4
     waveDelay: 2
-    waveDuration: 99999
+    waveDuration: 2
     spawnInterval: 1
     enemyList:
     - {fileID: 3480175803636499273, guid: d509bd8d8d3fc6944b53720ecc5baf0c, type: 3}
