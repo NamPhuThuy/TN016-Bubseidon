@@ -68,11 +68,21 @@ public class PlayerController : MonoBehaviour
         {
             _animator.Play("Run");
             transform.GetComponent<SpriteRenderer>().flipX = false;
+            if (!_isRunning)
+            {
+                _audioSource.Play();
+                _isRunning = true;
+            }
         }
         else if (_direction.x < 0)
         {
             _animator.Play("Run");
             transform.GetComponent<SpriteRenderer>().flipX = true;
+            if (!_isRunning)
+            {
+                _audioSource.Play();
+                _isRunning = true;
+            }
         }
         else if(_direction.y<0)
         {
@@ -86,6 +96,15 @@ public class PlayerController : MonoBehaviour
         else if(_direction.y>0)
         {
             _animator.Play("run back");
+            if (!_isRunning)
+            {
+                _audioSource.Play();
+                _isRunning = true;
+            }
+        }
+        else
+        {
+            _animator.Play("Idle");
             if (_isRunning)
             {
                 _audioSource.Stop();

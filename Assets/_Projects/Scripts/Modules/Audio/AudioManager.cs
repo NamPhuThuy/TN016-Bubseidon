@@ -165,7 +165,7 @@ public class AudioManager : Singleton<AudioManager>, IMessageHandle
         {
             //MUSIC
             case NamMessageType.OnGameStart:
-                PlayMusic(_musicGamePlay, true, 1.6f);
+                PlayMusic(_musicGamePlay, true, 6f);
                 break;
             
             //SFX

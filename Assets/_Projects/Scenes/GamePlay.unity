@@ -5565,7 +5565,7 @@ PrefabInstance:
     - target: {fileID: 6011481888553074215, guid: 809321dbdbd5ffe449024a3121151307, type: 3}
       propertyPath: _musicGamePlay
       value: 
-      objectReference: {fileID: 8300000, guid: 65c5a135d8cc7f44396b84f7d0607b2b, type: 3}
+      objectReference: {fileID: 8300000, guid: 523bc0e881c216b4cb4d5226efb617c3, type: 3}
     - target: {fileID: 6565664599178439397, guid: 809321dbdbd5ffe449024a3121151307, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -5731,6 +5731,10 @@ PrefabInstance:
       propertyPath: _restartButton
       value: 
       objectReference: {fileID: 5233704540953397864}
+    - target: {fileID: 4955154333423888023, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_Color.a
+      value: 0.8235294
+      objectReference: {fileID: 0}
     - target: {fileID: 5076589968605046310, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
       propertyPath: m_SizeDelta.x
       value: 270.1637

@@ -65,6 +65,10 @@ PrefabInstance:
       value: 0.29287988
       objectReference: {fileID: 0}
     - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: _pivot
+      value: 
+      objectReference: {fileID: 7930678716933577071}
+    - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: _health
       value: 40
       objectReference: {fileID: 0}
@@ -84,8 +88,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 6652060730725996783, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+--- !u!1 &7930678716933577071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 173925491948466570, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+  m_PrefabInstance: {fileID: 7811078034821916901}
+  m_PrefabAsset: {fileID: 0}

@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour, IPickupable
     [SerializeField] private CoinController _coinController;
     
     [Header("AnimClip name")]
-    [SerializeField] private string _dieAnimString = "ded";
+    private string _dieAnimString = "ded";
 
     private void Start()
     {

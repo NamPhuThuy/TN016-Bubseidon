@@ -10,6 +10,7 @@ public class TowerController : MonoBehaviour, IPickupable
     [SerializeField] private float _damage = 5f;
     [SerializeField] private float _health = 100f;
     [SerializeField] private float _attackInterval = 1f;
+    private float _attackRange = 3f;
     private float nextFireTime;
     
     [Header("GamePlay Information")]
@@ -22,6 +23,8 @@ public class TowerController : MonoBehaviour, IPickupable
     [SerializeField] private Animator _animator;
 
     [SerializeField] private EnemyController _currentTarget;
+
+    [SerializeField] private GameObject _pivot; // for check range
     // [SerializeField] private List<EnemyController> enemiesInRange = new List<EnemyController>();
         
     
@@ -60,7 +63,7 @@ public class TowerController : MonoBehaviour, IPickupable
         }
         else
         {
-            if (Vector2.Distance(_currentTarget.transform.position, transform.position) > _rangeCollider2D.radius)
+            if (Vector2.Distance(_currentTarget.transform.position, _pivot.transform.position) > _attackRange)
             {
                 _currentTarget = null;
                 return;
@@ -136,7 +139,7 @@ public class TowerController : MonoBehaviour, IPickupable
         AudioManager.Instance.PlaySfx(_shootAudio);
         
         
-        var projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+        var projectile = Instantiate(_projectilePrefab, _pivot.transform.position, Quaternion.identity);
         projectile.damage = _damage;
         projectile.Target = currentTarget;
     }
