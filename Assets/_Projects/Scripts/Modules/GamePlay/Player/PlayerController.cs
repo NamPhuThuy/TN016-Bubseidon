@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] private Vector2 _direction;
+
+    [Header("Audio")] 
+    [SerializeField] private AudioClip _runSound;
+    [SerializeField] private AudioSource _audioSource;
+    private bool _isRunning = false;
     
     
     
@@ -19,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         _mainCamera = Camera.main;
         _animator = GetComponent<Animator>();
+        _audioSource.clip = _runSound;
     }
 
     // Update is called once per frame
@@ -45,10 +51,20 @@ public class PlayerController : MonoBehaviour
         if (_direction.x != 0 ||  _direction.y != 0)
         {
             _animator.Play("run");
+            if (!_isRunning)
+            {
+                _audioSource.Play();
+                _isRunning = true;
+            }
         }
         else
         {
             _animator.Play("idle");
+            if (_isRunning)
+            {
+                _audioSource.Stop();
+                _isRunning = false;
+            }
         }
         
     }
