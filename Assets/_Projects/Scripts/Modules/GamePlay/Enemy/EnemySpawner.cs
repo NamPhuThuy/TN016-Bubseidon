@@ -84,10 +84,10 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator NextWave()
     {
-        Debug.Log("Called NextWave()");
+        Debug.Log("Spawner Called NextWave()");
         while (_wave < _levelDesignData._waveList.Count)
         {
-            Debug.Log($"Starting Wave {_wave + 1}");
+            Debug.Log($"Spawner Starting Wave {_wave + 1}");
             
             float waveDuration = _levelDesignData._waveList[_wave].waveDuration;
             _spawnInterval = _levelDesignData._waveList[_wave].spawnInterval;
@@ -97,11 +97,12 @@ public class EnemySpawner : MonoBehaviour
             {
                 yield return null;
             }
-            Debug.Log($"Wave {_wave} completed. Preparing for the next wave...");
+            Debug.Log($"Spawner Wave {_wave} completed. Preparing for the next wave...");
             
-            yield return new WaitForSeconds(_levelDesignData._waveList[_wave].waveDelay);
+            Debug.Log($"Spawner Wave delay: {_levelDesignData._waveList[_wave].waveDuration}");
+            yield return new WaitForSeconds(_levelDesignData._waveList[_wave].waveDuration);
             _wave++;
-            Debug.Log("All Waves Completed!");  
+            Debug.Log("Spawner All Waves Completed!");  
         }
         
         MessageManager.Instance.SendMessage(new Message(NamMessageType.OnGameWin));

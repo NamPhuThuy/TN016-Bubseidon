@@ -21,7 +21,6 @@ public class HPBarController : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         float takenDmg = dmg * _currentHP;
-        Debug.Log($"HPBar damage: {takenDmg}, health: {_currentHP}");
         _currentHP -= takenDmg;
         _hpBar.position -= new Vector3(takenDmg, 0, 0);
     }

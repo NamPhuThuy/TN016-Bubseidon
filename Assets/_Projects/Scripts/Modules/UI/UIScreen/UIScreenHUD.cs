@@ -25,6 +25,7 @@ public class UIScreenHUD : UIScreenBase
     [SerializeField] private TowerDatas _towerDatas;
     [SerializeField] private TowerShopScrollView _towerShopScrollView;
     private int _coinToBuy = 10;
+    private bool _isFirstBuy = true;
     [SerializeField] private TextMeshProUGUI _towerPriceText;
     
     
@@ -42,6 +43,13 @@ public class UIScreenHUD : UIScreenBase
         {
             //mua
             int rand = Random.Range(0, _buildingItems.Count);
+
+            if (_isFirstBuy)
+            {
+                rand = 3;
+                _isFirstBuy = false;
+            }
+            
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             
             Instantiate(_buildingItems[rand], player.transform.position, Quaternion.identity);

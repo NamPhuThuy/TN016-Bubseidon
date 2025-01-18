@@ -107,7 +107,6 @@ public class TowerController : MonoBehaviour, IPickupable
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"TNam - {other.transform.name} in tower range");
         if (other.IsTouching(_rangeCollider2D))
         {
             if (other.CompareTag("Enemy"))
@@ -137,7 +136,6 @@ public class TowerController : MonoBehaviour, IPickupable
 
     private void Attack(EnemyController currentTarget)
     {
-        Debug.Log($"Attack {currentTarget.name}");
         
         if (Time.time < nextFireTime) return;
         nextFireTime = Time.time + _attackInterval;
