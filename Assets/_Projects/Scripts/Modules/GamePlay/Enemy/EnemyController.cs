@@ -347,10 +347,12 @@ public class EnemyController : MonoBehaviour, IPickupable
         {
             _triggerTower = other.transform.GetComponent<TowerController>();
             _damageTimer = 1f;
+            _animator.Play("Attack");
         }
         else if (other.transform.CompareTag("Obstacle"))
         {
             _triggerObs = other.transform.GetComponent<ObstacleController>();
+            _animator.Play("Attack");
         }
     }
     
@@ -361,9 +363,11 @@ public class EnemyController : MonoBehaviour, IPickupable
         {
             case "Tower":
                 _triggerTower = null;
+                _animator.Play("Run");
                 break;
             case "Obstacle":
                 _triggerObs = null;
+                _animator.Play("Run");
                 break;
             
         }
