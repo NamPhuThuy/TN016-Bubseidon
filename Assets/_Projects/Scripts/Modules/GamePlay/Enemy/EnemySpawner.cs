@@ -26,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Start()
     {
+        _levelDesignData = DataManager.Instance.LevelDesignData;
         StartCoroutine(NextWave());
     }
 
@@ -80,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
                 break;
             }
             elapsed += Time.deltaTime;
-            Debug.Log($"Wave Timer: {elapsed}/{waveDuration}");
+            // Debug.Log($"Wave Timer: {elapsed}/{waveDuration}");
             yield return null;
         }
         waveCompleted = true;

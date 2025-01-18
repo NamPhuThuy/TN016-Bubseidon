@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NamPhuThuy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIManager : Singleton<UIManager>
+public class UIManager : Singleton<UIManager>, IMessageHandle
 {
     [Header("UI Screen")]
     public UIScreenHUD UIScreenHUD;
@@ -17,7 +18,14 @@ public class UIManager : Singleton<UIManager>
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        MessageManager.Instance.AddSubcriber(NamMessageType.OnDataChanged, this);
         UIScreenTitle.Show();
+    }
+
+    private void OnDisable()
+    {
+        MessageManager.Instance.RemoveSubcriber(NamMessageType.OnDataChanged, this);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -44,5 +52,15 @@ public class UIManager : Singleton<UIManager>
     void Update()
     {
         
+    }
+
+    public void Handle(Message message)
+    {
+        switch (message.type)
+        {
+            case NamMessageType.OnDataChanged:
+                UIScreenHUD.UpdateUI();
+                break;
+        }
     }
 }

@@ -67,7 +67,7 @@ public class TowerController : MonoBehaviour, IPickupable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"Collide with {other.transform.name}");
+        Debug.Log($"TNam - {other.transform.name} in tower range");
         switch (other.tag)
         {
             case "Enemy":

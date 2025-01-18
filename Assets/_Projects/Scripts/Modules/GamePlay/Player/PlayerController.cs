@@ -53,22 +53,21 @@ public class PlayerController : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"TNam - collide with {other.transform.name}");
+        Debug.LogError($"TNam - Player collides with {other.transform.name}");
         
         if (other.transform.CompareTag("Enemy"))
         {
-            MessageManager.Instance.SendMessage(new Message(NamMessageType.OnHitEnemy));
+            // MessageManager.Instance.SendMessage(new Message(NamMessageType.OnHitEnemy));
             
             //Trigger enemy's die-function
             // other.GetComponent<EnemyController>().OnDeath();
             
         }
-        else if (other.transform.CompareTag("Projectile"))
+        else if (other.transform.CompareTag("Coin"))
         {
-            // AudioManager.Instance.Play(_collideBulletAudio);
-            
-            MessageManager.Instance.SendMessage(new Message(NamMessageType.OnGameLose));
-            Destroy(gameObject);
+            Debug.Log($"TNam - Player collected a coin");
+            DataManager.Instance.PlayerData.coin++;
+            MessageManager.Instance.SendMessage(new Message(NamMessageType.OnDataChanged));
         }
         
     }

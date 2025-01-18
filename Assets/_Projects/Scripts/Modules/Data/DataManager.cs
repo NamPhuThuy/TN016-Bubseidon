@@ -1,13 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using NamPhuThuy;
 using UnityEngine;
 
-public class DataManager : MonoBehaviour
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+public class DataManager : MonoBehaviour, IMessageHandle
 {
     public PlayerData PlayerData;
     public LevelDesignData LevelDesignData;
     public TowerData TowerData;
     public static DataManager Instance;
+    
+    public int Coin
+    {
+        get => PlayerData.coin;
+        set
+        {
+            PlayerData.coin = value;
+            MessageManager.Instance.SendMessage(new Message(NamMessageType.OnDataChanged));
+            SaveData();
+        }
+    }
+
+    public int Score
+    {
+        get => PlayerData.score;
+        set
+        {
+            PlayerData.score = value;
+            MessageManager.Instance.SendMessage(new Message(NamMessageType.OnDataChanged));
+            SaveData();
+        }
+    }
+    
     void Start()
     {
         if (Instance == null)
@@ -23,11 +52,16 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        MessageManager.Instance.AddSubcriber(NamMessageType.OnEnemyDie, this);
     }
+
+    private void OnDisable()
+    {
+        MessageManager.Instance.RemoveSubcriber(NamMessageType.OnEnemyDie, this);
+    }
+
     public void CreateData()
     {
         PlayerPrefs.SetInt("Score", 0);
@@ -58,6 +92,44 @@ public class DataManager : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
     }
-    
-    
+
+
+    public void Handle(Message message)
+    {
+        switch (message.type)
+        {
+            case NamMessageType.OnEnemyDie:
+                Score += 10;
+                break;
+        }
+    }
 }
+
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(DataManager)), CanEditMultipleObjects]
+public class DataManagerEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        DataManager dataManager = (DataManager)target;
+
+        if (GUILayout.Button("Save Data"))
+        {
+            dataManager.SaveData();
+        }
+
+        if (GUILayout.Button("Reset Data"))
+        {
+            dataManager.ResetData();
+        }
+
+        if (GUILayout.Button("Load Data"))
+        {
+            dataManager.LoadData();
+        }
+    }
+}
+#endif

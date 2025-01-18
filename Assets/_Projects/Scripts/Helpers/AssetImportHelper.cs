@@ -108,6 +108,7 @@ namespace NamPhuThuy
                 
                 // Texture Presets
                 case ".png":
+                    return "Assets/_Projects/Presets/PixelArtImporter.preset"; 
                 case ".jpg":
                 case ".jpeg":
                 case ".tga":
