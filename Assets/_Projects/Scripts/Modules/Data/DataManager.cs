@@ -8,12 +8,11 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class DataManager : MonoBehaviour, IMessageHandle
+public class DataManager : Singleton<DataManager>, IMessageHandle
 {
     public PlayerData PlayerData;
     public LevelDesignData LevelDesignData;
-    public TowerData TowerData;
-    public static DataManager Instance;
+    public TowerDatas TowerDatas;
     
     public int Coin
     {
@@ -61,17 +60,8 @@ public class DataManager : MonoBehaviour, IMessageHandle
     
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            PlayerData = new PlayerData();
-            LoadData();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        PlayerData = new PlayerData();
+        LoadData();
     }
 
     private void OnEnable()

@@ -30,14 +30,6 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(NextWave());
     }
 
-    private void OnEnable()
-    {
-    }
-    
-    private void OnDisable()
-    {
-    }
-
     private IEnumerator SpawnEnemy()
     {
         _isSpawning = true;
@@ -67,6 +59,7 @@ public class EnemySpawner : MonoBehaviour
                 
                 newEnemy._startPos = GamePlayManager.Instance._map.WorldToCell(spawnPosition);
                 newEnemy._endPos = GamePlayManager.Instance._map.WorldToCell(_endP1.position);
+                newEnemy.transform.SetParent(_enemyParent);
                 yield return new WaitForSeconds(_spawnInterval);
             }
             i++;
@@ -79,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < waveDuration)
         {
-            if(CountChildren()== 0 && _isSpawning == false)
+            if(CountChildren() == 0 && _isSpawning == false)
             {
                 Debug.Log("Wave Completed");
                 waveCompleted = true;
@@ -94,8 +87,11 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator NextWave()
     {
+        Debug.Log("Called NextWave()");
         while (_wave < _levelDesignData._waveList.Count)
         {
+            Debug.Log($"Starting Wave {_wave + 1}");
+            
             float waveDuration = _levelDesignData._waveList[_wave].waveDuration;
             StartCoroutine(SpawnEnemy());
             yield return StartCoroutine(WaveTimer(waveDuration));
@@ -104,9 +100,12 @@ public class EnemySpawner : MonoBehaviour
                 yield return null;
             }
             Debug.Log($"Wave {_wave} completed. Preparing for the next wave...");
-            _wave++;
+            
             yield return new WaitForSeconds(_levelDesignData._waveList[_wave].waveDelay);
-            Debug.Log("All Waves Completed!");
+            _wave++;
+            Debug.Log("All Waves Completed!");  
         }
+        
+        MessageManager.Instance.SendMessage(new Message(NamMessageType.OnGameWin));
     }
 }
