@@ -9,10 +9,9 @@ using UnityEngine.Tilemaps;
 using UnityEditor;
 #endif
 
-public class EnemyController : MonoBehaviour, IPickupable, IDamageable
+public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveable
 {
     [Header("Stats")]
-    [SerializeField] private float _moveSpeed = 1f;
     public Vector3Int _startPos;
     public Vector3Int _endPos;
     
@@ -51,6 +50,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable
     private void Start()
     {
         Health = 20f;
+        MoveSpeed = 1f;
         _tilemap = GamePlayManager.Instance._map;
         _coinController = GamePlayManager.Instance._coinController;
         _hpBar = GetComponentInChildren<HPBarController>();
@@ -182,7 +182,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable
             
             while (Vector3.Distance(_transform.position, targetPosition) > 0.01f)
             {
-                _transform.position = Vector3.MoveTowards(_transform.position, targetPosition, _moveSpeed * Time.deltaTime);
+                _transform.position = Vector3.MoveTowards(_transform.position, targetPosition, MoveSpeed * Time.deltaTime);
                 yield return null;
             }
             
@@ -290,7 +290,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable
         
         while (Vector3.Distance(_transform.position, endWorldPos) > 0.01f)
         {
-            _transform.position = Vector3.MoveTowards(_transform.position, endWorldPos, _moveSpeed * Time.deltaTime);
+            _transform.position = Vector3.MoveTowards(_transform.position, endWorldPos, MoveSpeed * Time.deltaTime);
             
             yield return null;
         }
@@ -387,7 +387,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable
     }
     public void OnDead()
     {
-        _moveSpeed = 0f;
+        MoveSpeed = 0f;
         _animator.Play(_dieAnimString);
         if (!_isSpawnCoin)
         {
@@ -395,6 +395,17 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable
             _isSpawnCoin = true;
         }
         Destroy(gameObject, 1f);
+    }
+
+    #endregion
+    
+    #region IMoveable Implementations
+
+    public float MoveSpeed { get; set; }
+    public Vector2 MoveDirection { get; set; }
+    public void MovementHandle()
+    {
+        throw new NotImplementedException();
     }
 
     #endregion
