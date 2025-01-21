@@ -49,8 +49,9 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     #region MonoBehaviour methods
     private void Start()
     {
-        Health = 20f;
+        Health = 50f;
         MoveSpeed = 1f;
+        
         _tilemap = GamePlayManager.Instance._map;
         _coinController = GamePlayManager.Instance._coinController;
         _hpBar = GetComponentInChildren<HPBarController>();
@@ -58,15 +59,8 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
         _collider2D = GetComponent<Collider2D>();
         _transform = transform;
         _animator = GetComponent<Animator>();
-
-        if (_transform.position.x < _endPos.x)
-        {
-            _spriteRenderer.flipX = false;
-        }
-        else
-        {
-            _spriteRenderer.flipX = true;
-        }
+        
+        DirectionHandle();
         
         FindNewPath(_startPos);
     }
@@ -121,19 +115,24 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     //co the toi uu hon bang A*
     private List<Vector3Int> BFS(Vector3Int start, Vector3Int end)
     {
-        HashSet<Vector3Int> visited = new HashSet<Vector3Int>();
-        Queue<Vector3Int> queue = new Queue<Vector3Int>();
-        Dictionary<Vector3Int, Vector3Int> trace = new Dictionary<Vector3Int, Vector3Int>();
+        HashSet<Vector3Int> visited = new HashSet<Vector3Int>(); // keep track of visited tiles 
+        Queue<Vector3Int> queue = new Queue<Vector3Int>(); // mange the BFS frontier
+        Dictionary<Vector3Int, Vector3Int> trace = new Dictionary<Vector3Int, Vector3Int>(); // trace the path from the end position back to the start position
         
-        queue.Enqueue(start);
+        // enqueue the start position and marked it as "visited"
+        queue.Enqueue(start); 
         visited.Add(start);
 
+        //while there are positions int the queue
         while (queue.Count > 0)
         {
+            // dequeue the position
             Vector3Int current = queue.Dequeue();
 
+            // if the current position is the end position
             if (current == end)
             {
+                //construct the path by tracing from the end to the start using the "trace dictionary"
                 List<Vector3Int> path = new List<Vector3Int>();
                 while (current != start)
                 {
@@ -141,21 +140,27 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
                     current = trace[current];
                 }
                 path.Add(start);
+                
+                //reverse the path to get the correct order from start to end and return it 
                 path.Reverse();
                 return path;
             }
 
+            //for each posible direction
             foreach (var dir in _directions)
             {
+                //calculate the next position
                 Vector3Int next = current + dir;
 
+                //If the next position is not visited and has a tile 
                 if (!visited.Contains(next) && _tilemap.HasTile(next))
                 {
+                    //If the tile-name contains "maptile_4"
                     if (_tilemap.GetTile(next).name.ToLower().Contains("maptile_4"))
                     {
-                        visited.Add(next);
-                        queue.Enqueue(next);
-                        trace[next] = current;
+                        visited.Add(next); //Mark the next position as visited
+                        queue.Enqueue(next); //Enqueue the next position
+                        trace[next] = current; //Record the current position as the predecessor of the next position in the "trace dictionary"
                     }
                 }
             }
@@ -170,19 +175,14 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
         {
             Vector3Int nextTile = pathQueue.Dequeue();
             Vector3 targetPosition = _tilemap.GetCellCenterWorld(nextTile);
+
+            MoveDirection = (targetPosition - _transform.position).normalized;
+            DirectionHandle();
             
-            if (targetPosition.x < _transform.position.x)
-            {
-                _spriteRenderer.flipX = true;
-            }
-            else if (targetPosition.x > _transform.position.x)
-            {
-                _spriteRenderer.flipX = false;
-            }
             
             while (Vector3.Distance(_transform.position, targetPosition) > 0.01f)
             {
-                _transform.position = Vector3.MoveTowards(_transform.position, targetPosition, MoveSpeed * Time.deltaTime);
+                MovementHandle();
                 yield return null;
             }
             
@@ -278,19 +278,12 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     IEnumerator MoveFromAToB(Vector3Int end)
     {
         Vector3 endWorldPos = _tilemap.GetCellCenterWorld(end);
-        
-        if (endWorldPos.x < _transform.position.x)
-        {
-            _spriteRenderer.flipX = true;
-        }
-        else if (endWorldPos.x > _transform.position.x)
-        {
-            _spriteRenderer.flipX = false;
-        }
+        MoveDirection = (endWorldPos - _transform.position).normalized;
+        DirectionHandle();
         
         while (Vector3.Distance(_transform.position, endWorldPos) > 0.01f)
         {
-            _transform.position = Vector3.MoveTowards(_transform.position, endWorldPos, MoveSpeed * Time.deltaTime);
+            MovementHandle();
             
             yield return null;
         }
@@ -405,7 +398,24 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     public Vector2 MoveDirection { get; set; }
     public void MovementHandle()
     {
-        throw new NotImplementedException();
+        _transform.Translate((MoveSpeed * Time.deltaTime) * MoveDirection);
+    }
+
+    public void DirectionHandle()
+    {
+        if (_transform.position.x < _endPos.x)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else
+        {
+            _spriteRenderer.flipX = true;
+        }
+    }
+
+    public void AnimationHandle()
+    {
+        
     }
 
     #endregion
@@ -423,8 +433,10 @@ public class EnemyControllerEditor : Editor
         DrawDefaultInspector();
 
         EnemyController enemyController = (EnemyController)target;
-
+        
+        EditorGUILayout.LabelField("Stats");
         EditorGUILayout.LabelField("Health", enemyController.Health.ToString());
+        EditorGUILayout.LabelField("Move Speed", enemyController.MoveSpeed.ToString());
     }
 }
 #endif

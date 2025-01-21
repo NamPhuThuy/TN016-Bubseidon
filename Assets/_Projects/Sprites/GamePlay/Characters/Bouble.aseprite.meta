@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3144cfee948aef6499734e3a63aca322
+guid: d94e91537b7724c4e99855c6423307f8
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,7 +32,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 0
+    spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 18
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638728330020663468
+  platformSettingsDirtyTick: 638730678111327199
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: MainPlayer_Frame_0
+  - name: Bouble_Frame_0
     originalName: 
     pivot: {x: 0.55, y: 0}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 231
       width: 20
       height: 21
-    spriteID: de5415ee61f3a74488486781c87d2baf
+    spriteID: 58ca9856d7cee41468a71daf7c1a07d2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 231}
-  - name: MainPlayer_Frame_1
+  - name: Bouble_Frame_1
     originalName: 
     pivot: {x: 0.55, y: 0}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 91
       width: 20
       height: 20
-    spriteID: d2b7fa80b212f9d4e8fd7d135dfdf65c
+    spriteID: 487cba880fbf14743abdfde6c7afa329
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 91}
-  - name: MainPlayer_Frame_2
+  - name: Bouble_Frame_2
     originalName: 
     pivot: {x: 0.55, y: 0}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 32
       width: 20
       height: 19
-    spriteID: f60916064f23f924bbd2c5bd2739d0fd
+    spriteID: 87a9bdbbb7490a4429cc3924ecd991c8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 100, y: 32}
-  - name: MainPlayer_Frame_3
+  - name: Bouble_Frame_3
     originalName: 
     pivot: {x: 0.55, y: 0}
     alignment: 9
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 119
       width: 20
       height: 20
-    spriteID: b6cef9272a0ec854e859053e601e688d
+    spriteID: d9d02ddcf683181478bd9e37300740da
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 119}
-  - name: MainPlayer_Frame_4
+  - name: Bouble_Frame_4
     originalName: 
     pivot: {x: 0.5909091, y: 0}
     alignment: 9
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 88
       width: 22
       height: 21
-    spriteID: 8c3e24d6662f78e4ba8a313ecc7c0ff7
+    spriteID: 8cdc4f9eeaa4f6b43bd821286c1ed225
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +221,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 88}
-  - name: MainPlayer_Frame_5
+  - name: Bouble_Frame_5
     originalName: 
     pivot: {x: 0.6086957, y: 0}
     alignment: 9
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 175
       width: 23
       height: 20
-    spriteID: f46e90738e001fe4386d494c33a13d26
+    spriteID: dab3ca25552380345bfddb3f0d82fe6c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,7 +241,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 175}
-  - name: MainPlayer_Frame_6
+  - name: Bouble_Frame_6
     originalName: 
     pivot: {x: 0.625, y: 0}
     alignment: 9
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 152
       width: 24
       height: 21
-    spriteID: b6187086336e9a046bc411984e503c5f
+    spriteID: d8faff535efa1ef4489b717523594d7b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,7 +261,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 152}
-  - name: MainPlayer_Frame_7
+  - name: Bouble_Frame_7
     originalName: 
     pivot: {x: 0.625, y: 0}
     alignment: 9
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 122
       width: 24
       height: 22
-    spriteID: 71ce918fa23113842bb5ec02930345e4
+    spriteID: 7b098403372904441b0f043d5875d43d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,7 +281,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 122}
-  - name: MainPlayer_Frame_8
+  - name: Bouble_Frame_8
     originalName: 
     pivot: {x: 0.625, y: 0}
     alignment: 9
@@ -292,7 +292,7 @@ ScriptedImporter:
       y: 181
       width: 24
       height: 21
-    spriteID: a1b6d7dae21b5d446b1186675c9c1307
+    spriteID: dcdfb593377a6614fab031ec93a8c71d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -301,7 +301,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 181}
-  - name: MainPlayer_Frame_9
+  - name: Bouble_Frame_9
     originalName: 
     pivot: {x: 0.625, y: 0}
     alignment: 9
@@ -312,7 +312,7 @@ ScriptedImporter:
       y: 4
       width: 24
       height: 20
-    spriteID: 3df330a3701928f4e8e776a6e10ff81e
+    spriteID: 8c0cf0830c42f8a48b1334e836ae07a9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -321,7 +321,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 4}
-  - name: MainPlayer_Frame_10
+  - name: Bouble_Frame_10
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -332,7 +332,7 @@ ScriptedImporter:
       y: 4
       width: 20
       height: 21
-    spriteID: 3d7aee97a4d09c94588752663af02156
+    spriteID: b9e9c5d55947252488f4f292e0828e8a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -341,7 +341,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 4}
-  - name: MainPlayer_Frame_11
+  - name: Bouble_Frame_11
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -352,7 +352,7 @@ ScriptedImporter:
       y: 147
       width: 20
       height: 20
-    spriteID: 4e15829f6fb6b5043b4f19e44453d265
+    spriteID: 5a013cfcdd0ae9e43b07811598fed91f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -361,7 +361,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 147}
-  - name: MainPlayer_Frame_12
+  - name: Bouble_Frame_12
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -372,7 +372,7 @@ ScriptedImporter:
       y: 59
       width: 20
       height: 19
-    spriteID: 3c2aded39440e3448a084471a20d8261
+    spriteID: 43df7c5affd169842a4d817d0a9c7a8e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -381,7 +381,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 100, y: 59}
-  - name: MainPlayer_Frame_13
+  - name: Bouble_Frame_13
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -392,7 +392,7 @@ ScriptedImporter:
       y: 175
       width: 20
       height: 20
-    spriteID: df7de7ae1f84a68478921eae01e75ab5
+    spriteID: 42b39be8eddbac14c8ac18aa06e4d462
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -401,7 +401,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 175}
-  - name: MainPlayer_Frame_14
+  - name: Bouble_Frame_14
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -412,7 +412,7 @@ ScriptedImporter:
       y: 33
       width: 20
       height: 21
-    spriteID: 6ac04167110b0c74895937ca3e6558a6
+    spriteID: dc59db29b4201524792e634c7ec31522
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -421,7 +421,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 33}
-  - name: MainPlayer_Frame_15
+  - name: Bouble_Frame_15
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -432,7 +432,7 @@ ScriptedImporter:
       y: 203
       width: 20
       height: 20
-    spriteID: 19d57229007948a49af877d41cb761b5
+    spriteID: 49eafdfa59526a94a801efd1920dde21
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -441,7 +441,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 203}
-  - name: MainPlayer_Frame_16
+  - name: Bouble_Frame_16
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -452,7 +452,7 @@ ScriptedImporter:
       y: 86
       width: 20
       height: 19
-    spriteID: 766e4f54083cd804fa6eb4ca8ae95e98
+    spriteID: fa4ceece34920de4ba8b9eb0fb9875ab
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -461,7 +461,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 100, y: 86}
-  - name: MainPlayer_Frame_17
+  - name: Bouble_Frame_17
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -472,7 +472,7 @@ ScriptedImporter:
       y: 231
       width: 20
       height: 20
-    spriteID: 17f18891013991d47935ee80a89fde30
+    spriteID: cede1886dd83aa9428585c55d0a1c9ad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -481,7 +481,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 231}
-  - name: MainPlayer_Frame_18
+  - name: Bouble_Frame_18
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -492,7 +492,7 @@ ScriptedImporter:
       y: 117
       width: 22
       height: 21
-    spriteID: 77699b682a9f13e4198218c2d14013d3
+    spriteID: 009d9b9217eb8f14da5c7608eeb1801e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -501,7 +501,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 117}
-  - name: MainPlayer_Frame_19
+  - name: Bouble_Frame_19
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -512,7 +512,7 @@ ScriptedImporter:
       y: 32
       width: 24
       height: 20
-    spriteID: 7aae52bf71fb1204980d02567d6b4195
+    spriteID: 453d43cbef97ba04b8285c4df2fefe9c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -521,7 +521,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 32}
-  - name: MainPlayer_Frame_20
+  - name: Bouble_Frame_20
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -532,7 +532,7 @@ ScriptedImporter:
       y: 64
       width: 26
       height: 21
-    spriteID: 209a205b13409fb4ca3dcc7636b1c5d2
+    spriteID: a25707a40da6d4e4098047d261a60976
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -541,7 +541,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 64}
-  - name: MainPlayer_Frame_21
+  - name: Bouble_Frame_21
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -552,7 +552,7 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 22
-    spriteID: 128db475c62df634f93c36889e4efed8
+    spriteID: 00f894bca215f9c4499adda076990ab4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -561,7 +561,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: MainPlayer_Frame_22
+  - name: Bouble_Frame_22
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -572,7 +572,7 @@ ScriptedImporter:
       y: 93
       width: 26
       height: 21
-    spriteID: 4afdbbfcec953484289dddbd75728ede
+    spriteID: 6dbecaa215d81994b99b374089c804b3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -581,7 +581,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 93}
-  - name: MainPlayer_Frame_23
+  - name: Bouble_Frame_23
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -592,7 +592,7 @@ ScriptedImporter:
       y: 60
       width: 24
       height: 20
-    spriteID: ca07558b45cbec841876c8ebb8778b06
+    spriteID: 1f8a8772ff1f5ed41b48dfbe97303b29
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -601,7 +601,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 60}
-  - name: MainPlayer_Frame_24
+  - name: Bouble_Frame_24
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -612,7 +612,7 @@ ScriptedImporter:
       y: 62
       width: 20
       height: 21
-    spriteID: 0d5971e6e9e7b59429b7895335817cf7
+    spriteID: 9d73a2f06dee76940a5d21d3174e4c2a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -621,7 +621,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 72, y: 62}
-  - name: MainPlayer_Frame_25
+  - name: Bouble_Frame_25
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -632,7 +632,7 @@ ScriptedImporter:
       y: 203
       width: 22
       height: 20
-    spriteID: dff460d4ce8dd624cab2db87f49024c6
+    spriteID: 0f56688f1b4779d46b34ddc5d6088e7a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -641,7 +641,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 203}
-  - name: MainPlayer_Frame_26
+  - name: Bouble_Frame_26
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -652,7 +652,7 @@ ScriptedImporter:
       y: 210
       width: 24
       height: 21
-    spriteID: cedee40e603ad7346bf010925fb55295
+    spriteID: d90df6e301bce4f4b88ea267d4db1b99
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -661,7 +661,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 210}
-  - name: MainPlayer_Frame_27
+  - name: Bouble_Frame_27
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -672,7 +672,7 @@ ScriptedImporter:
       y: 34
       width: 26
       height: 22
-    spriteID: c3dab42eb6508694b9af14084a157b51
+    spriteID: 132a3319bdee8d3418c23e64d7f1825c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -681,7 +681,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 34}
-  - name: MainPlayer_Frame_28
+  - name: Bouble_Frame_28
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -692,7 +692,7 @@ ScriptedImporter:
       y: 146
       width: 22
       height: 21
-    spriteID: 0b5bb4b12d7fd0d4c998c541d54a8a0c
+    spriteID: 526b3ffeeb8a7e6469d3dbec535383cc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -701,7 +701,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 40, y: 146}
-  - name: MainPlayer_Frame_29
+  - name: Bouble_Frame_29
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -712,7 +712,7 @@ ScriptedImporter:
       y: 4
       width: 20
       height: 20
-    spriteID: d022194fa98c43445a4aa177b466ca59
+    spriteID: c8f12d415e4bab447b527a9c4dae324b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -724,252 +724,252 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 2103898782
-    name: MainPlayer
+    guid: 2084122675
+    name: Bouble
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: MainPlayer_Frame_0
+    - name: Bouble_Frame_0
       frameIndex: 0
       cellRect:
         x: 5
         y: 0
         width: 20
         height: 21
-      spriteId: de5415ee61f3a74488486781c87d2baf
-    - name: MainPlayer_Frame_1
+      spriteId: 58ca9856d7cee41468a71daf7c1a07d2
+    - name: Bouble_Frame_1
       frameIndex: 1
       cellRect:
         x: 5
         y: 0
         width: 20
         height: 20
-      spriteId: d2b7fa80b212f9d4e8fd7d135dfdf65c
-    - name: MainPlayer_Frame_2
+      spriteId: 487cba880fbf14743abdfde6c7afa329
+    - name: Bouble_Frame_2
       frameIndex: 2
       cellRect:
         x: 5
         y: 0
         width: 20
         height: 19
-      spriteId: f60916064f23f924bbd2c5bd2739d0fd
-    - name: MainPlayer_Frame_3
+      spriteId: 87a9bdbbb7490a4429cc3924ecd991c8
+    - name: Bouble_Frame_3
       frameIndex: 3
       cellRect:
         x: 5
         y: 0
         width: 20
         height: 20
-      spriteId: b6cef9272a0ec854e859053e601e688d
-    - name: MainPlayer_Frame_4
+      spriteId: d9d02ddcf683181478bd9e37300740da
+    - name: Bouble_Frame_4
       frameIndex: 4
       cellRect:
         x: 3
         y: 0
         width: 22
         height: 21
-      spriteId: 8c3e24d6662f78e4ba8a313ecc7c0ff7
-    - name: MainPlayer_Frame_5
+      spriteId: 8cdc4f9eeaa4f6b43bd821286c1ed225
+    - name: Bouble_Frame_5
       frameIndex: 5
       cellRect:
         x: 2
         y: 0
         width: 23
         height: 20
-      spriteId: f46e90738e001fe4386d494c33a13d26
-    - name: MainPlayer_Frame_6
+      spriteId: dab3ca25552380345bfddb3f0d82fe6c
+    - name: Bouble_Frame_6
       frameIndex: 6
       cellRect:
         x: 1
         y: 0
         width: 24
         height: 21
-      spriteId: b6187086336e9a046bc411984e503c5f
-    - name: MainPlayer_Frame_7
+      spriteId: d8faff535efa1ef4489b717523594d7b
+    - name: Bouble_Frame_7
       frameIndex: 7
       cellRect:
         x: 1
         y: 0
         width: 24
         height: 22
-      spriteId: 71ce918fa23113842bb5ec02930345e4
-    - name: MainPlayer_Frame_8
+      spriteId: 7b098403372904441b0f043d5875d43d
+    - name: Bouble_Frame_8
       frameIndex: 8
       cellRect:
         x: 1
         y: 0
         width: 24
         height: 21
-      spriteId: a1b6d7dae21b5d446b1186675c9c1307
-    - name: MainPlayer_Frame_9
+      spriteId: dcdfb593377a6614fab031ec93a8c71d
+    - name: Bouble_Frame_9
       frameIndex: 9
       cellRect:
         x: 1
         y: 0
         width: 24
         height: 20
-      spriteId: 3df330a3701928f4e8e776a6e10ff81e
-    - name: MainPlayer_Frame_10
+      spriteId: 8c0cf0830c42f8a48b1334e836ae07a9
+    - name: Bouble_Frame_10
       frameIndex: 10
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 21
-      spriteId: 3d7aee97a4d09c94588752663af02156
-    - name: MainPlayer_Frame_11
+      spriteId: b9e9c5d55947252488f4f292e0828e8a
+    - name: Bouble_Frame_11
       frameIndex: 11
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 20
-      spriteId: 4e15829f6fb6b5043b4f19e44453d265
-    - name: MainPlayer_Frame_12
+      spriteId: 5a013cfcdd0ae9e43b07811598fed91f
+    - name: Bouble_Frame_12
       frameIndex: 12
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 19
-      spriteId: 3c2aded39440e3448a084471a20d8261
-    - name: MainPlayer_Frame_13
+      spriteId: 43df7c5affd169842a4d817d0a9c7a8e
+    - name: Bouble_Frame_13
       frameIndex: 13
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 20
-      spriteId: df7de7ae1f84a68478921eae01e75ab5
-    - name: MainPlayer_Frame_14
+      spriteId: 42b39be8eddbac14c8ac18aa06e4d462
+    - name: Bouble_Frame_14
       frameIndex: 14
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 21
-      spriteId: 6ac04167110b0c74895937ca3e6558a6
-    - name: MainPlayer_Frame_15
+      spriteId: dc59db29b4201524792e634c7ec31522
+    - name: Bouble_Frame_15
       frameIndex: 15
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 20
-      spriteId: 19d57229007948a49af877d41cb761b5
-    - name: MainPlayer_Frame_16
+      spriteId: 49eafdfa59526a94a801efd1920dde21
+    - name: Bouble_Frame_16
       frameIndex: 16
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 19
-      spriteId: 766e4f54083cd804fa6eb4ca8ae95e98
-    - name: MainPlayer_Frame_17
+      spriteId: fa4ceece34920de4ba8b9eb0fb9875ab
+    - name: Bouble_Frame_17
       frameIndex: 17
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 20
-      spriteId: 17f18891013991d47935ee80a89fde30
-    - name: MainPlayer_Frame_18
+      spriteId: cede1886dd83aa9428585c55d0a1c9ad
+    - name: Bouble_Frame_18
       frameIndex: 18
       cellRect:
         x: 5
         y: 0
         width: 22
         height: 21
-      spriteId: 77699b682a9f13e4198218c2d14013d3
-    - name: MainPlayer_Frame_19
+      spriteId: 009d9b9217eb8f14da5c7608eeb1801e
+    - name: Bouble_Frame_19
       frameIndex: 19
       cellRect:
         x: 4
         y: 0
         width: 24
         height: 20
-      spriteId: 7aae52bf71fb1204980d02567d6b4195
-    - name: MainPlayer_Frame_20
+      spriteId: 453d43cbef97ba04b8285c4df2fefe9c
+    - name: Bouble_Frame_20
       frameIndex: 20
       cellRect:
         x: 3
         y: 0
         width: 26
         height: 21
-      spriteId: 209a205b13409fb4ca3dcc7636b1c5d2
-    - name: MainPlayer_Frame_21
+      spriteId: a25707a40da6d4e4098047d261a60976
+    - name: Bouble_Frame_21
       frameIndex: 21
       cellRect:
         x: 2
         y: 0
         width: 28
         height: 22
-      spriteId: 128db475c62df634f93c36889e4efed8
-    - name: MainPlayer_Frame_22
+      spriteId: 00f894bca215f9c4499adda076990ab4
+    - name: Bouble_Frame_22
       frameIndex: 22
       cellRect:
         x: 3
         y: 0
         width: 26
         height: 21
-      spriteId: 4afdbbfcec953484289dddbd75728ede
-    - name: MainPlayer_Frame_23
+      spriteId: 6dbecaa215d81994b99b374089c804b3
+    - name: Bouble_Frame_23
       frameIndex: 23
       cellRect:
         x: 4
         y: 0
         width: 24
         height: 20
-      spriteId: ca07558b45cbec841876c8ebb8778b06
-    - name: MainPlayer_Frame_24
+      spriteId: 1f8a8772ff1f5ed41b48dfbe97303b29
+    - name: Bouble_Frame_24
       frameIndex: 24
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 21
-      spriteId: 0d5971e6e9e7b59429b7895335817cf7
-    - name: MainPlayer_Frame_25
+      spriteId: 9d73a2f06dee76940a5d21d3174e4c2a
+    - name: Bouble_Frame_25
       frameIndex: 25
       cellRect:
         x: 5
         y: 0
         width: 22
         height: 20
-      spriteId: dff460d4ce8dd624cab2db87f49024c6
-    - name: MainPlayer_Frame_26
+      spriteId: 0f56688f1b4779d46b34ddc5d6088e7a
+    - name: Bouble_Frame_26
       frameIndex: 26
       cellRect:
         x: 4
         y: 0
         width: 24
         height: 21
-      spriteId: cedee40e603ad7346bf010925fb55295
-    - name: MainPlayer_Frame_27
+      spriteId: d90df6e301bce4f4b88ea267d4db1b99
+    - name: Bouble_Frame_27
       frameIndex: 27
       cellRect:
         x: 3
         y: 0
         width: 26
         height: 22
-      spriteId: c3dab42eb6508694b9af14084a157b51
-    - name: MainPlayer_Frame_28
+      spriteId: 132a3319bdee8d3418c23e64d7f1825c
+    - name: Bouble_Frame_28
       frameIndex: 28
       cellRect:
         x: 5
         y: 0
         width: 22
         height: 21
-      spriteId: 0b5bb4b12d7fd0d4c998c541d54a8a0c
-    - name: MainPlayer_Frame_29
+      spriteId: 526b3ffeeb8a7e6469d3dbec535383cc
+    - name: Bouble_Frame_29
       frameIndex: 29
       cellRect:
         x: 6
         y: 0
         width: 20
         height: 20
-      spriteId: d022194fa98c43445a4aa177b466ca59
+      spriteId: c8f12d415e4bab447b527a9c4dae324b
     linkedCells: []
     parentIndex: -1
   platformSettings:
