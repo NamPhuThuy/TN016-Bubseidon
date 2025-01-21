@@ -9,14 +9,13 @@ public class PlayerPickUpMechanics : MonoBehaviour
 {
     [Header("Tilemap")]
     [SerializeField] private Tilemap _interact;//If need to interact with the tilemap, add it
-    [SerializeField] private GameObject _selector;//The cursor
     private Camera _mainCamera;
     [SerializeField] private GameObject _putTile;
     
     [Header("Stats")]
     public float sqrRadiusToPick = 4f;//The radius to pick the tower
     public Vector3 mousePos;
-    public Vector3Int positionInt;//The position of the tilemap to put on
+    public Vector3Int mousePositionInt;//The position of the tilemap to put on
     [SerializeField] private BoundsInt _bounds;
 
     [SerializeField] private GameObject _currentPickupObject;
@@ -43,7 +42,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
     private void Update()
     {
         mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        positionInt = GamePlayManager.Instance._map.WorldToCell(mousePos);
+        mousePositionInt = GamePlayManager.Instance._map.WorldToCell(mousePos);
 
         if (_onHand)
         {
@@ -69,7 +68,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
             {
                 if(Vector2.SqrMagnitude(hit.transform.position - gameObject.transform.position) < sqrRadiusToPick)
                 {
-                    if (hit.collider.TryGetComponent<IPickupable>(out IPickupable component))
+                    if (hit.collider.GetComponent<IPickupable>() != null)
                     {
                         _onHand = true;
                         PickUpObject(hit.collider.gameObject);
@@ -81,11 +80,6 @@ public class PlayerPickUpMechanics : MonoBehaviour
         {
             _onHand = false;
             DropObject(GamePlayManager.Instance._map.WorldToCell(_putTile.transform.position));
-        }
- 
-        if(_selector !=null)
-        {
-            _selector.transform.position= positionInt;
         }
     }
 
@@ -156,19 +150,10 @@ public class PlayerPickUpMechanics : MonoBehaviour
         _soapDisplay.PickUp(true);
 
         _currentPickupObject = hit;
-        _currentPickupObject.transform.SetParent(gameObject.transform);
-        _currentPickupObject.transform.position = _hand.position;
-        _currentPickupObject.GetComponent<Collider2D>().excludeLayers = LayerMaskHelper.Everything();
+        _currentPickupObject.GetComponent<IPickupable>().OnPickUp(_hand);
         
         //play sound
         AudioManager.Instance.PlaySfx(_makeBubbleSound);
-        
-        switch (_currentPickupObject.tag)
-        {
-            case "Enemy":
-                _currentPickupObject.GetComponent<EnemyController>().StopMoving();
-                break;
-        }
     }
 
     public void DropObject(Vector3Int pos)
@@ -179,17 +164,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
         TurnOnBubblePopSFX();
         _splashWater.SetActive(true);
         
-        _currentPickupObject.transform.SetParent(null);
-        _currentPickupObject.transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);
-        _currentPickupObject.GetComponent<Collider2D>().excludeLayers = LayerMaskHelper.Nothing();
-        
-        switch (_currentPickupObject.tag)
-        {
-            case "Enemy":
-                _currentPickupObject.GetComponent<EnemyController>().BackToPath(GamePlayManager.Instance._map.WorldToCell(_currentPickupObject.transform.position));
-                break;
-        }
-        
+        _currentPickupObject.GetComponent<IPickupable>().OnDropDown(pos);
         _currentPickupObject = null;
     }
 

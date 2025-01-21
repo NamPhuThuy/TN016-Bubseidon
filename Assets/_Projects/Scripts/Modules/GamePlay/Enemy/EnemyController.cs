@@ -51,6 +51,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     {
         Health = 50f;
         MoveSpeed = 1f;
+        isBeingPicked = false;
         
         _tilemap = GamePlayManager.Instance._map;
         _coinController = GamePlayManager.Instance._coinController;
@@ -364,7 +365,24 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
         StopAllCoroutines();
     }
 
+    #region IPickupable Implementation
     public bool isBeingPicked { get; set; }
+    public void OnPickUp(Transform hand)
+    {
+        _transform.parent = hand;
+        _transform.position = hand.position;
+        _collider2D.excludeLayers = LayerMaskHelper.Everything();
+        StopMoving();
+    }
+
+    public void OnDropDown(Vector3Int pos)
+    {
+        _transform.parent = null;
+        _transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);
+        _collider2D.excludeLayers = LayerMaskHelper.Nothing();
+        BackToPath(GamePlayManager.Instance._map.WorldToCell(_transform.position));
+    }
+    #endregion
 
     #region IDamageable Implementations
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NamPhuThuy;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -133,8 +134,25 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
         Damage = 5f;
         AttackInterval = 0.5f;
     }
-    
+
+    #region IPickupable Implementation
+
     public bool isBeingPicked { get; set; }
+    public void OnPickUp(Transform hand)
+    {
+        _transform.parent = hand;
+        _transform.position = hand.position;
+        _selfCollider2D.excludeLayers = LayerMaskHelper.Everything();
+    }
+
+    public void OnDropDown(Vector3Int pos)
+    {
+        _transform.parent = null;
+        _transform.position = GamePlayManager.Instance._map.GetCellCenterWorld(pos);
+        _selfCollider2D.excludeLayers = LayerMaskHelper.Nothing();
+    }
+
+    #endregion
 
     #region IDamageable Implementation
     public float Health { get; set; }

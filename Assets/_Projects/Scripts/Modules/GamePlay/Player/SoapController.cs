@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SoapController : MonoBehaviour
 {
+    [Header("Components")]
+    
     [SerializeField] private GameObject _bubble;
     [SerializeField] private Transform _soapBar;
     [SerializeField] private Transform _limitBar;
