@@ -28,7 +28,7 @@ public class ProjectileController : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
-            transform.Translate(direction.normalized * distanceThisFrame*_speed, Space.World);
+            transform.Translate(direction.normalized * (distanceThisFrame*_speed), Space.World);
         } 
         else
         {

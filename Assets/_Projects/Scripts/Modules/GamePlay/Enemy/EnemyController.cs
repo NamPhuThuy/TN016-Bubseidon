@@ -5,19 +5,17 @@ using NamPhuThuy;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class EnemyController : MonoBehaviour, IPickupable
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+public class EnemyController : MonoBehaviour, IPickupable, IDamageable
 {
     [Header("Stats")]
     [SerializeField] private float _moveSpeed = 1f;
     public Vector3Int _startPos;
     public Vector3Int _endPos;
-    [SerializeField] private float _health = 50f;
-
-    public float Health
-    {
-        get => _health;
-        private set => _health = value;
-    }
+    
     
     [SerializeField] public float _damage = 1f;
     
@@ -47,8 +45,13 @@ public class EnemyController : MonoBehaviour, IPickupable
     [Header("AnimClip name")]
     private string _dieAnimString = "ded";
 
+    
+
+    #region MonoBehaviour methods
     private void Start()
     {
+        Health = 20f;
+        _tilemap = GamePlayManager.Instance._map;
         _coinController = GamePlayManager.Instance._coinController;
         _hpBar = GetComponentInChildren<HPBarController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -91,14 +94,12 @@ public class EnemyController : MonoBehaviour, IPickupable
             }
         }
     }
-
-    #region MonoBehaviour methods
+    
     private void OnEnable()
     {
         GamePlayManager.Instance.AddEnemy(this);
         
         //Retrieve 
-        _tilemap = GamePlayManager.Instance._map;
         _transform = transform;
         
         
@@ -192,21 +193,7 @@ public class EnemyController : MonoBehaviour, IPickupable
 
         DealDamageToPlayer();
     }
-    //Receving damage
-    public void TakeDamage(float damage)
-    {
-        _hpBar.TakeDamage(damage/_health);
-        _health -= damage;
-        if (_health <= 0)
-        {
-            _moveSpeed = 0f;
-            Die();
-        }
-    }
-    public void setSpeed(float speed)
-    {
-        _moveSpeed -= speed;
-    }
+    
     public void BackToPath(Vector3Int playerPosition)
     {
         _transform.position = _tilemap.GetCellCenterWorld(playerPosition);
@@ -377,19 +364,6 @@ public class EnemyController : MonoBehaviour, IPickupable
     {
         tower.TakeDamage(_damage);
     }
-
-    private void Die()
-    {
-        //_spriteRenderer.enabled = false;
-        _animator.Play(_dieAnimString);
-        if (!_isSpawnCoin)
-        {
-            Instantiate(_coinController, _transform.position, Quaternion.identity);
-            _isSpawnCoin = true;
-        }
-        Destroy(gameObject, 1f);
-    }
-    
     
     public void StopMoving()
     {
@@ -398,4 +372,48 @@ public class EnemyController : MonoBehaviour, IPickupable
     }
 
     public bool isBeingPicked { get; set; }
+
+    #region IDamageable Implementations
+
+    public float Health { get; set; }
+    public bool IsDead => Health <= 0f;
+
+    public void TakeDamage(float amount)
+    {
+        _hpBar.TakeDamage(amount/Health);
+        if (IsDead)
+            OnDead();
+        Health -= amount;
+    }
+    public void OnDead()
+    {
+        _moveSpeed = 0f;
+        _animator.Play(_dieAnimString);
+        if (!_isSpawnCoin)
+        {
+            Instantiate(_coinController, _transform.position, Quaternion.identity);
+            _isSpawnCoin = true;
+        }
+        Destroy(gameObject, 1f);
+    }
+
+    #endregion
+    
 }
+
+
+#if UNITY_EDITOR
+
+[CustomEditor(typeof(EnemyController))]
+public class EnemyControllerEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        EnemyController enemyController = (EnemyController)target;
+
+        EditorGUILayout.LabelField("Health", enemyController.Health.ToString());
+    }
+}
+#endif
