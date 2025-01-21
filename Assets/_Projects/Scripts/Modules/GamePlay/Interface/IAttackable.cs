@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IAttackable : MonoBehaviour
+public interface IAttackable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float Damage { get; set; }
+    float AttackInterval { get; set; }
+    float AttackTimer { get; set; }
+    float AttackRange { get; set; }
+    // IDamageable _target;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    IDamageable Target { get; set; }
+    void Attack();
 }

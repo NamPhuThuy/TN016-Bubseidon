@@ -103,11 +103,9 @@ public class UIScreenHUD : UIScreenBase
 
     public void UpdateUI()
     {
-        Debug.LogError($"Update UI HUD");
         _coinText.text = $"{DataManager.Instance.PlayerData.coin}";
         _scoreText.text = $"{DataManager.Instance.PlayerData.score}";
         
-        Debug.LogError($"current hp: {DataManager.Instance.CurrentHP}, base hp: {DataManager.Instance.BaseHP}");
         _hpSlider.value = DataManager.Instance.CurrentHP / DataManager.Instance.BaseHP;
     }
 }

@@ -4,28 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class TowerController : MonoBehaviour, IPickupable
+public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamageable
 {
     [Header("Stats")] 
-    [SerializeField] private float _damage = 5f;
     [SerializeField] private float _health = 100f;
-    [SerializeField] private float _attackInterval = 1f;
-    private float _attackRange = 3f;
-    private float nextFireTime;
     
-    [Header("GamePlay Information")]
-    [SerializeField] private ProjectileController _projectilePrefab;
-    
+    [Header("Components")]
     [SerializeField] private BoxCollider2D _selfCollider2D;
     [SerializeField] private CircleCollider2D _rangeCollider2D;
     [SerializeField] private Transform _transform;
     [SerializeField] private HPBarController _hpBar;
     [SerializeField] private Animator _animator;
 
+    
+    [Header("GamePlay Information")]
+    [SerializeField] private ProjectileController _projectilePrefab;
     [SerializeField] private EnemyController _currentTarget;
-
     [SerializeField] private GameObject _pivot; // for check range
-    // [SerializeField] private List<EnemyController> enemiesInRange = new List<EnemyController>();
+    [SerializeField] private List<ProjectileController> _projectilePool = new List<ProjectileController>(30);
         
     
     [Header("Audio")]
@@ -36,17 +32,25 @@ public class TowerController : MonoBehaviour, IPickupable
 
     private void Start()
     {
+        //Attributes
+        AttackInterval = 0.1f;
+        AttackTimer = Time.time;
+        AttackRange = 3f;
+        Damage = 1.2f;
+        
+        //Component References
         _selfCollider2D = GetComponent<BoxCollider2D>();
         _rangeCollider2D = GetComponent<CircleCollider2D>();
         _animator = GetComponent<Animator>();
+        _transform = transform;
+        
+        _currentTarget = null;
     }
     
     private void OnEnable()
     {
         GamePlayManager.Instance.AddTower(this);
-
-        _transform = transform;
-        _currentTarget = null;
+        
     }
     
     private void OnDestroy()
@@ -63,18 +67,13 @@ public class TowerController : MonoBehaviour, IPickupable
         }
         else
         {
-            if (Vector2.Distance(_currentTarget.transform.position, transform.position) > _attackRange)
+            if ((Vector2.Distance(_currentTarget.transform.position, transform.position) > AttackRange) || (_currentTarget.IsDead))
             {
                 _currentTarget = null;
                 return;
             }
-
-            if (_currentTarget.Health <= 0f)
-            {
-                _currentTarget = null;
-                return;
-            }
-            Attack(_currentTarget);
+            
+            Attack();
         }
     }
 
@@ -94,17 +93,12 @@ public class TowerController : MonoBehaviour, IPickupable
             }
         }
 
+        if (minDistance > AttackRange * AttackRange)
+            return null;
+
         return closestEnemy;
     }
 
-    #endregion
-    
-    public void ResetData()
-    {
-        _damage = 5f;
-        _attackInterval = 1f;
-    }
-    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.IsTouching(_rangeCollider2D))
@@ -132,39 +126,60 @@ public class TowerController : MonoBehaviour, IPickupable
             }
         }
     }
-
-
-    private void Attack(EnemyController currentTarget)
+    #endregion
+    
+    public void ResetData()
     {
-        
-        if (Time.time < nextFireTime) return;
-        nextFireTime = Time.time + _attackInterval;
-        
-        AudioManager.Instance.PlaySfx(_shootAudio);
-        
-        
-        var projectile = Instantiate(_projectilePrefab, _pivot.transform.position, Quaternion.identity);
-        projectile.damage = _damage;
-        projectile.Target = currentTarget;
+        Damage = 5f;
+        AttackInterval = 0.5f;
     }
     
     public bool isBeingPicked { get; set; }
-    
+
+    #region IDamageable Implementation
+    public float Health { get; set; }
+    public bool IsDead { get; }
     public void TakeDamage(float damage)
     {
         _hpBar.TakeDamage(damage/_health);
         _health -= damage;
         if (_health <= 0)
         {
-            Dead();
+            OnDead();
         }
     }
-    private void Dead()
+
+    
+    public void OnDead()
     {
         _animator.Play("broke");
         AudioManager.Instance.PlaySfx(_destroyAudio);
         Destroy(gameObject, 1.2f);
     }
+    #endregion
+
+   
+
+    #region IAttackable Implementation
+
+    public float Damage { get; set; }
+    public float AttackInterval { get; set; }
+    public float AttackTimer { get; set; }
+    public float AttackRange { get; set; }
+    public IDamageable Target { get; set; }
+    public void Attack()
+    {
+        if (Time.time < AttackTimer) return;
+        AttackTimer = Time.time + AttackInterval;
+        
+        AudioManager.Instance.PlaySfx(_shootAudio);
+        
+        var projectile = Instantiate(_projectilePrefab, _pivot.transform.position, Quaternion.identity);
+        projectile.Damage = Damage;
+        projectile.TargetTransform = _currentTarget.transform;
+    }
+
+    #endregion
 }
 
 //inspector code
