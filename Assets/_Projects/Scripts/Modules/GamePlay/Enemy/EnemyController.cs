@@ -109,6 +109,42 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
         GamePlayManager.Instance.RemoveEnemy(this);
         MessageManager.Instance.SendMessage(new Message(NamMessageType.OnEnemyDie));
     }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Tower"))
+        {
+            _triggerTower = other.transform.GetComponent<TowerController>();
+            _damageTimer = 1f;
+            _animator.Play("Attack");
+            StopMoving();
+        }
+        else if (other.transform.CompareTag("Obstacle"))
+        {
+            _triggerObs = other.transform.GetComponent<ObstacleController>();
+            _animator.Play("Attack");
+            StopMoving();
+        }
+    }
+    
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.tag);
+        switch (other.gameObject.tag)
+        {
+            case "Tower":
+                _triggerTower = null;
+                _animator.Play("Run");
+                BackToPath(GamePlayManager.Instance._map.WorldToCell(_transform.position));
+                break;
+            case "Obstacle":
+                _triggerObs = null;
+                _animator.Play("Run");
+                BackToPath(GamePlayManager.Instance._map.WorldToCell(_transform.position));
+                break;
+            
+        }
+    }
     #endregion
 
     #region Path finding
@@ -322,37 +358,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
         Destroy(gameObject);
     }
     
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.transform.CompareTag("Tower"))
-        {
-            _triggerTower = other.transform.GetComponent<TowerController>();
-            _damageTimer = 1f;
-            _animator.Play("Attack");
-        }
-        else if (other.transform.CompareTag("Obstacle"))
-        {
-            _triggerObs = other.transform.GetComponent<ObstacleController>();
-            _animator.Play("Attack");
-        }
-    }
-    
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        Debug.Log(other.gameObject.tag);
-        switch (other.gameObject.tag)
-        {
-            case "Tower":
-                _triggerTower = null;
-                _animator.Play("Run");
-                break;
-            case "Obstacle":
-                _triggerObs = null;
-                _animator.Play("Run");
-                break;
-            
-        }
-    }
+   
 
     private void DealDamageToTower(TowerController tower)
     {

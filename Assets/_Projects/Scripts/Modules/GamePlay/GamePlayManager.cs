@@ -85,7 +85,6 @@ public class GamePlayManager : Singleton<GamePlayManager>, IMessageHandle
     }
     public void SetBrain(EnemyController enemy, Vector3Int spawnPos)
     {
-        
         enemy._endPos = _map.WorldToCell(_enemySpawner._endP1.position);
         enemy.transform.SetParent(_enemySpawner._enemyParent);
         enemy.BackToPath(spawnPos);    
