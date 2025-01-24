@@ -95,13 +95,14 @@ GameObject:
   - component: {fileID: 7609730651978454287}
   - component: {fileID: 5708154791990662554}
   - component: {fileID: 8955489945066442520}
+  - component: {fileID: 3009609745725475003}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7609730651978454287
 Transform:
   m_ObjectHideFlags: 0
@@ -190,6 +191,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3009609745725475003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946100151807568821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6205d8a32d680f84c85ce5184f815e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _transform: {fileID: 0}
+  _createAnimClip: {fileID: -5252816984213320552, guid: 4691aa0263b6d1743a0932ffa8dbb3fc, type: 3}
+  _popAnimClip: {fileID: -4209197220839485909, guid: 4691aa0263b6d1743a0932ffa8dbb3fc, type: 3}
 --- !u!1 &6667871987266332237
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,20 +342,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interact: {fileID: 0}
-  _selector: {fileID: 0}
   _putTile: {fileID: 4403221714706580586}
   sqrRadiusToPick: 49
   mousePos: {x: 0, y: 0, z: 0}
-  positionInt: {x: 0, y: 0, z: 0}
+  mousePositionInt: {x: 0, y: 0, z: 0}
   _bounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}
-  _currentPickupObject: {fileID: 0}
-  _hand: {fileID: 2646802893641485743}
-  _soapDisplay: {fileID: 2700442812533987091}
   _makeBubbleSound: {fileID: 8300000, guid: 9f7a704ecbad8b540af31b900bcfa479, type: 3}
   _bubblePopSound: {fileID: 8300000, guid: e155727d06136ca47b8cd1150dd1a03d, type: 3}
   _splashWater: {fileID: 0}
+  _currentPickupObject: {fileID: 0}
+  _hand: {fileID: 2646802893641485743}
+  _bubbleController: {fileID: 3009609745725475003}
 --- !u!95 &981489671387734970
 Animator:
   serializedVersion: 5
@@ -609,6 +625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoapDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 7373397574304973589, guid: e5e28c9c2c213714793f3e5b3f53600c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -619,14 +639,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2114393034645937282, guid: e5e28c9c2c213714793f3e5b3f53600c, type: 3}
   m_PrefabInstance: {fileID: 1101537802858799102}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2700442812533987091 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3040093187403696365, guid: e5e28c9c2c213714793f3e5b3f53600c, type: 3}
-  m_PrefabInstance: {fileID: 1101537802858799102}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b35c059134ac164395d055d70720768, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -42,10 +42,10 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
 
     public float BaseHP
     {
-        get => PlayerData.baseHP;
+        get => PlayerData.maxHP;
         set
         {
-            PlayerData.baseHP = value;
+            PlayerData.maxHP = value;
             MessageManager.Instance.SendMessage(new Message(NamMessageType.OnDataChanged));
             SaveData();
         }

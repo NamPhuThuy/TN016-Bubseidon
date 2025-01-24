@@ -415,10 +415,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7349191148162219452}
     m_Modifications:
-    - target: {fileID: 80295674400288403, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
-      propertyPath: _splashWater
-      value: 
-      objectReference: {fileID: 1190263269427916862}
     - target: {fileID: 6667871987266332237, guid: c34ccc74bbf440d41a0d70504a3149b0, type: 3}
       propertyPath: m_Name
       value: Player

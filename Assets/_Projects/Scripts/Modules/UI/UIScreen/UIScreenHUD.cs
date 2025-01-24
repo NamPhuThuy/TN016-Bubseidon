@@ -20,6 +20,7 @@ public class UIScreenHUD : UIScreenBase
     [SerializeField] private TextMeshProUGUI _coinText;
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private Slider _hpSlider;
+    [SerializeField] private Slider _mpSlider;
     
     [Header("TowerShop")]
     [SerializeField] private TowerDatas _towerDatas;
@@ -35,28 +36,6 @@ public class UIScreenHUD : UIScreenBase
         _pauseButton.onClick.AddListener(OnPauseClick);
         _towerShopButton.onClick.AddListener(OnTowerShopClick);
         _instantBuyTowerButton.onClick.AddListener(OnInstantBuyTowerClick);
-    }
-
-    private void OnInstantBuyTowerClick()
-    {
-        if (DataManager.Instance.Coin >= _coinToBuy)
-        {
-            //mua
-            int rand = Random.Range(0, _buildingItems.Count);
-
-            if (_isFirstBuy)
-            {
-                rand = 3;
-                _isFirstBuy = false;
-            }
-            
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            
-            Instantiate(_buildingItems[rand], player.transform.position, Quaternion.identity);
-            DataManager.Instance.Coin -= _coinToBuy;
-            _coinToBuy++;
-            _towerPriceText.text = "" + _coinToBuy;
-        }
     }
 
     private void OnEnable()
@@ -85,6 +64,28 @@ public class UIScreenHUD : UIScreenBase
         else
             _towerShopScrollView.Show();
     }
+    
+    private void OnInstantBuyTowerClick()
+    {
+        if (DataManager.Instance.Coin >= _coinToBuy)
+        {
+            //mua
+            int rand = Random.Range(0, _buildingItems.Count);
+
+            if (_isFirstBuy)
+            {
+                rand = 3;
+                _isFirstBuy = false;
+            }
+            
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            
+            Instantiate(_buildingItems[rand], player.transform.position, Quaternion.identity);
+            DataManager.Instance.Coin -= _coinToBuy;
+            _coinToBuy++;
+            _towerPriceText.text = "" + _coinToBuy;
+        }
+    }
 
     #endregion
 
@@ -107,5 +108,6 @@ public class UIScreenHUD : UIScreenBase
         _scoreText.text = $"{DataManager.Instance.PlayerData.score}";
         
         _hpSlider.value = DataManager.Instance.CurrentHP / DataManager.Instance.BaseHP;
+        _mpSlider.value = DataManager.Instance.PlayerData.currentMP / DataManager.Instance.PlayerData.maxMP;
     }
 }

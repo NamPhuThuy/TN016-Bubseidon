@@ -963,7 +963,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7458598069165904680, guid: 98abb62263b56384785ede4baee41fb0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98abb62263b56384785ede4baee41fb0, type: 3}
@@ -2155,6 +2156,14 @@ PrefabInstance:
     - target: {fileID: 4468600676576177584, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974616015698200863, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974616015698200863, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8950492074503673647, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
       propertyPath: m_AnchorMax.x
