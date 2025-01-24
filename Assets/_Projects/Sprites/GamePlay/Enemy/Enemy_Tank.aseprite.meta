@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aee6b2f2689327e43a408fe5a6f52142
+guid: 0621e1a6465765941b2cb9b0a5be2f1e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 32
+    spritePixelsToUnits: 64
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638728559954953669
+  platformSettingsDirtyTick: 638733405869896842
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Enemy boss_Frame_0
+  - name: Enemy_Tank_Frame_0
     originalName: 
-    pivot: {x: 0.5757576, y: -0.023255816}
+    pivot: {x: 0.5185185, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 178
-      y: 4
-      width: 33
-      height: 43
-    spriteID: 852aa79494b6f0f419a3c00ef3fd6225
+      x: 4
+      y: 80
+      width: 27
+      height: 29
+    spriteID: 917190d53ccf395409cc54be1a248962
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -140,19 +140,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 178, y: 4}
-  - name: Enemy boss_Frame_1
+    uvTransform: {x: 4, y: 80}
+  - name: Enemy_Tank_Frame_1
     originalName: 
-    pivot: {x: 0.5625, y: -0.024390243}
+    pivot: {x: 0.5185185, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 86
-      y: 57
-      width: 32
-      height: 41
-    spriteID: f573f8c9854bc48488fa208ba8163cd1
+      x: 4
+      y: 191
+      width: 27
+      height: 27
+    spriteID: d59eb841bbf843143adda993ee327531
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,19 +160,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 86, y: 57}
-  - name: Enemy boss_Frame_2
+    uvTransform: {x: 4, y: 191}
+  - name: Enemy_Tank_Frame_2
     originalName: 
-    pivot: {x: 0.5757576, y: -0.022727273}
+    pivot: {x: 0.5185185, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 92
-      y: 4
-      width: 33
-      height: 44
-    spriteID: ad3f41be47564ca4fa2649e16d1c64f3
+      x: 4
+      y: 42
+      width: 27
+      height: 30
+    spriteID: 65c1704c4a80d344d853e974983cb616
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -180,19 +180,59 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 92, y: 4}
-  - name: Enemy boss_Frame_3
+    uvTransform: {x: 4, y: 42}
+  - name: Enemy_Tank_Frame_3
     originalName: 
-    pivot: {x: 0.61111116, y: -0.022222225}
+    pivot: {x: 0.6086957, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 39
+      width: 23
+      height: 30
+    spriteID: c8de21eea49c2164fad79c5f3844d526
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 39}
+  - name: Enemy_Tank_Frame_4
+    originalName: 
+    pivot: {x: 0.56, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 153
+      width: 25
+      height: 30
+    spriteID: 954315b638eb6fb49a9d11dd79445859
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 153}
+  - name: Enemy_Tank_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 36
-      height: 45
-    spriteID: 4d0df290071b58f468b1cc57cb4c57bb
+      width: 28
+      height: 30
+    spriteID: 8512a7579646131468f0a645efd1ae8f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,58 +241,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Enemy boss_Frame_4
+  - name: Enemy_Tank_Frame_6
     originalName: 
-    pivot: {x: 0.45454547, y: -0.023255816}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 219
-      y: 4
-      width: 33
-      height: 43
-    spriteID: 2338b4eeaf972b54c9d37a81fa951ab9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 219, y: 4}
-  - name: Enemy boss_Frame_5
-    originalName: 
-    pivot: {x: 0.43243238, y: -0.025641028}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 133
-      y: 4
-      width: 37
-      height: 39
-    spriteID: bda076958ceae2f4ab0843c26f581780
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 133, y: 4}
-  - name: Enemy boss_Frame_6
-    originalName: 
-    pivot: {x: 0.45454547, y: -0.023255816}
+    pivot: {x: 0.5185185, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 57
-      width: 33
-      height: 43
-    spriteID: 4b518b55c525354409e6d9bbd034dbcd
+      y: 117
+      width: 27
+      height: 28
+    spriteID: 95df61c80c085b64f9281ba8dd10c241
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -260,19 +260,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 57}
-  - name: Enemy boss_Frame_7
+    uvTransform: {x: 4, y: 117}
+  - name: Enemy_Tank_Frame_7
     originalName: 
-    pivot: {x: 0.61111116, y: -0.022222225}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 48
+      x: 40
       y: 4
-      width: 36
-      height: 45
-    spriteID: f4b72c9f63dd1e5469aae5bcb91b536d
+      width: 26
+      height: 27
+    spriteID: 4e506f85f7c55a84c9ffa03e6a4451e4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -280,19 +280,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 48, y: 4}
-  - name: Enemy boss_Frame_8
+    uvTransform: {x: 40, y: 4}
+  - name: Enemy_Tank_Frame_8
     originalName: 
-    pivot: {x: 0.5757576, y: -0.023255816}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 45
-      y: 57
-      width: 33
-      height: 43
-    spriteID: 976f8b25253d7b443b8d721e8b8c55f8
+      x: 4
+      y: 226
+      width: 26
+      height: 26
+    spriteID: c3d75496c7ce0d94fa525994fc50c723
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -300,19 +300,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 45, y: 57}
-  - name: Enemy boss_Frame_9
+    uvTransform: {x: 4, y: 226}
+  - name: Enemy_Tank_Frame_9
     originalName: 
-    pivot: {x: 0.54285717, y: -0.027027026}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 126
-      y: 57
-      width: 35
-      height: 37
-    spriteID: 671d472bfe8d92f479b6d96fae254c0a
+      x: 40
+      y: 77
+      width: 26
+      height: 26
+    spriteID: 3eab227fdbb4fa64db6310119cc2f86b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -320,152 +320,96 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 126, y: 57}
-  - name: Enemy boss_Frame_10
-    originalName: 
-    pivot: {x: 0.5, y: -0.04}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 169
-      y: 57
-      width: 42
-      height: 25
-    spriteID: 6264577e1a3f0a3479203bc1db65eba5
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 169, y: 57}
-  - name: Enemy boss_Frame_11
-    originalName: 
-    pivot: {x: 0.5, y: -0.058823533}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 169
-      y: 90
-      width: 42
-      height: 17
-    spriteID: 4a0ad690e0fc2de4c99189d5827b7ee0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 169, y: 90}
+    uvTransform: {x: 40, y: 77}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1028970173
-    name: Enemy boss
+    guid: -1990489599
+    name: Enemy_Tank
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Enemy boss_Frame_0
+    - name: Enemy_Tank_Frame_0
       frameIndex: 0
       cellRect:
-        x: 5
-        y: 1
-        width: 33
-        height: 43
-      spriteId: 852aa79494b6f0f419a3c00ef3fd6225
-    - name: Enemy boss_Frame_1
+        x: 2
+        y: 0
+        width: 27
+        height: 29
+      spriteId: 917190d53ccf395409cc54be1a248962
+    - name: Enemy_Tank_Frame_1
       frameIndex: 1
       cellRect:
-        x: 6
-        y: 1
-        width: 32
-        height: 41
-      spriteId: f573f8c9854bc48488fa208ba8163cd1
-    - name: Enemy boss_Frame_2
+        x: 2
+        y: 0
+        width: 27
+        height: 27
+      spriteId: d59eb841bbf843143adda993ee327531
+    - name: Enemy_Tank_Frame_2
       frameIndex: 2
       cellRect:
-        x: 5
-        y: 1
-        width: 33
-        height: 44
-      spriteId: ad3f41be47564ca4fa2649e16d1c64f3
-    - name: Enemy boss_Frame_3
+        x: 2
+        y: 0
+        width: 27
+        height: 30
+      spriteId: 65c1704c4a80d344d853e974983cb616
+    - name: Enemy_Tank_Frame_3
       frameIndex: 3
       cellRect:
         x: 2
-        y: 1
-        width: 36
-        height: 45
-      spriteId: 4d0df290071b58f468b1cc57cb4c57bb
-    - name: Enemy boss_Frame_4
+        y: 0
+        width: 23
+        height: 30
+      spriteId: c8de21eea49c2164fad79c5f3844d526
+    - name: Enemy_Tank_Frame_4
       frameIndex: 4
       cellRect:
-        x: 9
-        y: 1
-        width: 33
-        height: 43
-      spriteId: 2338b4eeaf972b54c9d37a81fa951ab9
-    - name: Enemy boss_Frame_5
+        x: 2
+        y: 0
+        width: 25
+        height: 30
+      spriteId: 954315b638eb6fb49a9d11dd79445859
+    - name: Enemy_Tank_Frame_5
       frameIndex: 5
       cellRect:
-        x: 8
-        y: 1
-        width: 37
-        height: 39
-      spriteId: bda076958ceae2f4ab0843c26f581780
-    - name: Enemy boss_Frame_6
+        x: 2
+        y: 0
+        width: 28
+        height: 30
+      spriteId: 8512a7579646131468f0a645efd1ae8f
+    - name: Enemy_Tank_Frame_6
       frameIndex: 6
       cellRect:
-        x: 9
-        y: 1
-        width: 33
-        height: 43
-      spriteId: 4b518b55c525354409e6d9bbd034dbcd
-    - name: Enemy boss_Frame_7
+        x: 2
+        y: 0
+        width: 27
+        height: 28
+      spriteId: 95df61c80c085b64f9281ba8dd10c241
+    - name: Enemy_Tank_Frame_7
       frameIndex: 7
       cellRect:
-        x: 2
-        y: 1
-        width: 36
-        height: 45
-      spriteId: f4b72c9f63dd1e5469aae5bcb91b536d
-    - name: Enemy boss_Frame_8
+        x: 3
+        y: 0
+        width: 26
+        height: 27
+      spriteId: 4e506f85f7c55a84c9ffa03e6a4451e4
+    - name: Enemy_Tank_Frame_8
       frameIndex: 8
       cellRect:
-        x: 5
-        y: 1
-        width: 33
-        height: 43
-      spriteId: 976f8b25253d7b443b8d721e8b8c55f8
-    - name: Enemy boss_Frame_9
+        x: 3
+        y: 0
+        width: 26
+        height: 26
+      spriteId: c3d75496c7ce0d94fa525994fc50c723
+    - name: Enemy_Tank_Frame_9
       frameIndex: 9
       cellRect:
-        x: 5
-        y: 1
-        width: 35
-        height: 37
-      spriteId: 671d472bfe8d92f479b6d96fae254c0a
-    - name: Enemy boss_Frame_10
-      frameIndex: 10
-      cellRect:
         x: 3
-        y: 1
-        width: 42
-        height: 25
-      spriteId: 6264577e1a3f0a3479203bc1db65eba5
-    - name: Enemy boss_Frame_11
-      frameIndex: 11
-      cellRect:
-        x: 3
-        y: 1
-        width: 42
-        height: 17
-      spriteId: 4a0ad690e0fc2de4c99189d5827b7ee0
+        y: 0
+        width: 26
+        height: 26
+      spriteId: 3eab227fdbb4fa64db6310119cc2f86b
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -493,6 +437,18 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   - name: WebGL
     overridden: 0
     ignorePlatformSupport: 0
@@ -508,4 +464,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 48, y: 48}
+  canvasSize: {x: 32, y: 32}

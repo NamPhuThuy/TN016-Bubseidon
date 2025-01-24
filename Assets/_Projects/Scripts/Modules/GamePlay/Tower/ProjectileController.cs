@@ -72,8 +72,8 @@ public class ProjectileController : MonoBehaviour, IMoveable, IAttackable
     #endregion
     
     #region IAttackable Implementation
-    public float Damage { get; set; }
-    public float AttackInterval { get; set; }
+    public float AttackDamage { get; set; }
+    public float AttackCoolDown { get; set; }
     public float AttackTimer { get; set; }
     public float AttackRange { get; set; }
     [SerializeField] private IDamageable _target;
@@ -88,7 +88,7 @@ public class ProjectileController : MonoBehaviour, IMoveable, IAttackable
 
     public void Attack()
     {
-        Target.TakeDamage(Damage);
+        Target.TakeDamage(AttackDamage);
     }
     #endregion
 }
@@ -105,7 +105,7 @@ public class ProjectileControllerrEditor : UnityEditor.Editor
 
         ProjectileController self = (ProjectileController)target;
         EditorGUILayout.LabelField("Stats");
-        EditorGUILayout.LabelField("Damage", self.Damage.ToString());
+        EditorGUILayout.LabelField("Damage", self.AttackDamage.ToString());
         EditorGUILayout.LabelField("Move Speed", self.MoveSpeed.ToString());
         
     }

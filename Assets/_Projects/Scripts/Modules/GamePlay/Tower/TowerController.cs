@@ -37,10 +37,10 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
     private void Start()
     {
         //Attributes
-        AttackInterval = 0.1f;
+        AttackCoolDown = 0.1f;
         AttackTimer = Time.time;
         AttackRange = 3f;
-        Damage = 1.2f;
+        AttackDamage = 1.2f;
         
         //Component References
         _selfCollider2D = GetComponent<BoxCollider2D>();
@@ -105,8 +105,8 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
     
     public void ResetData()
     {
-        Damage = 5f;
-        AttackInterval = 0.5f;
+        AttackDamage = 5f;
+        AttackCoolDown = 0.5f;
     }
 
     #region IPickupable Implementation
@@ -152,20 +152,20 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
     
     #region IAttackable Implementation
 
-    public float Damage { get; set; }
-    public float AttackInterval { get; set; }
+    public float AttackDamage { get; set; }
+    public float AttackCoolDown { get; set; }
     public float AttackTimer { get; set; }
     public float AttackRange { get; set; }
     public IDamageable Target { get; set; }
     public void Attack()
     {
         if (Time.time < AttackTimer) return;
-        AttackTimer = Time.time + AttackInterval;
+        AttackTimer = Time.time + AttackCoolDown;
         
         AudioManager.Instance.PlaySfx(_shootAudio);
         
         var projectile = Instantiate(_projectilePrefab, _pivot.transform.position, Quaternion.identity);
-        projectile.Damage = Damage;
+        projectile.AttackDamage = AttackDamage;
         projectile.TargetTransform = _currentTarget.transform;
     }
 

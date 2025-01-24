@@ -77,11 +77,16 @@ public class PlayerPickUpMechanics : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if (hit)
             {
+                Debug.LogError($"Hit: {hit.transform.name}");
                 if(Vector2.Distance(hit.transform.position, _transform.position) < _radiusToPick)
                 {
                     if (hit.collider.GetComponent<IPickupable>() != null)
                         PickUpObject(hit.collider.gameObject);
                 }
+            }
+            else
+            {
+                Debug.LogError($"Hit Nothing");
             }
         }
         else if (Input.GetMouseButtonDown(1) && _currentPickupObject != null)

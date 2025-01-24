@@ -9,14 +9,11 @@ using UnityEngine.Tilemaps;
 using UnityEditor;
 #endif
 
-public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveable
+public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveable, IAttackable
 {
     [Header("Stats")]
     public Vector3Int _startPos;
     public Vector3Int _endPos;
-    
-    
-    [SerializeField] public float _damage = 1f;
     
     [Header("Components")]
     [SerializeField] private Transform _transform;
@@ -28,29 +25,29 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     
     [Header("Movement Handle")]
     [SerializeField] private Tilemap _tilemap;
+    private string _walkableTile = "maptile_4";
     private List<Vector3Int> _directions;
     private Coroutine _enemyMoveCoroutine;
     
-    private float _damageCooldown = 1f;
-    private float _damageTimer = 0f;
-    private TowerController _triggerTower;
-    private ObstacleController _triggerObs;
-    
+    [Header("Combat Related")] 
+    private IDamageable _currentTarget; 
     
     [Header("Die-rewards")]
     [SerializeField] private CoinController _coinController;
     private bool _isSpawnCoin = false;
     
     [Header("AnimClip name")]
-    private string _dieAnimString = "ded";
-
+    private string _runAnimString = "Run";
+    private string _attackAnimString = "Attack";
+    private string _dieAnimString = "Die";
     
+    [Header("Stats")]
+    [SerializeField] private string _id;
 
     #region MonoBehaviour methods
     private void Start()
     {
-        Health = 50f;
-        MoveSpeed = 1f;
+        LoadData();
         isBeingPicked = false;
         
         _tilemap = GamePlayManager.Instance._map;
@@ -68,24 +65,12 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     
     private void Update()
     {
-        if (_triggerTower != null)
+        if (_currentTarget != null)
         {
-            _damageTimer += Time.deltaTime;
-
-            if (_damageTimer >= _damageCooldown)
+            if (AttackTimer < Time.time)
             {
-                DealDamageToTower(_triggerTower);
-                _damageTimer = 0f;
-            }
-        }
-        
-        if (_triggerObs != null)
-        {
-            _damageTimer += Time.deltaTime;
-            if (_damageTimer >= _damageCooldown)
-            {
-                _triggerObs.TakeDamage(_damage);
-                _damageTimer = 0f;
+                Attack();
+                AttackTimer += AttackCoolDown;
             }
         }
     }
@@ -112,17 +97,10 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Tower"))
+        if (other.transform.GetComponent<IDamageable>() != null)
         {
-            _triggerTower = other.transform.GetComponent<TowerController>();
-            _damageTimer = 1f;
-            _animator.Play("Attack");
-            StopMoving();
-        }
-        else if (other.transform.CompareTag("Obstacle"))
-        {
-            _triggerObs = other.transform.GetComponent<ObstacleController>();
-            _animator.Play("Attack");
+            _currentTarget = other.transform.GetComponent<IDamageable>();
+            _animator.Play(_attackAnimString);
             StopMoving();
         }
     }
@@ -130,22 +108,23 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     private void OnCollisionExit2D(Collision2D other)
     {
         Debug.Log(other.gameObject.tag);
-        switch (other.gameObject.tag)
+        if (other.gameObject.GetComponent<IDamageable>() != null)
         {
-            case "Tower":
-                _triggerTower = null;
-                _animator.Play("Run");
-                BackToPath(GamePlayManager.Instance._map.WorldToCell(_transform.position));
-                break;
-            case "Obstacle":
-                _triggerObs = null;
-                _animator.Play("Run");
-                BackToPath(GamePlayManager.Instance._map.WorldToCell(_transform.position));
-                break;
-            
+            _currentTarget = null;
+            _animator.Play(_runAnimString);
+            BackToPath(GamePlayManager.Instance._map.WorldToCell(_transform.position));
         }
     }
     #endregion
+
+    private void LoadData()
+    {
+        EnemyData enemyData = DataManager.Instance.GetEnemyDataById(_id);
+        Health = enemyData.hp;
+        AttackCoolDown = enemyData.attackCoolDown;
+        AttackDamage = enemyData.attackDamage;
+        MoveSpeed = enemyData.runSpeed;
+    }
 
     #region Path finding
 
@@ -193,7 +172,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
                 if (!visited.Contains(next) && _tilemap.HasTile(next))
                 {
                     //If the tile-name contains "maptile_4"
-                    if (_tilemap.GetTile(next).name.ToLower().Contains("maptile_4"))
+                    if (_tilemap.GetTile(next).name.ToLower().Contains(_walkableTile))
                     {
                         visited.Add(next); //Mark the next position as visited
                         queue.Enqueue(next); //Enqueue the next position
@@ -235,7 +214,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     {
         _transform.position = _tilemap.GetCellCenterWorld(playerPosition);
         Debug.Log(_tilemap.GetTile(playerPosition).name.ToLower());
-        if (_tilemap.GetTile(playerPosition).name.ToLower().Contains("maptile_4"))
+        if (_tilemap.GetTile(playerPosition).name.ToLower().Contains(_walkableTile))
         {
             FindNewPath(playerPosition);
             return;
@@ -250,7 +229,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
             Vector3Int checkTile = new Vector3Int(playerPos.x - 1, playerPos.y, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains(_walkableTile))
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -263,7 +242,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
             Vector3Int checkTile = new Vector3Int(playerPos.x + 1, playerPos.y, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains(_walkableTile))
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -277,7 +256,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
             Vector3Int checkTile = new Vector3Int(playerPos.x, playerPos.y - 1, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"));
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains(_walkableTile));
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -290,7 +269,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
             Vector3Int checkTile = new Vector3Int(playerPos.x, playerPos.y + 1, playerPos.z);
             if(checkTile == _endPos) continue;
             if (_tilemap.GetTile(checkTile) == null) break;
-            if (_tilemap.GetTile(checkTile).name.ToLower().Contains("maptile_4"))
+            if (_tilemap.GetTile(checkTile).name.ToLower().Contains(_walkableTile))
             {
                 checkTiles.Add(checkTile);
                 break;
@@ -354,15 +333,8 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
 
     public void DealDamageToPlayer()
     {
-        DataManager.Instance.CurrentHP -= _damage;
+        DataManager.Instance.CurrentHP -= AttackDamage;
         Destroy(gameObject);
-    }
-    
-   
-
-    private void DealDamageToTower(TowerController tower)
-    {
-        tower.TakeDamage(_damage);
     }
     
     public void StopMoving()
@@ -443,7 +415,20 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     }
 
     #endregion
-    
+
+    #region IAttackable Implementation
+
+    public float AttackDamage { get; set; }
+    public float AttackCoolDown { get; set; }
+    public float AttackTimer { get; set; }
+    public float AttackRange { get; set; }
+    public IDamageable Target { get; set; }
+    public void Attack()
+    {
+        _currentTarget.TakeDamage(AttackDamage);
+    }
+
+    #endregion
 }
 
 

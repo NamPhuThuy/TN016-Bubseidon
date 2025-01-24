@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 418402229466441206, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5437066124944934373, guid: 6076ff052214bd04fb43e7882ed8abeb, type: 3}
+      objectReference: {fileID: -478493432554209140, guid: d1a3b4d93a61a68488d296a0f818584b, type: 3}
     - target: {fileID: 418402229466441206, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -101,6 +101,10 @@ PrefabInstance:
       value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
+      propertyPath: _id
+      value: En002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: _damage
       value: 2
       objectReference: {fileID: 0}
@@ -114,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7788125785868382395, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: m_Name
-      value: Speedy
+      value: Fast
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -139,7 +143,7 @@ Animator:
   m_GameObject: {fileID: 3480175803636499273}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 7313521772477553837, guid: 6076ff052214bd04fb43e7882ed8abeb, type: 3}
+  m_Controller: {fileID: -441823993364214166, guid: d1a3b4d93a61a68488d296a0f818584b, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

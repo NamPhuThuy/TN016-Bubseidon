@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IAttackable
 {
-    float Damage { get; set; }
-    float AttackInterval { get; set; }
+    float AttackDamage { get; set; }
+    float AttackCoolDown { get; set; }
     float AttackTimer { get; set; }
     float AttackRange { get; set; }
     // IDamageable _target;

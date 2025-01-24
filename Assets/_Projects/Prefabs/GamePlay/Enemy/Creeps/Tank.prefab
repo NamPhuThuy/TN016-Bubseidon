@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 418402229466441206, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 4146650462771663750, guid: 3ed0604683086a94e99b1432e939ff04, type: 3}
+      objectReference: {fileID: 5776572081450357310, guid: 0621e1a6465765941b2cb9b0a5be2f1e, type: 3}
     - target: {fileID: 418402229466441206, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -101,6 +101,10 @@ PrefabInstance:
       value: -0.203
       objectReference: {fileID: 0}
     - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
+      propertyPath: _id
+      value: En003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7754288952564311208, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: _damage
       value: 20
       objectReference: {fileID: 0}
@@ -114,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7788125785868382395, guid: 1a405223f0183ac40a5a911f676595c5, type: 3}
       propertyPath: m_Name
-      value: Brutal
+      value: Tank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -139,7 +143,7 @@ Animator:
   m_GameObject: {fileID: 3760327614044024437}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 1650464764055911870, guid: 3ed0604683086a94e99b1432e939ff04, type: 3}
+  m_Controller: {fileID: 2070686004029367630, guid: 0621e1a6465765941b2cb9b0a5be2f1e, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

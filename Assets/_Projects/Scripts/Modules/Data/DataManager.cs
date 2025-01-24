@@ -13,12 +13,16 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     public PlayerData PlayerData;
     public LevelDesignData LevelDesignData;
     public TowerDatas TowerDatas;
+    public EnemyDatas EnemyDatas;
     
 
 
     //Automatically increase coin through time
     private float _timer = 0f;
     private float _timeToCoin = 5f;
+
+    #region PlayerData Properties
+
     public int Coin
     {
         get => PlayerData.coin;
@@ -66,7 +70,26 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
             SaveData();
         }
     }
+
+    #endregion
+
+    #region EnemyData Methods
+
+    public EnemyData GetEnemyDataById(string id)
+    {
+        foreach (var enemyData in EnemyDatas._enemyDatas)
+        {
+            if (enemyData.id == id)
+            {
+                return enemyData;
+            }
+        }
+        return new EnemyData();
+    }
+
+    #endregion
     
+    #region MonoBehaviour Methods
     void Start()
     {
         PlayerData = new PlayerData();
@@ -92,6 +115,9 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     {
         MessageManager.Instance.RemoveSubcriber(NamMessageType.OnEnemyDie, this);
     }
+    #endregion
+
+    #region DataManager Methods
 
     public void CreateData()
     {
@@ -117,6 +143,8 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     {
         PlayerPrefs.DeleteAll();
     }
+
+    #endregion
 
 
     public void Handle(Message message)
