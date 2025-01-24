@@ -18,7 +18,6 @@ public class ProjectileController : MonoBehaviour, IMoveable, IAttackable
 
     private void Start()
     {
-        Debug.Log("Projectile");
         MoveSpeed = 9f;
         AttackRange = 0.1f;
         

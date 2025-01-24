@@ -13,6 +13,7 @@ public class DataManager : Singleton<DataManager>, IMessageHandle
     public PlayerData PlayerData;
     public LevelDesignData LevelDesignData;
     public TowerDatas TowerDatas;
+    
 
 
     //Automatically increase coin through time

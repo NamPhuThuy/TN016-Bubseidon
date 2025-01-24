@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c04cdbb6f81dd74ab3efbb54eeb5ce2
+guid: f39edee04807bbb4ca16dffc0021deea
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638728233528704982
+  platformSettingsDirtyTick: 638733127656760676
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: tOWER 3_Frame_0
+  - name: Tower3_Kindes_Frame_0
     originalName: 
     pivot: {x: 0.50000006, y: 0}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 144
       width: 20
       height: 44
-    spriteID: 59bff25895986f54f877885848ab1190
+    spriteID: 9f607b0cd7e797b488c9625fcad53513
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 144}
-  - name: tOWER 3_Frame_1
+  - name: Tower3_Kindes_Frame_1
     originalName: 
     pivot: {x: 0.5263158, y: 0}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 196
       width: 19
       height: 44
-    spriteID: e47399f9098aba3448231112915d1c6f
+    spriteID: 1a869726462e459488f4cb92ad5d2952
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 196}
-  - name: tOWER 3_Frame_2
+  - name: Tower3_Kindes_Frame_2
     originalName: 
     pivot: {x: 0.5263158, y: 0}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 53
       width: 19
       height: 42
-    spriteID: 20ed21dc61f4dc64698d4ff217bcfd96
+    spriteID: 36c15645a7b1f254ab7d91b580aaa374
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 45, y: 53}
-  - name: tOWER 3_Frame_3
+  - name: Tower3_Kindes_Frame_3
     originalName: 
     pivot: {x: 0.50000006, y: 0}
     alignment: 9
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 4
       width: 20
       height: 41
-    spriteID: c8d54e63c8581d84dae2dd0781ccfd6d
+    spriteID: 8bb5ff66f7ce3ca4a93b76bfe86208fe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 45, y: 4}
-  - name: tOWER 3_Frame_4
+  - name: Tower3_Kindes_Frame_4
     originalName: 
     pivot: {x: 0.51851857, y: 0}
     alignment: 9
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 95
       width: 27
       height: 41
-    spriteID: ebdf22985355eb541b5eb8b35cb20663
+    spriteID: 296941a542a6dbd4b80d35e4171a6e5f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +221,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 95}
-  - name: tOWER 3_Frame_5
+  - name: Tower3_Kindes_Frame_5
     originalName: 
     pivot: {x: 0.45454547, y: 0}
     alignment: 9
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 4
       width: 33
       height: 40
-    spriteID: 6570298bc14babd43b2b62a27d506453
+    spriteID: c2efd772af07b7240b7a61489fa2a071
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,7 +241,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: tOWER 3_Frame_6
+  - name: Tower3_Kindes_Frame_6
     originalName: 
     pivot: {x: 0.46875, y: 0}
     alignment: 9
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 52
       width: 32
       height: 35
-    spriteID: 3e2e9b7a1aa7fc941bab91f417a099a8
+    spriteID: 5b52930021024d946933c01c95e7fcb3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,7 +261,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 52}
-  - name: tOWER 3_Frame_7
+  - name: Tower3_Kindes_Frame_7
     originalName: 
     pivot: {x: 0.48717952, y: 0}
     alignment: 9
@@ -271,8 +271,8 @@ ScriptedImporter:
       x: 73
       y: 4
       width: 39
-      height: 18
-    spriteID: d10823f3021690e4ca5ccbc181796e39
+      height: 17
+    spriteID: ffa755ffe320c64468a37dbd6dd39dab
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,79 +281,135 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 73, y: 4}
+  - name: Tower3_Kindes_Frame_8
+    originalName: 
+    pivot: {x: 0.48717952, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 29
+      width: 39
+      height: 13
+    spriteID: af4a7256d048a774aa724f7b2cbae7a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 29}
+  - name: Tower3_Kindes_Frame_9
+    originalName: 
+    pivot: {x: 0.48717952, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 50
+      width: 39
+      height: 8
+    spriteID: 3e963c6a8751466449cf08e26834e105
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 50}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1547362518
-    name: tOWER 3
+    guid: 422482573
+    name: Tower3_Kindes
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: tOWER 3_Frame_0
+    - name: Tower3_Kindes_Frame_0
       frameIndex: 0
       cellRect:
         x: 14
         y: 0
         width: 20
         height: 44
-      spriteId: 59bff25895986f54f877885848ab1190
-    - name: tOWER 3_Frame_1
+      spriteId: 9f607b0cd7e797b488c9625fcad53513
+    - name: Tower3_Kindes_Frame_1
       frameIndex: 1
       cellRect:
         x: 14
         y: 0
         width: 19
         height: 44
-      spriteId: e47399f9098aba3448231112915d1c6f
-    - name: tOWER 3_Frame_2
+      spriteId: 1a869726462e459488f4cb92ad5d2952
+    - name: Tower3_Kindes_Frame_2
       frameIndex: 2
       cellRect:
         x: 14
         y: 0
         width: 19
         height: 42
-      spriteId: 20ed21dc61f4dc64698d4ff217bcfd96
-    - name: tOWER 3_Frame_3
+      spriteId: 36c15645a7b1f254ab7d91b580aaa374
+    - name: Tower3_Kindes_Frame_3
       frameIndex: 3
       cellRect:
         x: 14
         y: 0
         width: 20
         height: 41
-      spriteId: c8d54e63c8581d84dae2dd0781ccfd6d
-    - name: tOWER 3_Frame_4
+      spriteId: 8bb5ff66f7ce3ca4a93b76bfe86208fe
+    - name: Tower3_Kindes_Frame_4
       frameIndex: 4
       cellRect:
         x: 10
         y: 0
         width: 27
         height: 41
-      spriteId: ebdf22985355eb541b5eb8b35cb20663
-    - name: tOWER 3_Frame_5
+      spriteId: 296941a542a6dbd4b80d35e4171a6e5f
+    - name: Tower3_Kindes_Frame_5
       frameIndex: 5
       cellRect:
         x: 9
         y: 0
         width: 33
         height: 40
-      spriteId: 6570298bc14babd43b2b62a27d506453
-    - name: tOWER 3_Frame_6
+      spriteId: c2efd772af07b7240b7a61489fa2a071
+    - name: Tower3_Kindes_Frame_6
       frameIndex: 6
       cellRect:
         x: 9
         y: 0
         width: 32
         height: 35
-      spriteId: 3e2e9b7a1aa7fc941bab91f417a099a8
-    - name: tOWER 3_Frame_7
+      spriteId: 5b52930021024d946933c01c95e7fcb3
+    - name: Tower3_Kindes_Frame_7
       frameIndex: 7
       cellRect:
         x: 5
         y: 0
         width: 39
-        height: 18
-      spriteId: d10823f3021690e4ca5ccbc181796e39
+        height: 17
+      spriteId: ffa755ffe320c64468a37dbd6dd39dab
+    - name: Tower3_Kindes_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 5
+        y: 0
+        width: 39
+        height: 13
+      spriteId: af4a7256d048a774aa724f7b2cbae7a7
+    - name: Tower3_Kindes_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 5
+        y: 0
+        width: 39
+        height: 8
+      spriteId: 3e963c6a8751466449cf08e26834e105
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -394,18 +450,6 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: iPhone
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 2048

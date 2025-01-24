@@ -12,7 +12,6 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
     
     [Header("Components")]
     [SerializeField] private BoxCollider2D _selfCollider2D;
-    [SerializeField] private CircleCollider2D _rangeCollider2D;
     [SerializeField] private Transform _transform;
     [SerializeField] private HPBarController _hpBar;
     [SerializeField] private Animator _animator;
@@ -28,6 +27,10 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
     [Header("Audio")]
     [SerializeField] private AudioClip _shootAudio;
     [SerializeField] private AudioClip _destroyAudio;
+
+    [Header("Animations")] 
+    private readonly string _ruinedAnimString = "Ruined";
+    private readonly string _idleAnimString = "Idle";
     
     #region MonoBehaviour methods
 
@@ -41,7 +44,6 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
         
         //Component References
         _selfCollider2D = GetComponent<BoxCollider2D>();
-        _rangeCollider2D = GetComponent<CircleCollider2D>();
         _animator = GetComponent<Animator>();
         _transform = transform;
         
@@ -99,34 +101,6 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
 
         return closestEnemy;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.IsTouching(_rangeCollider2D))
-        {
-            if (other.CompareTag("Enemy"))
-            {
-                EnemyController enemy = other.GetComponent<EnemyController>();
-                // if (enemiesInRange.Contains(enemy)) return;
-                //
-                // enemiesInRange.Add(enemy);
-            }
-        }
-      
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.IsTouching(_rangeCollider2D))
-        {
-            if (other.CompareTag("Enemy"))
-            {
-                EnemyController enemy = other.GetComponent<EnemyController>();
-                // if (enemiesInRange.Contains(enemy))
-                //     enemiesInRange.Remove(enemy);
-            }
-        }
-    }
     #endregion
     
     public void ResetData()
@@ -170,14 +144,12 @@ public class TowerController : MonoBehaviour, IPickupable, IAttackable, IDamagea
     
     public void OnDead()
     {
-        _animator.Play("broke");
+        _animator.Play(_ruinedAnimString);
         AudioManager.Instance.PlaySfx(_destroyAudio);
         Destroy(gameObject, 1.2f);
     }
     #endregion
-
-   
-
+    
     #region IAttackable Implementation
 
     public float Damage { get; set; }

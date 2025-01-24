@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4cef766082d925c4da9ac5c00e1e85ec
+guid: 91ff3910bb71ee54baaae1d9c6bf3a23
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638728233618156524
+  platformSettingsDirtyTick: 638733127656760676
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: tOWER 2_Frame_0
+  - name: Tower2_Debis_Frame_0
     originalName: 
     pivot: {x: 0.49999997, y: 0}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 26
       height: 41
-    spriteID: bab5524dad9f99a48b200c867daf462b
+    spriteID: d73e1ae81d269274e84f9a92d8f9ee75
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: tOWER 2_Frame_1
+  - name: Tower2_Debis_Frame_1
     originalName: 
     pivot: {x: 0.49999997, y: 0}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 53
       width: 26
       height: 41
-    spriteID: ba27add272475aa45adfe825626049e8
+    spriteID: 73390b5b0b87c92449ad78eff634ec58
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,67 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 53}
-  - name: tOWER 2_Frame_2
+  - name: Tower2_Debis_Frame_2
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 102
+      width: 26
+      height: 41
+    spriteID: e69c5ec3f15865e43904efafe3f86214
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 102}
+  - name: Tower2_Debis_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 151
+      width: 24
+      height: 41
+    spriteID: 3274885053255984380928c2dd43cf75
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 151}
+  - name: Tower2_Debis_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 200
+      width: 24
+      height: 41
+    spriteID: 3d1c8b8ad80201847910e0a2c2f4d195
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 200}
+  - name: Tower2_Debis_Frame_5
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -171,8 +231,8 @@ ScriptedImporter:
       x: 38
       y: 4
       width: 24
-      height: 41
-    spriteID: 0e131c0e213c2924e8c12f8fbe59b702
+      height: 34
+    spriteID: 9746b66d22d4f044cab9f207c2ccb628
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +241,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 38, y: 4}
-  - name: tOWER 2_Frame_3
+  - name: Tower2_Debis_Frame_6
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -189,10 +249,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 38
-      y: 53
+      y: 46
       width: 24
-      height: 41
-    spriteID: 0174eb94e083a4b41a45dd96a859e0a6
+      height: 30
+    spriteID: 7c35662e57c664c468b48c41d4d48d27
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -200,19 +260,39 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 38, y: 53}
-  - name: tOWER 2_Frame_4
+    uvTransform: {x: 38, y: 46}
+  - name: Tower2_Debis_Frame_7
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
+      x: 38
+      y: 84
+      width: 24
+      height: 27
+    spriteID: 731699eaa60703d45a39c38160460422
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 84}
+  - name: Tower2_Debis_Frame_8
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
       x: 70
       y: 4
-      width: 24
-      height: 31
-    spriteID: e023783eef9302e46bb95643d0340a5e
+      width: 30
+      height: 22
+    spriteID: c9eef0047611b6c459de75c2441b11ca
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +301,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 70, y: 4}
-  - name: tOWER 2_Frame_5
+  - name: Tower2_Debis_Frame_9
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -229,50 +309,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 70
-      y: 97
-      width: 24
-      height: 27
-    spriteID: feb9ccedb5483db4a9b58be8a7571dbd
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 70, y: 97}
-  - name: tOWER 2_Frame_6
-    originalName: 
-    pivot: {x: 0.5333333, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 70
-      y: 67
-      width: 30
-      height: 22
-    spriteID: dbe03418fdbba114ba6277b90522ad49
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 70, y: 67}
-  - name: tOWER 2_Frame_7
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 70
-      y: 43
+      y: 34
       width: 44
-      height: 16
-    spriteID: 8ffa05f60e07c3742935749e4ac0406c
+      height: 13
+    spriteID: bffc52f7c333ce74194004974ddc2b4f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -280,80 +320,124 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 70, y: 43}
+    uvTransform: {x: 70, y: 34}
+  - name: Tower2_Debis_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 70
+      y: 55
+      width: 44
+      height: 6
+    spriteID: 715019805e53dca46a138bd719666625
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 70, y: 55}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1547362915
-    name: tOWER 2
+    guid: -71333245
+    name: Tower2_Debis
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: tOWER 2_Frame_0
+    - name: Tower2_Debis_Frame_0
       frameIndex: 0
       cellRect:
         x: 11
         y: 0
         width: 26
         height: 41
-      spriteId: bab5524dad9f99a48b200c867daf462b
-    - name: tOWER 2_Frame_1
+      spriteId: d73e1ae81d269274e84f9a92d8f9ee75
+    - name: Tower2_Debis_Frame_1
       frameIndex: 1
       cellRect:
         x: 11
         y: 0
         width: 26
         height: 41
-      spriteId: ba27add272475aa45adfe825626049e8
-    - name: tOWER 2_Frame_2
+      spriteId: 73390b5b0b87c92449ad78eff634ec58
+    - name: Tower2_Debis_Frame_2
       frameIndex: 2
       cellRect:
-        x: 12
+        x: 11
         y: 0
-        width: 24
+        width: 26
         height: 41
-      spriteId: 0e131c0e213c2924e8c12f8fbe59b702
-    - name: tOWER 2_Frame_3
+      spriteId: e69c5ec3f15865e43904efafe3f86214
+    - name: Tower2_Debis_Frame_3
       frameIndex: 3
       cellRect:
         x: 12
         y: 0
         width: 24
         height: 41
-      spriteId: 0174eb94e083a4b41a45dd96a859e0a6
-    - name: tOWER 2_Frame_4
+      spriteId: 3274885053255984380928c2dd43cf75
+    - name: Tower2_Debis_Frame_4
       frameIndex: 4
       cellRect:
         x: 12
         y: 0
         width: 24
-        height: 31
-      spriteId: e023783eef9302e46bb95643d0340a5e
-    - name: tOWER 2_Frame_5
+        height: 41
+      spriteId: 3d1c8b8ad80201847910e0a2c2f4d195
+    - name: Tower2_Debis_Frame_5
       frameIndex: 5
       cellRect:
         x: 12
         y: 0
         width: 24
-        height: 27
-      spriteId: feb9ccedb5483db4a9b58be8a7571dbd
-    - name: tOWER 2_Frame_6
+        height: 34
+      spriteId: 9746b66d22d4f044cab9f207c2ccb628
+    - name: Tower2_Debis_Frame_6
       frameIndex: 6
+      cellRect:
+        x: 12
+        y: 0
+        width: 24
+        height: 30
+      spriteId: 7c35662e57c664c468b48c41d4d48d27
+    - name: Tower2_Debis_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 12
+        y: 0
+        width: 24
+        height: 27
+      spriteId: 731699eaa60703d45a39c38160460422
+    - name: Tower2_Debis_Frame_8
+      frameIndex: 8
       cellRect:
         x: 8
         y: 0
         width: 30
         height: 22
-      spriteId: dbe03418fdbba114ba6277b90522ad49
-    - name: tOWER 2_Frame_7
-      frameIndex: 7
+      spriteId: c9eef0047611b6c459de75c2441b11ca
+    - name: Tower2_Debis_Frame_9
+      frameIndex: 9
       cellRect:
         x: 2
         y: 0
         width: 44
-        height: 16
-      spriteId: 8ffa05f60e07c3742935749e4ac0406c
+        height: 13
+      spriteId: bffc52f7c333ce74194004974ddc2b4f
+    - name: Tower2_Debis_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 2
+        y: 0
+        width: 44
+        height: 6
+      spriteId: 715019805e53dca46a138bd719666625
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -394,18 +478,6 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: iPhone
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 2048

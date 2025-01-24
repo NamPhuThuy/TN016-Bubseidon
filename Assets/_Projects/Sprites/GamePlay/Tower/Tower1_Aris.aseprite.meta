@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eea76a1aea31a5b488dd872818977384
+guid: 727a9db294452944aaf360195c50f4b4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638728232626246664
+  platformSettingsDirtyTick: 638733127656748398
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: tOWER_Frame_0
+  - name: Tower1_Aris_Frame_0
     originalName: 
     pivot: {x: 0.5333333, y: 0}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 69
       width: 15
       height: 36
-    spriteID: f43c065487490f149bf07aa4d73c326c
+    spriteID: 62c68ffe3c6ea114a9346c2f1e3ec3cc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 69}
-  - name: tOWER_Frame_1
+  - name: Tower1_Aris_Frame_1
     originalName: 
     pivot: {x: 0.5333333, y: 0}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 113
       width: 15
       height: 36
-    spriteID: 64de2f18087faf1468314030d371c1f2
+    spriteID: 0bfc0ca0654230942ba93f61fc8a0617
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 113}
-  - name: tOWER_Frame_2
+  - name: Tower1_Aris_Frame_2
     originalName: 
     pivot: {x: 0.5333333, y: 0}
     alignment: 9
@@ -169,10 +169,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 188
+      y: 157
       width: 15
-      height: 29
-    spriteID: 6e75b099536a93c47bd41476d9576872
+      height: 36
+    spriteID: 1a76b3612e0d4c540815819f7b275674
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -180,8 +180,28 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 188}
-  - name: tOWER_Frame_3
+    uvTransform: {x: 4, y: 157}
+  - name: Tower1_Aris_Frame_3
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 201
+      width: 15
+      height: 36
+    spriteID: 9eaeb2ad2e92e6346b3230d3d50e169c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 201}
+  - name: Tower1_Aris_Frame_4
     originalName: 
     pivot: {x: 0.5333333, y: 0}
     alignment: 9
@@ -189,10 +209,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 41
-      y: 4
+      y: 63
       width: 15
       height: 29
-    spriteID: ad4f52c4b05d8e74c9d456b2d93c51ed
+    spriteID: 06d82d80763b0b44cb6e53b03949838a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -200,8 +220,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 41, y: 4}
-  - name: tOWER_Frame_4
+    uvTransform: {x: 41, y: 63}
+  - name: Tower1_Aris_Frame_5
     originalName: 
     pivot: {x: 0.5333333, y: 0}
     alignment: 9
@@ -209,10 +229,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 41
-      y: 41
+      y: 100
       width: 15
       height: 29
-    spriteID: 7dfe7ced9ab961c4391d8138ff84a796
+    spriteID: 98e827debd9c9cc44bd83de2871c6e3f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -220,8 +240,28 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 41, y: 41}
-  - name: tOWER_Frame_5
+    uvTransform: {x: 41, y: 100}
+  - name: Tower1_Aris_Frame_6
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 137
+      width: 15
+      height: 29
+    spriteID: 58500b3cec1af40428a46b5f67672d8d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 41, y: 137}
+  - name: Tower1_Aris_Frame_7
     originalName: 
     pivot: {x: 0.52380955, y: 0}
     alignment: 9
@@ -232,7 +272,7 @@ ScriptedImporter:
       y: 35
       width: 21
       height: 26
-    spriteID: 8e734b223d79a8e479bc5bf913560876
+    spriteID: f483db953cbfe1846aa710dcf2810ac1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,18 +281,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 35}
-  - name: tOWER_Frame_6
+  - name: Tower1_Aris_Frame_8
     originalName: 
     pivot: {x: 0.5714286, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 157
+      x: 41
+      y: 32
       width: 21
       height: 23
-    spriteID: 00df10fdb8574bb4aaa4d702319cc09c
+    spriteID: f020716146ce9294398cff49d4f24b02
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -260,8 +300,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 157}
-  - name: tOWER_Frame_7
+    uvTransform: {x: 41, y: 32}
+  - name: Tower1_Aris_Frame_9
     originalName: 
     pivot: {x: 0.5172414, y: 0}
     alignment: 9
@@ -272,7 +312,7 @@ ScriptedImporter:
       y: 4
       width: 29
       height: 23
-    spriteID: 5664fcfb958a92d4496ff1cd44099311
+    spriteID: e66e8a6c45175f84bb84a3c283ecdf42
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,79 +321,179 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Tower1_Aris_Frame_10
+    originalName: 
+    pivot: {x: 0.5769231, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 4
+      width: 26
+      height: 20
+    spriteID: 93c5c1b291f4e12429fd6c0a6be5dff4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 41, y: 4}
+  - name: Tower1_Aris_Frame_11
+    originalName: 
+    pivot: {x: 0.5769231, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 174
+      width: 26
+      height: 8
+    spriteID: 4211ef68b0515bb45855e3d4e9c45d6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 41, y: 174}
+  - name: Tower1_Aris_Frame_12
+    originalName: 
+    pivot: {x: 0.5769231, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 245
+      width: 26
+      height: 4
+    spriteID: 1e6b481a9d1de7948af2c8c398d81048
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 245}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1347134067
-    name: tOWER
+    guid: 814361912
+    name: Tower1_Aris
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: tOWER_Frame_0
+    - name: Tower1_Aris_Frame_0
       frameIndex: 0
       cellRect:
         x: 16
         y: 0
         width: 15
         height: 36
-      spriteId: f43c065487490f149bf07aa4d73c326c
-    - name: tOWER_Frame_1
+      spriteId: 62c68ffe3c6ea114a9346c2f1e3ec3cc
+    - name: Tower1_Aris_Frame_1
       frameIndex: 1
       cellRect:
         x: 16
         y: 0
         width: 15
         height: 36
-      spriteId: 64de2f18087faf1468314030d371c1f2
-    - name: tOWER_Frame_2
+      spriteId: 0bfc0ca0654230942ba93f61fc8a0617
+    - name: Tower1_Aris_Frame_2
       frameIndex: 2
       cellRect:
         x: 16
         y: 0
         width: 15
-        height: 29
-      spriteId: 6e75b099536a93c47bd41476d9576872
-    - name: tOWER_Frame_3
+        height: 36
+      spriteId: 1a76b3612e0d4c540815819f7b275674
+    - name: Tower1_Aris_Frame_3
       frameIndex: 3
       cellRect:
         x: 16
         y: 0
         width: 15
-        height: 29
-      spriteId: ad4f52c4b05d8e74c9d456b2d93c51ed
-    - name: tOWER_Frame_4
+        height: 36
+      spriteId: 9eaeb2ad2e92e6346b3230d3d50e169c
+    - name: Tower1_Aris_Frame_4
       frameIndex: 4
       cellRect:
         x: 16
         y: 0
         width: 15
         height: 29
-      spriteId: 7dfe7ced9ab961c4391d8138ff84a796
-    - name: tOWER_Frame_5
+      spriteId: 06d82d80763b0b44cb6e53b03949838a
+    - name: Tower1_Aris_Frame_5
       frameIndex: 5
+      cellRect:
+        x: 16
+        y: 0
+        width: 15
+        height: 29
+      spriteId: 98e827debd9c9cc44bd83de2871c6e3f
+    - name: Tower1_Aris_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 16
+        y: 0
+        width: 15
+        height: 29
+      spriteId: 58500b3cec1af40428a46b5f67672d8d
+    - name: Tower1_Aris_Frame_7
+      frameIndex: 7
       cellRect:
         x: 13
         y: 0
         width: 21
         height: 26
-      spriteId: 8e734b223d79a8e479bc5bf913560876
-    - name: tOWER_Frame_6
-      frameIndex: 6
+      spriteId: f483db953cbfe1846aa710dcf2810ac1
+    - name: Tower1_Aris_Frame_8
+      frameIndex: 8
       cellRect:
         x: 12
         y: 0
         width: 21
         height: 23
-      spriteId: 00df10fdb8574bb4aaa4d702319cc09c
-    - name: tOWER_Frame_7
-      frameIndex: 7
+      spriteId: f020716146ce9294398cff49d4f24b02
+    - name: Tower1_Aris_Frame_9
+      frameIndex: 9
       cellRect:
         x: 9
         y: 0
         width: 29
         height: 23
-      spriteId: 5664fcfb958a92d4496ff1cd44099311
+      spriteId: e66e8a6c45175f84bb84a3c283ecdf42
+    - name: Tower1_Aris_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 9
+        y: 0
+        width: 26
+        height: 20
+      spriteId: 93c5c1b291f4e12429fd6c0a6be5dff4
+    - name: Tower1_Aris_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 9
+        y: 0
+        width: 26
+        height: 8
+      spriteId: 4211ef68b0515bb45855e3d4e9c45d6a
+    - name: Tower1_Aris_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 9
+        y: 0
+        width: 26
+        height: 4
+      spriteId: 1e6b481a9d1de7948af2c8c398d81048
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -394,18 +534,6 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: iPhone
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 2048

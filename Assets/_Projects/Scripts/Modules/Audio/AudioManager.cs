@@ -104,7 +104,6 @@ public class AudioManager : Singleton<AudioManager>, IMessageHandle
 
     public void PlayMusic(AudioClip clip, bool isLoop = true, float volume = 1f)
     {
-        Debug.Log("Play Music");
         StartCoroutine(FadeOutAndIn(_musicSource, clip, isLoop, 1f));
     }
 

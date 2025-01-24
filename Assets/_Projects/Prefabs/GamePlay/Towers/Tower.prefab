@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 4135270838787918861}
   - component: {fileID: 4488525582613261478}
   - component: {fileID: 3171914651838413199}
-  - component: {fileID: 1898588164533495226}
   - component: {fileID: 1113850513851345715}
   - component: {fileID: -4175330507210729374}
   m_Layer: 0
@@ -111,7 +110,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -778059839
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 4448116912606779409, guid: eea76a1aea31a5b488dd872818977384, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,7 +120,7 @@ SpriteRenderer:
   m_Size: {x: 0.9375, y: 2.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4488525582613261478
@@ -136,18 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fcf28c2311ed648bb5c35b016a94e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
-  _health: 10
-  _attackInterval: 1
-  _projectilePrefab: {fileID: 278587759177289816, guid: 6b28790c88e456b4caa6dd28b503b8e2, type: 3}
+  _health: 40
   _selfCollider2D: {fileID: 3171914651838413199}
-  _rangeCollider2D: {fileID: 1898588164533495226}
   _transform: {fileID: 0}
   _hpBar: {fileID: 342830778635690497}
   _animator: {fileID: 0}
+  _projectilePrefab: {fileID: 278587759177289816, guid: 6b28790c88e456b4caa6dd28b503b8e2, type: 3}
   _currentTarget: {fileID: 0}
-  _pivot: {fileID: 0}
-  _shootAudio: {fileID: 0}
+  _pivot: {fileID: 173925491948466570}
+  _projectilePool: []
+  _shootAudio: {fileID: 8300000, guid: 23b8d3331d41ac24584219b9fba3df86, type: 3}
   _destroyAudio: {fileID: 8300000, guid: a781915d3ecf1104db34467371844d4c, type: 3}
 --- !u!61 &3171914651838413199
 BoxCollider2D:
@@ -194,41 +191,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0041996, y: 2.2814648}
   m_EdgeRadius: 0
---- !u!58 &1898588164533495226
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5262013921206948042}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
 --- !u!50 &1113850513851345715
 Rigidbody2D:
   serializedVersion: 4

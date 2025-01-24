@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4175330507210729374, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 6003773718462168217, guid: 727a9db294452944aaf360195c50f4b4, type: 3}
     - target: {fileID: 785016022354703200, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -56,34 +60,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 1.148298
       objectReference: {fileID: 0}
-    - target: {fileID: 3171914651838413199, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
-      propertyPath: m_Size.y
-      value: 0.602131
-      objectReference: {fileID: 0}
-    - target: {fileID: 3171914651838413199, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.29287988
-      objectReference: {fileID: 0}
-    - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
-      propertyPath: _pivot
+    - target: {fileID: 4135270838787918861, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7930678716933577071}
+      objectReference: {fileID: 7869125082581631477, guid: 727a9db294452944aaf360195c50f4b4, type: 3}
+    - target: {fileID: 4135270838787918861, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: _damage
       value: 1.2
       objectReference: {fileID: 0}
-    - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
-      propertyPath: _health
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
-      propertyPath: _shootAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 23b8d3331d41ac24584219b9fba3df86, type: 3}
-    - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
-      propertyPath: _destroyAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: a781915d3ecf1104db34467371844d4c, type: 3}
     - target: {fileID: 4488525582613261478, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
       propertyPath: _attackInterval
       value: 0.1
@@ -101,8 +89,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
---- !u!1 &7930678716933577071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 173925491948466570, guid: 400bb4adafa266a428d2aeae3ef6d1a2, type: 3}
-  m_PrefabInstance: {fileID: 7811078034821916901}
-  m_PrefabAsset: {fileID: 0}
