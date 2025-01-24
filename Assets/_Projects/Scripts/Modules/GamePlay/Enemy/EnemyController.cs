@@ -43,23 +43,14 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     
     [Header("Stats")]
     [SerializeField] private string _id;
-
+    
     #region MonoBehaviour methods
     private void Start()
     {
         LoadData();
         isBeingPicked = false;
-        
-        _tilemap = GamePlayManager.Instance._map;
-        _coinController = GamePlayManager.Instance._coinController;
-        _hpBar = GetComponentInChildren<HPBarController>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _collider2D = GetComponent<Collider2D>();
-        _transform = transform;
-        _animator = GetComponent<Animator>();
-        
+        LoadComponent();
         DirectionHandle();
-        
         FindNewPath(_startPos);
     }
     
@@ -117,6 +108,13 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     }
     #endregion
 
+    #region Set-up
+
+    public void Setup(Vector3Int start, Vector3Int end)
+    {
+        _startPos = start;
+        _endPos = end;
+    }
     private void LoadData()
     {
         EnemyData enemyData = DataManager.Instance.GetEnemyDataById(_id);
@@ -125,6 +123,19 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
         AttackDamage = enemyData.attackDamage;
         MoveSpeed = enemyData.runSpeed;
     }
+
+    private void LoadComponent()
+    {
+        _tilemap = GamePlayManager.Instance._map;
+        _coinController = GamePlayManager.Instance._coinController;
+        _hpBar = GetComponentInChildren<HPBarController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider2D = GetComponent<Collider2D>();
+        _transform = transform;
+        _animator = GetComponent<Animator>();
+    }
+
+    #endregion
 
     #region Path finding
 

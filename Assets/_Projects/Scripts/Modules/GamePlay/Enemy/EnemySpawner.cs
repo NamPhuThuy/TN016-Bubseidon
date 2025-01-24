@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NamPhuThuy;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -11,11 +13,15 @@ public class EnemySpawner : MonoBehaviour
     public Transform _endP1;
     public Transform _enemyParent;
     
-    [SerializeField] private int _wave=0;
+    //Some Values
+    private List<LevelDesign> WaveList => DataManager.Instance.LevelDesignData._waveList;
+    private int CurrentWaveId => DataManager.Instance.PlayerData.currentWave;
+    private float SpawnIntervalTime => WaveList[CurrentWaveId].spawnInterval;
+    private int MaxWave => DataManager.Instance.LevelDesignData.maxWave;
+    
     [SerializeField] private bool waveCompleted = false;
     [SerializeField] private LevelDesignData _levelDesignData;
     private bool _isSpawning = false;
-    [SerializeField] private float _spawnInterval = 2f;
     
     private int CountChildren()
     {
@@ -24,13 +30,45 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         _levelDesignData = DataManager.Instance.LevelDesignData;
-        StartCoroutine(NextWave());
+        // StartCoroutine(SpawnCurrentWave());
+        
+        //Spawn the current Wave 
+        //If the current wave-enemy is cleared -> Start the next Wave
+        // If the length of current wave is over -> Start the next Wave
+        
+    }
+    
+    public IEnumerator SpawnCurrentWave()
+    {
+        LevelDesign waveData = DataManager.Instance.LevelDesignData._waveList[CurrentWaveId];
+
+        int totalEnemies = 0;
+        foreach (int i in waveData.enemyCountList)
+        {
+            totalEnemies += i;
+        }
+
+        while (totalEnemies > 0)
+        {
+            
+            Vector3 spawnPosi = GetRandomSpawnPosi();
+            for (int i = 0; i < WaveList[CurrentWaveId].enemyCountList.Count; i++)
+            {
+                for (int j = 0; j < WaveList[CurrentWaveId].enemyCountList[i]; j++)
+                {
+                    yield return Yielders.Get(SpawnIntervalTime);
+                    GameObject newEnemy = Instantiate(WaveList[CurrentWaveId].enemyList[i], spawnPosi, Quaternion.identity);
+                    newEnemy.transform.parent = _enemyParent.transform;
+                    newEnemy.GetComponent<EnemyController>().Setup(GamePlayManager.Instance._map.WorldToCell(spawnPosi), GamePlayManager.Instance._map.WorldToCell(_endP1.position));
+                    totalEnemies--;
+                }
+            }
+        }
+        yield return null;
     }
 
-    private IEnumerator SpawnEnemy()
+    private Vector3 GetRandomSpawnPosi()
     {
-        _isSpawning = true;
-        waveCompleted = false;
         Vector3 spawnPosition = Vector3.zero;
         int i=0;
         if (UnityEngine.Random.Range(0, 2) == 0)
@@ -41,70 +79,8 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnPosition = _spawnP2.position;
         }
-
-        spawnPosition =
-            GamePlayManager.Instance._map.GetCellCenterWorld(GamePlayManager.Instance._map.WorldToCell(spawnPosition));
         
-        while(i < _levelDesignData._waveList[_wave].enemyList.Count)
-        {
-            Debug.Log($"Wave {_wave+1}");
-            int count=_levelDesignData._waveList[_wave].enemyCountList[i];
-            EnemyController enemyPrefab = _levelDesignData._waveList[_wave].enemyList[i].GetComponent<EnemyController>();
-            for (int j=0;j< count;j++)
-            {
-                EnemyController newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).GetComponent<EnemyController>();
-                
-                newEnemy._startPos = GamePlayManager.Instance._map.WorldToCell(spawnPosition);
-                newEnemy._endPos = GamePlayManager.Instance._map.WorldToCell(_endP1.position);
-                newEnemy.transform.SetParent(_enemyParent);
-                yield return new WaitForSeconds(_spawnInterval);
-            }
-            i++;
-        }
-        Debug.Log("All enemies spawned");
-        _isSpawning = false;
-    }
-    private IEnumerator WaveTimer(float waveDuration)
-    {
-        float elapsed = 0f;
-        while (elapsed < waveDuration)
-        {
-            if(CountChildren() == 0 && _isSpawning == false)
-            {
-                Debug.Log("Wave Completed");
-                waveCompleted = true;
-                break;
-            }
-            elapsed += Time.deltaTime;
-            // Debug.Log($"Wave Timer: {elapsed}/{waveDuration}");
-            yield return null;
-        }
-        waveCompleted = true;
-    }
-
-    private IEnumerator NextWave()
-    {
-        Debug.Log("Spawner Called NextWave()");
-        while (_wave < _levelDesignData._waveList.Count)
-        {
-            Debug.Log($"Spawner Starting Wave {_wave + 1}");
-            
-            float waveDuration = _levelDesignData._waveList[_wave].waveDuration;
-            _spawnInterval = _levelDesignData._waveList[_wave].spawnInterval;
-            StartCoroutine(SpawnEnemy());
-            yield return StartCoroutine(WaveTimer(waveDuration));
-            while(!waveCompleted)
-            {
-                yield return null;
-            }
-            Debug.Log($"Spawner Wave {_wave} completed. Preparing for the next wave...");
-            
-            Debug.Log($"Spawner Wave delay: {_levelDesignData._waveList[_wave].waveDuration}");
-            yield return new WaitForSeconds(_levelDesignData._waveList[_wave].waveDuration);
-            _wave++;
-            Debug.Log("Spawner All Waves Completed!");  
-        }
-        
-        MessageManager.Instance.SendMessage(new Message(NamMessageType.OnGameWin));
+        spawnPosition = GamePlayManager.Instance._map.GetCellCenterWorld(GamePlayManager.Instance._map.WorldToCell(spawnPosition));
+        return spawnPosition;
     }
 }

@@ -15,12 +15,21 @@ public class LevelDesignData : ScriptableObject
 [Serializable]
 public class LevelDesign
 {
-    public int waveId;
     public float waveDelay;
+    /// <summary>
+    /// The total time the wave last 
+    /// </summary>
     public float waveDuration;
     public float spawnInterval;
     // public List<KeyValuePair<GameObject, int>> enemyList = new List<KeyValuePair<GameObject, int>>();
+    /// <summary>
+    /// List of enemy-prefabs
+    /// </summary>
     public List<GameObject> enemyList = new List<GameObject>();
+    
+    /// <summary>
+    /// Number of each enemy-type will be spawned
+    /// </summary>
     public List<int> enemyCountList = new List<int>();
     
 }

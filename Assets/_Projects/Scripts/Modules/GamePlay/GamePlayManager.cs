@@ -17,7 +17,7 @@ public class GamePlayManager : Singleton<GamePlayManager>, IMessageHandle
 
     [SerializeField] private List<TowerController> _towerList;
     [SerializeField] private List<EnemyController> _enemyList;
-    [SerializeField] private EnemySpawner _enemySpawner;
+    public EnemySpawner _enemySpawner;
     
     [Header("Resources")]
     public CoinController _coinController;
