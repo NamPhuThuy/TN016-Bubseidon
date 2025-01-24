@@ -12,7 +12,6 @@ public class ProjectileController : MonoBehaviour, IMoveable, IAttackable
 {
     public Transform TargetTransform;
     [SerializeField] private Transform _transform;
-
     
     #region MonoBehaviour Methods
 
@@ -33,7 +32,7 @@ public class ProjectileController : MonoBehaviour, IMoveable, IAttackable
 
             if (Vector2.SqrMagnitude(_transform.position - TargetTransform.position) < AttackRange)
             {
-                Target.TakeDamage(Damage);
+                Attack();
                 Destroy(gameObject);
                 return;
             }
@@ -89,7 +88,7 @@ public class ProjectileController : MonoBehaviour, IMoveable, IAttackable
 
     public void Attack()
     {
-        throw new NotImplementedException();
+        Target.TakeDamage(Damage);
     }
     #endregion
 }

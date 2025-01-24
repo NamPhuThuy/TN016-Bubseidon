@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3285927943294435540}
   - component: {fileID: 552118535016811949}
   - component: {fileID: 278587759177289816}
-  - component: {fileID: -7090018176540685844}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -73,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1362298057
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eb337919e32ce0a4f9761476192d3fae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,41 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d9650dd982710468d66b955cf1ca9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _speed: 1
-  damage: 1
---- !u!70 &-7090018176540685844
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7668674125926893689}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.21939e-10, y: 0.008922039}
-  m_Size: {x: 1.0000004, y: 1.9894227}
-  m_Direction: 1
+  TargetTransform: {fileID: 0}
+  _transform: {fileID: 0}

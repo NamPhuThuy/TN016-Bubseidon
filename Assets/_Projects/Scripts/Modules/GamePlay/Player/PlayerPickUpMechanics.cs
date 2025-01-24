@@ -11,9 +11,12 @@ public class PlayerPickUpMechanics : MonoBehaviour
     [SerializeField] private Tilemap _interact;//If need to interact with the tilemap, add it
     private Camera _mainCamera;
     [SerializeField] private GameObject _putTile;
+
+    [Header("Components")] 
+    [SerializeField] private Transform _transform;
     
     [Header("Stats")]
-    public float sqrRadiusToPick = 4f;//The radius to pick the tower
+    [SerializeField] private float _radiusToPick;//The radius to pick the tower
     public Vector3 mousePos;
     public Vector3Int mousePositionInt;//The position of the tilemap to put on
     [SerializeField] private BoundsInt _bounds;
@@ -50,6 +53,10 @@ public class PlayerPickUpMechanics : MonoBehaviour
         _mpDecreaseSpeed = DataManager.Instance.PlayerData.mpDecreaseSpeed;
         _mpIncreaseSpeed = DataManager.Instance.PlayerData.mpIncreaseSpeed;
         _maxMP = DataManager.Instance.PlayerData.maxMP;
+        _radiusToPick = DataManager.Instance.PlayerData.radiusToPick;
+        
+        //Retrieve Components
+        _transform = GetComponent<Transform>();
     }
 
     private void Update()
@@ -70,7 +77,7 @@ public class PlayerPickUpMechanics : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if (hit)
             {
-                if(Vector2.SqrMagnitude(hit.transform.position - gameObject.transform.position) < sqrRadiusToPick)
+                if(Vector2.Distance(hit.transform.position, _transform.position) < _radiusToPick)
                 {
                     if (hit.collider.GetComponent<IPickupable>() != null)
                         PickUpObject(hit.collider.gameObject);

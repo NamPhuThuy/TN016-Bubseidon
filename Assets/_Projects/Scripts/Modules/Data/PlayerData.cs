@@ -11,6 +11,7 @@ public class PlayerData
     public int coin = 0;
     public int currentWave = 0;
     public int wave = 0;
+    public float radiusToPick = 2.5f;
     
     //HP
     public float maxHP = 50f;
