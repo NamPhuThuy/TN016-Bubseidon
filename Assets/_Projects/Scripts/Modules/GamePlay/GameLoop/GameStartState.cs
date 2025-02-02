@@ -8,6 +8,12 @@ public class GameStartState : ComponentState
 {
     private void OnEnable()
     {
+        StartCoroutine(DelayChangeState(0.2f));
+    }
+
+    IEnumerator DelayChangeState(float delayTime)
+    {
+        yield return Yielders.Get(delayTime);
         ChangeState(Next());
     }
 }

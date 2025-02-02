@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 339501794189235012, guid: ee0cd6915be34a1479010793b8c8d1cc, type: 3}
       propertyPath: m_Radius
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1486696979597817731, guid: ee0cd6915be34a1479010793b8c8d1cc, type: 3}
       propertyPath: _destroySound
@@ -68,6 +68,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3309131301087216635, guid: 645ef7d0d253a5e4e8fcff815ec5b13c, type: 3}
+    - target: {fileID: 6399096568709143683, guid: ee0cd6915be34a1479010793b8c8d1cc, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399096568709143683, guid: ee0cd6915be34a1479010793b8c8d1cc, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399096568709143683, guid: ee0cd6915be34a1479010793b8c8d1cc, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399096568709143683, guid: ee0cd6915be34a1479010793b8c8d1cc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     
     [Header("AnimClip name")]
     private string _runAnimString = "Run";
+    private string _hurtAnimString = "Hurt";
     private string _attackAnimString = "Attack";
     private string _dieAnimString = "Die";
     
@@ -47,6 +48,7 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     #region MonoBehaviour methods
     private void Start()
     {
+        GamePlayManager.Instance.AddEnemy(this);
         LoadData();
         isBeingPicked = false;
         LoadComponent();
@@ -68,11 +70,8 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     
     private void OnEnable()
     {
-        GamePlayManager.Instance.AddEnemy(this);
-        
-        //Retrieve 
+        //Retrieve Components
         _transform = transform;
-        
         
         _directions = new List<Vector3Int>(){ new Vector3Int(0, 1, 0), 
             new Vector3Int(0, -1, 0), 
@@ -381,10 +380,19 @@ public class EnemyController : MonoBehaviour, IPickupable, IDamageable, IMoveabl
     public void TakeDamage(float amount)
     {
         _hpBar.TakeDamage(amount/Health);
+        // StartCoroutine(HurtChangeColor());
         if (IsDead)
             OnDead();
         Health -= amount;
     }
+
+    IEnumerator HurtChangeColor()
+    {
+        // _animator.Play(_hurtAnimString);
+        // yield return new WaitForEndOfFrame();
+        yield return Yielders.Get(0.1f);
+    }
+    
     public void OnDead()
     {
         MoveSpeed = 0f;
