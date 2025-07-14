@@ -14,10 +14,10 @@
     <img src="images/avatar.png" alt="Logo" width="200">
   </a>
 
-<h3 align="center">README-Template</h3>
+<h3 align="center"></h3>
 
   <p align="center">
-    <a href="https://github.com/NamPhuThuy/TN016-Bubseidon">View Demo</a>
+    <a href="https://namphuthuy.itch.io/bubseidon">Game Play</a>
     ·
     <a href="https://github.com/NamPhuThuy/TN016-Bubseidon/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
@@ -26,6 +26,7 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
+<!--
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -48,68 +49,25 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
-
+-->
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-This is the short description about the project. Technologies, tools be used 
- :smile:
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+[![Watch the video](images/video-thumbnail.png)](https://youtu.be/sZa15I_-xJc)
 
 ### Built With
 Major frameworks/libraries used in project
 * [![Unity][Unity.com]][Unity-url]
 * [![CSharp][CSharp.com]][CSharp-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-Instructions to setup this project locally.
-
-### Prerequisites
-
-### Installation
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage examples
-
-Some useful examples of how this project can be used (add screenshots, code examples, demo works, resource links..)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-## Todo
-
-- [x] Task 1
-- [x] Task 2
-- [ ] Task 3
-    - [ ] Subtask 1
-    - [ ] Subtask 2
-
-See the [open issues](https://github.com/NamPhuThuy/Unity-Initial/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+<!---->
 ### Top contributors:
-
 <a href="https://github.com/NamPhuThuy/TN016-Bubseidon/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=NamPhuThuy/TN016-Bubseidon" alt="contrib.rocks image" />
 </a>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CONTACT -->
@@ -119,29 +77,18 @@ See the [open issues](https://github.com/NamPhuThuy/Unity-Initial/issues) for a 
 [![Github][github-shield]][github-url]  
 [![Itch][itch-shield]][itch-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-Helpful resources, credits
-* [GitHub Pages](https://github.com/NamPhuThuy)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/NamPhuThuy/Unity-Initial.svg?style=for-the-badge
-[contributors-url]: https://github.com/NamPhuThuy/Unity-Initial/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/NamPhuThuy/Unity-Initial.svg?style=for-the-badge
-[forks-url]: https://github.com/NamPhuThuy/Unity-Initial/network/members
-[stars-shield]: https://img.shields.io/github/stars/NamPhuThuy/Unity-Initial.svg?style=for-the-badge
-[stars-url]: https://github.com/NamPhuThuy/Unity-Initial/stargazers
-[issues-shield]: https://img.shields.io/github/issues/NamPhuThuy/Unity-Initial.svg?style=for-the-badge
-[issues-url]: https://github.com/NamPhuThuy/Unity-Initial/issues
-[license-shield]: https://img.shields.io/github/license/NamPhuThuy/Unity-Initial.svg?style=for-the-badge
-[license-url]: https://github.com/NamPhuThuy/Unity-Initial/blob/main/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/NamPhuThuy/TN016-Bubseidon.svg?style=for-the-badge
+[contributors-url]: https://github.com/NamPhuThuy/TN016-Bubseidon/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/NamPhuThuy/TN016-Bubseidon.svg?style=for-the-badge
+[forks-url]: https://github.com/NamPhuThuy/TN016-Bubseidon/network/members
+[stars-shield]: https://img.shields.io/github/stars/NamPhuThuy/TN016-Bubseidon.svg?style=for-the-badge
+[stars-url]: https://github.com/NamPhuThuy/TN016-Bubseidon/stargazers
+[issues-shield]: https://img.shields.io/github/issues/NamPhuThuy/TN016-Bubseidon.svg?style=for-the-badge
+[issues-url]: https://github.com/NamPhuThuy/TN016-Bubseidon/issues
+[license-shield]: https://img.shields.io/github/license/NamPhuThuy/TN016-Bubseidon.svg?style=for-the-badge
+[license-url]: https://github.com/NamPhuThuy/TN016-Bubseidon/blob/main/LICENSE
 
 <!-- Contact -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
@@ -155,7 +102,7 @@ Helpful resources, credits
 
 
 <!-- Mock Up -->
-[product-screenshot]: images/avatar.png
+[product-screenshot]: images/mockup.png
 
 <!-- Tech Stack -->
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
