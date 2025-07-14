@@ -10,18 +10,18 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/NamPhuThuy/Unity-Initial">
+  <a href="https://github.com/NamPhuThuy/TN016-Bubseidon">
     <img src="images/avatar.png" alt="Logo" width="200">
   </a>
 
 <h3 align="center">README-Template</h3>
 
   <p align="center">
-    <a href="https://github.com/NamPhuThuy/Unity-Initial">View Demo</a>
+    <a href="https://github.com/NamPhuThuy/TN016-Bubseidon">View Demo</a>
     ·
-    <a href="https://github.com/NamPhuThuy/Unity-Initial/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/NamPhuThuy/TN016-Bubseidon/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/NamPhuThuy/Unity-Initial/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/NamPhuThuy/TN016-Bubseidon/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -105,8 +105,8 @@ See the [open issues](https://github.com/NamPhuThuy/Unity-Initial/issues) for a 
 
 ### Top contributors:
 
-<a href="https://github.com/NamPhuThuy/TN006-Unity-Auto-Cat/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=NamPhuThuy/TN006-Unity-Auto-Cat" alt="contrib.rocks image" />
+<a href="https://github.com/NamPhuThuy/TN016-Bubseidon/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=NamPhuThuy/TN016-Bubseidon" alt="contrib.rocks image" />
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
