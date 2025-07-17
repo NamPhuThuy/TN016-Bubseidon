@@ -2153,13 +2153,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3082254215167026502, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 81.7908
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082254215167026502, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 102.57225
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082254215167026502, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3245777684467073423, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4341093064333276274, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341093064333276274, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 4468600676576177584, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552726434096025180, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1567043221805544428, guid: c77f274e07167ef44aae2ca525f4ca7e, type: 3}
+    - target: {fileID: 5643355624723628608, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 87.33331
       objectReference: {fileID: 0}
     - target: {fileID: 5974616015698200863, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2169,6 +2197,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7920683146312242249, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722656416065725717, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8260134127452093024, guid: 72f583aaecbb4ff4fa11986e3d465534, type: 3}
     - target: {fileID: 8950492074503673647, guid: 061583b10d837c94d95cdd77eaa30273, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

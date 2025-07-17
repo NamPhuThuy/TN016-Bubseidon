@@ -15,8 +15,8 @@ public class GamePlayManager : Singleton<GamePlayManager>, IMessageHandle
         set => _player = value;
     }
 
-    [SerializeField] private List<TowerController> _towerList;
-    [SerializeField] private List<EnemyController> _enemyList;
+    [SerializeField] private List<TowerController> _towerList = new List<TowerController>();
+    [SerializeField] private List<EnemyController> _enemyList = new List<EnemyController>();
     public EnemySpawner _enemySpawner;
     
     [Header("Resources")]
